@@ -1,0 +1,365 @@
+ /*
+  Version: 1.0
+  Created date: 29 Nov 2019
+  The national platforms for Nutrition project Lao PDR
+  Data Analysis Unit, Center for Development Policy Research 
+  Ministry of Planning and Inestment 
+  Created by: Data Analysis Unit 
+*/
+ /*spiner */
+ .bd-example-modal-lg .modal-dialog{
+     display: table;
+     position: relative;
+     margin: 0 auto;
+     top: calc(50% - 24px);
+ }
+
+ .bd-example-modal-lg .modal-dialog .modal-content{
+     background-color: transparent;
+     border: none;
+ }
+
+ /*Customize Navbar and Body*/
+ body {
+     padding-top: 3.2rem;  /*Prevent overlapping between NavBar and Body*/
+     font-family: Arial, Helvetica, "Phetsarath OT", sans-serif !important;
+ }
+
+/*Customize Card*/
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    height: 100%;
+    width: 100%;
+	border-radius: 0px !important;
+	border:0px !important;
+	
+}
+
+.cardChart {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    height: 100%;
+    width: 100%;
+}
+
+.card#highLight {
+    height: 192px;
+    width: 100%;
+}
+.card#highLight h1 {
+    font-size: 50px !important;
+    color: #fff;
+    padding: 10px;
+    text-align: right;
+    font-weight: bolder;
+}
+
+.card#highLight p {
+    font-size: 22px;
+    color: #fff;
+    padding: 10px;
+    text-align: right;
+}
+
+.card h1, p{
+    padding: 5px;
+    text-align: center;
+}
+ 
+.nav-tabs{
+    border-style: none;
+    font-size: 25px;
+  }
+.full-width-div {
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.footer-fixed-bottom-wrap {
+  width: 100%;
+  height: auto;
+  z-index: 1000 !important;
+  bottom: 0;
+  margin-top: 5px;
+}
+.footer-fixed-bottom {
+  text-align: center;
+  background: #efefef;
+}
+.footer-fixed-bottom > .copyright {
+  margin: 0;
+  padding: 25px;
+}
+.footer-fixed-bottom > .btn {
+  border-radius: 0;
+}
+/* box shadow on the top menu */
+.bg-light{
+	box-shadow: 3px 3px 3px #aaa;
+}
+/*  Add collapse menu on mobile   */
+
+@media(max-width:33.9em) {
+  .navbar .collapse {max-height:250px;width:100%;overflow-y:auto;overflow-x:hidden;}
+  .navbar .navbar-brand {float:none;display: inline-block;}
+  .navbar .navbar-nav>.nav-item { float: none; margin-left: .1rem;}
+  .navbar .navbar-nav {float:none !important;}
+  .nav-item{width:100%;text-align:left;}
+  .navbar .collapse .dropdown-menu {
+    position: relative;
+    float: none;
+    background:none;
+    border:none;
+  }
+}
+.h1,h1{
+	font-size:2rem !important;
+}
+/*  
+top header
+*/
+.header-fixed-bottom-wrap {
+  width: 100%;
+  height: auto;
+  z-index: 1000 !important;
+  bottom: 0;
+  text-align: right;
+}
+.header-fixed-bottom {
+  text-align: right;
+  background: #efefef;
+  padding: 15px;
+}
+.header-fixed-bottom > .copyright {
+  margin: 0;
+  padding: 25px;
+  box-shadow: 10px 10px 5px #888;
+}
+.header-fixed-bottom > .btn {
+  border-radius: 0;
+}
+
+/* Map Chart Customize*/
+#test :hover, #test1 :hover, #openDefaceMap :hover, #womenStatusMap :hover {
+  fill: #e3f2fd;
+  }
+.mapBorder {
+  fill: none;
+  stroke: #eee;
+  pointer-events: none;
+}
+#test, #test1, #openDefaceMap, #womenStatusMap {
+  position: relative;
+  display: block;
+  margin: auto;
+}
+
+/* Modified Map Tooltoop */
+div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: #fff;
+  border: 0px;
+  pointer-events: none;
+}
+/*  icon for the first 4 card */
+ .card-img.icon {
+     margin: 20px;
+     width: 100px !important;
+     height: 100px;
+ }
+
+
+/**** Ceate custom navbar */
+.navbar-custom {
+    background-color:#229922;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+    color: #ffffff;
+    background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+    text-decoration: none;
+    background-color: #33aa33;
+}
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+    background-color:#eeeeee;
+}
+.navbar-custom .icon-bar {
+    background-color:#33aa33;
+}
+
+/* Main header of the graph */ 
+#header{/* Nutrition Overview */ 
+  background-color: #34AE8D;
+  color: #ffffff;
+
+}
+.card#sec1{
+  background: #87C7F3;
+  height: auto !important;
+  color: #ffffff;
+  font-size: 15px;
+}
+.card#sec2{
+  background: #FFCA22;
+  height: auto !important;
+  color: #ffffff;
+  font-size: 15px;
+}
+.topic{
+  padding: 10px;
+  text-align: center;
+  color: #575757;
+  font-weight: bold;
+}
+.card#sec3{
+  background-color: #A1C654;
+  height: auto !important;
+  color: #ffffff;
+  font-size: 15px;
+}
+.num1{
+  font-size: 70px;
+  font-weight: bolder;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Customize Draw Chart Area for ChartJS Canvas Tag */
+ .drawChart {
+     position: relative;
+     display: block;
+     height: 480px;
+     width: 100%;
+ }
+
+/*Customize Footer Logo*/
+ #euLogo, #unicefLogo, #laoGovLogo {
+     height: 3rem;
+     filter: grayscale(1);
+     -webkit-filter: grayscale(1);
+
+ }
+ #euLogo:hover, #unicefLogo:hover, #laoGovLogo:hover {
+     filter: none;
+     -webkit-filter: grayscale(0);
+
+ }
+ #footer-copyright {
+     padding: 0;
+     background-color: #173C78 !important;
+ }
+ #textCopyright {
+     margin-top: 0 !important;
+     margin-bottom: 0 !important;
+ }
+ .icon1 {
+          display: inline-block;
+          background: url(../images/sprites-1.png) no-repeat;
+          overflow: hidden;
+          text-indent: -9999px;
+          text-align: left;
+          float: left;
+          margin: 20px;
+          background-position: -929px -248px;
+          width: 93px;
+          height: 93px;
+            }
+.icon2{
+          display: inline-block;
+          background: url(../images/sprites-1.png) no-repeat;
+          overflow: hidden;
+          text-indent: -9999px;
+          text-align: left;
+          float: left;
+          margin: 20px;
+          background-position: -843px -845px;
+          width: 71px;
+          height: 118px;
+}
+.icon3 {
+    display: inline-block;
+    background: url(../images/sprites-1.png) no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    float: left;
+    margin: 20px;
+    background-position: -941px -701px;
+    width: 81px;
+    height: 84px;
+}
+.icon4 {
+    display: inline-block;
+    background: url(../images/sprites-1.png) no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    float: left;
+    margin: 20px;
+    background-position: -682px -500px;
+    width: 122px;
+    height: 82px;
+}
+
+/* To config ChatJS Size by config Class name, please add this to desire class to global config for ChartJS */
+ .chartJS {
+     position: relative;
+     display: block;
+     height: 360px;
+     width: auto;
+ }
+
+/*
+*
+The CSS for TEST
+*
+ */
+
+ /* Table Row Green Highlight */
+tr.greenTag > th, tr.greenTag > td:first-of-type { /*Add Darkgreen color to th and td tag */
+    color: #039245;
+    width: 12rem;
+}
+
+ tr.redTag > th, tr.redTag > td:first-of-type { /*Add red color to th and td tag */
+     color: #ea5771;
+     width: 12rem;
+ }
+
+ tr.yellowTag > th, tr.yellowTag > td:first-of-type { /*Add red color to th and td tag */
+     color: #ecb800;
+     width: 12rem;
+ }
+
+ tr.greenTag > td:nth-child(3), tr.redTag > td:nth-child(3), tr.yellowTag > td:nth-child(3) { /* Add Grey colour to the third column of the table */
+     color: gray;
+     width: 5rem;
+ }
+
+ .tableLegend {
+     font-size: 0.6rem;
+ }
+ /* END TEST CSS */

@@ -1,0 +1,39 @@
+source,target,value
+Child is stunted,Nutrition,66.0
+Child is stunted,Health,72.1
+Child is stunted,ECD,96.8
+Child is stunted,Child Protection,52.0
+Child is stunted,Water,43.2
+Child is stunted,Sanitation,77.3
+Child is stunted,Housing,52.6
+Child is not stunted,Nutrition,44.0
+Child is not stunted,Health,68.1
+Child is not stunted,ECD,32.6
+Child is not stunted,Child Protection,43.0
+Child is not stunted,Water,27.9
+Child is not stunted,Sanitation,67.0
+Child is not stunted,Housing,37.9
+Nutrition,Non Exclusive breastdfeeding,55.0
+Nutrition,Minimum Acceptable Diet IYCF,71.6
+Nutrition,Underweight,21.1
+Nutrition,Late Initiation of breastfeeding (+1H),48.5
+Health,Unskilled Birth Attendant,35.7
+Health,DPT Vaccine,44.0
+Health,Measles Vaccine,39.4
+Health,Antenatal Care,77.4
+Health,Postnatal Care of Child,53.0
+ECD,< 1 Book,90.9
+ECD,ECE Programme,63.5
+ECD,ECDI: Literacy-numeracy,74.9
+ECD,Adult Child Interaction,16.9
+Child Protection,Birth Registration,26.5
+Child Protection,Negligence,11.6
+Child Protection,Physical Discipline,34.5
+Water,Unimproved Drinking Water,18.5
+Water,Water Treatment,24.3
+Sanitation,Handwashing,50.7
+Sanitation,Unimproved Toilet & Open Defacation,31.8
+Sanitation,Safe Disposal of Child Faeces,78.1
+Housing,Overcrowding,27.6
+Housing,Floor & Roof,12.5
+Housing,Solid Cooking Fuel,20.9

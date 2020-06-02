@@ -1,0 +1,36 @@
+{
+ "name": "LSIS 2 Provincial",
+ "value": 
+ [
+    {
+        "name": "Stunting",
+        "value":
+        [
+            {
+                "Total": 33.0
+            },
+            {
+                "Male": 34.0
+            },
+            {
+                "Female": 32.0
+            }
+        ]
+    },
+    {
+        "name": "Wasting",
+        "value":
+        [
+            {
+                "Total": 21.1
+            },
+            {
+                "Male": 21.6
+            },
+            {
+                "Female": 20.6
+            }
+        ]
+    }
+ ]
+}
