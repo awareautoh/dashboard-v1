@@ -54,7 +54,7 @@
 
 <header id="content-header">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" id="navBarTop">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand" href="#home">
                 <img src="images/laos.png" width="30" height="30" class="d-inline-block align-top" alt="">
                 NIPN Lao PDR Dashboard
@@ -70,31 +70,39 @@
                            aria-controls="pills-home" aria-selected="true"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="lsis-tab" data-toggle="pill" href="#menu1" role="tab"
-                           aria-controls="pills-lsis" aria-selected="false"></a>
+                        <a class="nav-link" id="national-profile-tab" data-toggle="pill" href="#menu1" role="tab"
+                           aria-controls="pills-national-profile" aria-selected="false"></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="sentinelSurvey-tab" data-toggle="pill" href="#menu2" role="tab"
                            aria-controls="pills-sentinel" aria-selected="false"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="lecs-tab" data-toggle="pill" href="#menu3" role="tab"
-                           aria-controls="pills-lecs" aria-selected="false"></a>
+                        <a class="nav-link" id="dhis-tab" data-toggle="pill" href="#menu3" role="tab"
+                           aria-controls="pills-dhis" aria-selected="false"></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="agricultureCencus-tab" data-toggle="pill" href="#menu4" role="tab"
                            aria-controls="pills-agriculture" aria-selected="false"></a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownLanguageList">
-                            <a class="dropdown-item" href="#" onclick="setLanguage('en')">English</a>
-                            <a class="dropdown-item" href="#" onclick="setLanguage('lo')">ພາສາລາວ</a>
-                        </div>
-                    </li>
+<!--                    <li class="nav-item dropdown">-->
+<!--                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" role="button"-->
+<!--                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                        </a>-->
+<!--                        <div class="dropdown-menu" aria-labelledby="navbarDropdownLanguageList">-->
+<!--                            <a class="dropdown-item" href="#" onclick="setLanguage('en')">English</a>-->
+<!--                            <a class="dropdown-item" href="#" onclick="setLanguage('lo')">ພາສາລາວ</a>-->
+<!--                        </div>-->
+<!--                    </li>-->
                 </ul>
+            </div>
+            <div id="lang-option-list">
+                <a href="">
+                    <img id='button-en-lang' src="images/uk.png" width="30" height="30" class="d-inline-block align-top" alt="English">
+                </a>
+                <a href="">
+                    <img id='button-la-lang' src="images/laos.png" width="30" height="30" class="d-inline-block align-top" alt="ພາສາລາວ">
+                </a>
             </div>
         </div>
     </nav>
@@ -117,10 +125,11 @@
                 </div>
             </div>
             <div class="row mt-4">
-                <div class="col-lg-5 mt-4">
-                    <div class="card" style="height: 480px; padding: 1.4rem;">
+                <div class="col-lg-5">
+                    <div class="card" style="height: 600px; padding: 1rem;">
                         <div class="list-group list-group-flush" style="font-size: 0.8rem;">
-                            <a href="#" class="list-group-item list-group-item-action disabled" style="padding: 0;">
+                            <a href="#" class="list-group-item list-group-item-action disabled"
+                               style="padding: 0;">
                                 <table class="table table-borderless" style="margin-bottom: 0;">
                                     <thead>
                                     <tr>
@@ -131,65 +140,77 @@
                                     </thead>
                                 </table>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action" style="padding: 0;">
-                                <table class="table table-borderless" style="margin-bottom: 0; padding: 0;">
+                            <a href="#" class="list-group-item list-group-item-action"
+                               style="padding: 0;">
+                                <table class="table table-borderless"
+                                       style="margin-bottom: 0; padding: 0;">
                                     <tbody>
-                                    <tr class="greenTag" onclick="console.log('a');">
-                                        <td>Stunting in CU5s</td>
+                                    <tr class="greenTag table-active" id="overview-stunting">
+                                        <td>Stunting in children under 5 years old</td>
                                         <td>33</td>
                                         <td>25</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action" style="padding: 0;">
-                                <table class="table table-borderless" style="margin-bottom: 0; padding: 0;">
+                            <a href="#" class="list-group-item list-group-item-action"
+                               style="padding: 0;">
+                                <table class="table table-borderless"
+                                       style="margin-bottom: 0; padding: 0;">
                                     <tbody>
-                                    <tr class="redTag">
-                                        <td>Wasting in CU5s</td>
+                                    <tr class="redTag" id="overview-wasting">
+                                        <td>Wasting in children under 5 years old</td>
                                         <td> 9</td>
                                         <td> <5</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action" style="padding: 0;">
-                                <table class="table table-borderless" style="margin-bottom: 0; padding: 0;">
+                            <a href="#" class="list-group-item list-group-item-action"
+                               style="padding: 0;">
+                                <table class="table table-borderless"
+                                       style="margin-bottom: 0; padding: 0;">
                                     <tbody>
-                                    <tr class="yellowTag">
-                                        <td>Underweight in CU5s</td>
+                                    <tr class="yellowTag" id="overview-underweight">
+                                        <td>Underweight in children under 5 years old</td>
                                         <td> 21</td>
                                         <td> 12</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action" style="padding: 0;">
-                                <table class="table table-borderless" style="margin-bottom: 0; padding: 0;">
+                            <a href="#" class="list-group-item list-group-item-action"
+                               style="padding: 0;">
+                                <table class="table table-borderless"
+                                       style="margin-bottom: 0; padding: 0;">
                                     <tbody>
-                                    <tr class="redTag">
-                                        <td>C6-59m with Anemia</td>
+                                    <tr class="redTag" id="overview-c6-c59-anemia">
+                                        <td>Children 6-59 months with Anemia</td>
                                         <td> 44</td>
                                         <td> 30</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action" style="padding: 0;">
-                                <table class="table table-borderless" style="margin-bottom: 0; padding: 0;">
+                            <a href="#" class="list-group-item list-group-item-action"
+                               style="padding: 0;">
+                                <table class="table table-borderless"
+                                       style="margin-bottom: 0; padding: 0;">
                                     <tbody>
-                                    <tr class="redTag">
-                                        <td>WRA (15-49Y) with Anemia</td>
+                                    <tr class="redTag" id="overview-wra-15-49-anemia">
+                                        <td>Women of Reproductive Age (15-49Y) with Anemia</td>
                                         <td> 40</td>
                                         <td> 15</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action" style="padding: 0;">
-                                <table class="table table-borderless" style="margin-bottom: 0; padding: 0;">
+                            <a href="#" class="list-group-item list-group-item-action"
+                               style="padding: 0;">
+                                <table class="table table-borderless"
+                                       style="margin-bottom: 0; padding: 0;">
                                     <tbody>
-                                    <tr class="greenTag">
+                                    <tr class="greenTag" id="overview-low-birth-weight">
                                         <td>Low Birth Weight</td>
                                         <td> 6.5</td>
                                         <td> 8</td>
@@ -197,10 +218,12 @@
                                     </tbody>
                                 </table>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action" style="padding: 0;">
-                                <table class="table table-borderless" style="margin-bottom: 0; padding: 0;">
+                            <a href="#" class="list-group-item list-group-item-action"
+                               style="padding: 0;">
+                                <table class="table table-borderless"
+                                       style="margin-bottom: 0; padding: 0;">
                                     <tbody>
-                                    <tr class="redTag">
+                                    <tr class="redTag" id="overview-overweight">
                                         <td>Overweight</td>
                                         <td> 3.5</td>
                                         <td> <= 2</td>
@@ -208,19 +231,23 @@
                                     </tbody>
                                 </table>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action" style="padding: 0;">
-                                <table class="table table-borderless" style="margin-bottom: 0; padding: 0;">
+                            <a href="#" class="list-group-item list-group-item-action"
+                               style="padding: 0;">
+                                <table class="table table-borderless"
+                                       style="margin-bottom: 0; padding: 0;">
                                     <tbody>
-                                    <tr class="redTag">
-                                        <td>C0-6m Exclusively Breastfed</td>
+                                    <tr class="redTag" id="overview-c0-c6-exclusively-breastfed">
+                                        <td>Children 0-6 months Exclusively Breastfed</td>
                                         <td> 45</td>
                                         <td> 60</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action" style="padding: 0;">
-                                <table class="table table-borderless" style="margin-bottom: 0; padding: 0;">
+                            <a href="#" class="list-group-item list-group-item-action"
+                               style="padding: 0;">
+                                <table class="table table-borderless"
+                                       style="margin-bottom: 0; padding: 0;">
                                     <tbody>
                                     <tr class="tableLegend" style="background-color: #e0ecf3;">
                                         <td>
@@ -242,21 +269,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7 mt-4">
-                    <script src="js/testChart.js"></script>
-                    <div class="card" style="height: 480px; padding: 1rem;">
+                <div class="col-lg-7">
+                    <div class="card" style="height: 600px; padding: 1rem;">
                         <div id="navBarOverviewCard">
-                            <ul class="nav nav-tabs" id="overviewCardTab" role="tablist" style="font-size: 1rem;">
+                            <ul class="nav nav-tabs" id="overviewCardTab" role="tablist"
+                                style="font-size: 1rem;">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="bar-tab" data-toggle="tab" href="#lineTab" role="tab"
+                                    <a class="nav-link active" id="bar-tab" data-toggle="tab"
+                                       href="#lineTab"
+                                       role="tab"
                                        aria-controls="home" aria-selected="true">Trend</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="line-rentab" data-toggle="tab" href="#barTab" role="tab"
+                                    <a class="nav-link" id="line-rentab" data-toggle="tab"
+                                       href="#barTab"
+                                       role="tab"
                                        aria-controls="profile" aria-selected="false">Province</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="map-tab" data-toggle="tab" href="#mapTab" role="tab"
+                                    <a class="nav-link" id="map-tab" data-toggle="tab" href="#mapTab"
+                                       role="tab"
                                        aria-controls="contact" aria-selected="false">Map</a>
                                 </li>
                             </ul>
@@ -264,31 +296,29 @@
                         <div id="contentOfNavBarOverviewCard">
                             <div class="tab-content" id="nav-tabContent">
                                 <div class="tab-pane fade show active" id="lineTab" role="tabpanel"
-                                     aria-labelledby="nav-home-tab" style="padding: 2rem;">
+                                     aria-labelledby="nav-home-tab" style="padding: 1rem;">
                                     <div id="drawLineChart"
-                                         style="position: relative; display: block; height: 360px; width: auto;">
-                                        <!--                                        <canvas id="lineChartForOverviewCard"></canvas>-->
+                                         style="position: relative; display: block; height: 460px; width: auto;">
                                         <svg id="lineChartForOverviewCard"
                                              style="width: 100%; height: 100%; display: block; margin: auto;"
-                                             viewBox="0 0 360 360">
+                                             viewBox="0 0 440 440">
                                         </svg>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="barTab" role="tabpanel"
-                                     aria-labelledby="nav-profile-tab" style="padding: 2rem;">
+                                     aria-labelledby="nav-profile-tab" style="padding: 1rem;">
                                     <div class="chartJS" id="drawProvinceChart"
-                                         style="position: relative; display: block; height: 360px; width: auto;">
+                                         style="position: relative; display: block; min-height: 440px; width: auto;">
                                         <canvas id="provinceChartForOverviewCard"></canvas>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="mapTab" role="tabpanel"
-                                     aria-labelledby="nav-contact-tab" style="padding: 2rem;">
+                                     aria-labelledby="nav-contact-tab" style="padding: 1rem;">
                                     <div id="drawMapChart"
-                                         style="position: relative; display: block; height: 360px; width: auto;">
-                                        <!--                                        <canvas id="lineChartForOverviewCard"></canvas>-->
+                                         style="position: relative; display: block; height: 460px; width: auto;">
                                         <svg id="mapChartForOverviewCard"
                                              style="width: 100%; height: 100%; display: block; margin: auto;"
-                                             viewBox="0 0 360 360">
+                                             viewBox="0 0 400 400">
                                         </svg>
                                     </div>
                                 </div>
@@ -528,121 +558,20 @@
             </div>
         </div>
         <!-- end home  -->
+
         <!--
-            ****************************************
-            Start Tab 2: LSIS
-            ****************************************
+            *******************************************
+            Start National Profile Tab
+            *******************************************
         -->
-        <div class="tab-pane fade" id="menu1" role="tabpanel" aria-labelledby="lsis-tab"> <!--  start menu 2 -->
-            <script src="js/lsisChart.js"></script>
-            <div class="row mt-5">
-                <div class="col-lg-12">
-                    <div class="card" id="header">
-                        <h1 class="top">LSIS II Survey 2017</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 mt-4">
-                    <div class="cardChart">
-                        <div class="cardChart">
-                            <h3 class="topic" style="padding-top: 10px;">
-                                Indicator Overview
-                            </h3>
-                            <div class="drawChart">
-                                <canvas id="lsisOverviewChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-4">
-                    <div class="cardChart">
-                        <div class="cardChart">
-                            <h3 class="topic" style="padding-top: 10px;">
-                                Indicator Trending
-                            </h3>
-                            <div class="drawChart">
-                                <canvas id="lsisOverviewTrend"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 mt-4">
-                    <div class="cardChart">
-                        <div class="cardChart">
-                            <h3 class="topic" style="padding-top: 10px;">
-                                Provincial Overview
-                            </h3>
-                            <div class="drawChart">
-                                <canvas id="lsisProvincialOverview"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-4">
-                    <div class="cardChart">
-                        <div class="cardChart">
-                            <h3 class="topic" style="padding-top: 10px;">
-                                Area
-                            </h3>
-                            <div class="drawChart">
-                                <canvas id="lsisSubCategoryArea"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-4">
-                    <div class="cardChart">
-                        <div class="cardChart">
-                            <h3 class="topic" style="padding-top: 10px;">
-                                Education
-                            </h3>
-                            <div class="drawChart">
-                                <canvas id="lsisSubCategoryEducation"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-4">
-                    <div class="cardChart">
-                        <div class="cardChart">
-                            <h3 class="topic" style="padding-top: 10px;">
-                                Ethnicity
-                            </h3>
-                            <div class="drawChart">
-                                <canvas id="lsisSubCategoryEthnicity"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-4">
-                    <div class="cardChart">
-                        <div class="cardChart">
-                            <h3 class="topic" style="padding-top: 10px;">
-                                Wealth Index Quintile
-                            </h3>
-                            <div class="drawChart">
-                                <canvas id="lsisSubCategoryWealth"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 mt-4">
-                    <div class="cardChart">
-                        <div class="cardChart">
-                            <h3 class="topic" style="padding-top: 10px;">
-                                MODA Link
-                            </h3>
-                            <div style="position: relative; display: block; height: 800px; width: auto; padding: 20px;">
-                                <svg id="sankey" style="width: 100%; height: 100%; display: block; margin: auto;"
-                                     viewBox="0 0 800 800"></svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="tab-pane fade" id="menu1" role="tabpanel" aria-labelledby="national-profile-tab">
+            <!-- start National Profile -->
+            <script src="..."></script>
+            <br/>
         </div>
-        <!--        End LSIS Tab-->
+        <!-- End National Profile Tab -->
+
+
         <!--
             *******************************************
             Start NSS Tab
@@ -870,107 +799,17 @@
             </div>
         </div>
         <!-- end senitel Seurvey -->
-
         <!--
             *******************************************
-            Start LECS Tab
+            Start DHIS Tab
             *******************************************
         -->
-        <div class="tab-pane fade" id="menu3" role="tabpanel" aria-labelledby="lecs-tab">
-            <script src="js/lecsChart.js"></script>
-            <div class="row mt-5">
-                <div class="col-lg-12">
-                    <div class="card" id="header">
-                        <h1 class="top">LECS Survey</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12 mt-4">
-                    <div class="cardChart">
-                        <h4 class="topic" style="padding-top: 10px;"> Table 9: Percent of total food consumption by
-                            province in 2012/2013 <i class='glyphicon glyphicon-menu-hamburger'
-                                                     style="float: right;"></i></h4>
-                        <div style="position: relative; display: block; height: 360px; width: auto;">
-                            <canvas id="lec1Chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 mt-4">
-                    <div class="cardChart">
-                        <h4 class="topic" style="padding-top: 10px;"> Table 10: Percent of food consumption by type of
-                            product and provinces <i class='glyphicon glyphicon-menu-hamburger'
-                                                     style="float: right;"></i></h4>
-                        <div style="position: relative; display: block; height: 360px; width: auto;">
-                            <canvas id="lec2Chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 mt-4">
-                    <div class="cardChart">
-                        <h4 class="topic" style="padding-top: 10px;"><i class='glyphicon glyphicon-menu-hamburger'
-                                                                        style="float: right;"></i></h4>
-                        <div style="position: relative; display: block; height: 360px; width: auto;">
-                            <canvas id="lec3Chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7 mt-4">
-                    <div class="cardChart">
-                        <h5 class="topic" style="padding-top: 10px;"> Table 11: Access to health services by province
-                            and region <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
-                        <div style="position: relative; display: block; height: 360px; width: auto;">
-                            <canvas id="lec4Chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 mt-4">
-                    <div class="cardChart">
-                        <h5 class="topic" style="padding-top: 10px;"> Educational services and quality <i
-                                class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
-                        <div style="position: relative; display: block; height: 360px; width: auto;">
-                            <canvas id="lec5Chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 mt-4">
-                    <div class="cardChart">
-                        <h5 class="topic" style="padding-top: 10px;"> Table 4: Poverty by Geographic Regions <i
-                                class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
-                        <div style="position: relative; display:block; height: 360px; width: auto;">
-                            <canvas id="lec6Chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 mt-4">
-                    <div class="card" id="sec2" style="background-color: rgba(213,51,105,0.8);">
-                        <h1>Poverty headcount rate by characteristics</h1>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-4">
-                    <div class="cardChart">
-                        <h5 class="topic" style="padding-top: 10px;"> Highest level of education completed <i
-                                class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
-                        <div style="position: relative; display: block; height: 360px; width: auto;">
-                            <canvas id="lec8Chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-4">
-                    <div class="cardChart">
-                        <h5 class="topic" style="padding-top: 10px;"> Ethnicity <i
-                                class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
-                        <div style="position: relative; display: block; height: 360px; width: auto;">
-                            <canvas id="lec7Chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="tab-pane fade" id="menu3" role="tabpanel" aria-labelledby="dhis-tab">
+            <!-- start DHIS -->
+            <script src="..."></script>
             <br/>
         </div>
-        <!-- End LECS Survey  -->
-
+        <!-- End DHIS Tab -->
 
         <!--
             *******************************************
@@ -1154,5 +993,8 @@
         </div>
     </div>
 </div>
+<!-- END Footer -->
+<!-- The script of overview tab -->
+<script src="js/testChart.js"></script>
 </body>
 </html>

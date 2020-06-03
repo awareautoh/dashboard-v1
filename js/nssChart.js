@@ -423,7 +423,7 @@ function buildChart(value) {
                 {
                     label: 'LSIS II',
                     data: valueStuntingLsis,
-                    backgroundColor: lightBlue,
+                    backgroundColor: darkBlue,
                     borderWidth: 0,
                 },
             ]

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "1",
+    "name": "Education",
+    "indicator": "Ratio of girls to boys in lower secondary education",
+    "geography": "National",
+    "time_date": "2015",
+    "value": "20"
+  },
+  {
+    "id": "2",
+    "name": "Education",
+    "indicator": "Ratio of girls to boys in primary education",
+    "geography": "Vientiane Capital",
+    "time_date": "2013",
+    "value": "25"
+  },
+  {
+    "id": "3",
+    "name": "Education",
+    "indicator": "Ratio of girls to boys in lower secondary education",
+    "geography": "National",
+    "time_date": "2015",
+    "value": "30"
+  },
+  {
+    "id": "4",
+    "name": "Education",
+    "indicator": "Ratio of girls to boys in primary education",
+    "geography": "Vientiane Capital",
+    "time_date": "2013",
+    "value": "45"
+  },
+  {
+    "id": "5",
+    "name": "Agriculture",
+    "indicator": "Rice Harvested Area 2016, 2017, 2018 (Hectare) ",
+    "geography": "Champassak",
+    "time_date": "2018",
+    "value": "24"
+  },
+  {
+    "id": "6",
+    "name": "Agriculture",
+    "indicator": "Rice Production 2009, 2010, 2011 (Ton)",
+    "geography": "Xiengkuang",
+    "time_date": "2011",
+    "value": "12"
+  },
+  {
+    "id": "7",
+    "name": "Health",
+    "indicator": "Age specific fertility rate , Per 1000 live births ",
+    "geography": "Savannakhet",
+    "time_date": "2006",
+    "value": "33.5"
+  },
+  {
+    "id": "8",
+    "name": "Health",
+    "indicator": "Under-five mortality rate, Deaths per 1000 live births",
+    "geography": "Phongsaly",
+    "time_date": "2009",
+    "value": "28"
+  },
+  {
+    "id": "9",
+    "name": "Economy",
+    "indicator": "Growth rate of GDP (Constant price) per person employed",
+    "geography": "Bolikhamxay",
+    "time_date": "2012",
+    "value": "32"
+  },
+  {
+    "id": "10",
+    "name": "Economy",
+    "indicator": "Proportion of people living below the national poverty line",
+    "geography": "Khamuane",
+    "time_date": "2014",
+    "value": "54"
+  },
+  {
+    "id": "11",
+    "name": "Economy",
+    "indicator": "Employment to population ratio",
+    "geography": "Bokeo",
+    "time_date": "2007",
+    "value": "23"
+  },
+  {
+    "id": "12",
+    "name": "Economy",
+    "indicator": "Growth rate of GDP (Constant price) per person employed",
+    "geography": "Salavan",
+    "time_date": "2010",
+    "value": "18"
+  },
+  {
+    "id": "13",
+    "name": "Economy",
+    "indicator": "Poverty gap ratio",
+    "geography": "Luangnamtha",
+    "time_date": "2016",
+    "value": "21"
+  },
+  {
+    "id": "14",
+    "name": "Economy",
+    "indicator": "Share of poorest quintile in national consumption",
+    "geography": "Xayabury",
+    "time_date": "2015",
+    "value": "19"
+  }
+]

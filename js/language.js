@@ -11,11 +11,10 @@ function getLanguage() {
     //Revise
     $(document).ready(function(){
         //Nav Menu
-        $('#navbarDropdownLanguage').text(language["navbarDropdownLanguage"]);
         $('#home-tab').text(language["nutritionStatus"]);
-        $('#lsis-tab').text(language["lsis"]);
+        $('#national-profile-tab').text(language["national-profile"]);
         $('#sentinelSurvey-tab').text(language["sentinelSurvey"]);
-        $('#lecs-tab').text(language["lecs"]);
+        $('#dhis-tab').text(language["dhis"]);
         $('#agricultureCencus-tab').text(language["agricultureCencus"]);
 
         //*********Overview of Nutrition Row

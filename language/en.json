@@ -1,9 +1,8 @@
 {
-  "navbarDropdownLanguage": "Language",
   "nutritionStatus": "Nutrition Status",
-  "lsis": "LSIS",
+  "national-profile": "National Profiles",
   "sentinelSurvey": "SENTINEL SURVEY",
-  "lecs": "LECS",
+  "dhis": "Routine Monitoring",
   "agricultureCencus": "AGRICULTURE CENCUS",
   "overviewOfNutrition": "Overview of Nutrition",
   "textCardIcon1": "Exclusive breastfeeding under 6 months",

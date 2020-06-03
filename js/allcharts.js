@@ -10,13 +10,14 @@
 */
 
 //Color shade
-const red = "#E2231A"; //UNICEF CODEBOOL
-const blue = "#1CABE2";
-const darkBlue = "#374EA2";
-const orange = "#F26A21";
+const red = "#E2231A"; //UNICEF CODEBOOK COLOR
+const blue = "#1CABE2"; //UNICEF CODEBOOK COLOR
+const darkBlue = "#374EA2"; //UNICEF CODEBOOK COLOR
+const yellow = "#FFC20E"; //UNICEF CODEBOOK COLOR
+const orange = "#F26A21"; //UNICEF CODEBOOK COLOR
 const darkorange = "#806F37";
 const lightorange = "#FFDD6E";
-const green = "#00833D";
+const green = "#00833D"; //UNICEF CODEBOOK COLOR
 const grey = "#bdbdbd";
 const purpleXorange = "#999EFF";
 const colorSetLSISAreaChart = ["#FFAC4DB3", "#BF9C73B3", "#FFCF99B3", "#B37836B3", "#7F5626B3"];
@@ -150,7 +151,7 @@ function buildChart (value) {
     {"overviewResetButton": overviewResetButton},
   ]
 
-  //Funtion to highlight activated button and update data based on click button
+  //Function to highlight activated button and update data based on click button
   $(document).ready(function () {
     let toolbarOverview = document.getElementById("toolbarOverview");
     let btnClass = toolbarOverview.getElementsByClassName("btn btn-outline-primary");
