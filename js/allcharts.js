@@ -10,15 +10,15 @@
 */
 
 //Color shade
-const red = "#FF99A6";
-const blue = "#80d8ff";
-const lightBlue = "#CCF0FF";
-const yellow = "#FFCB21";
-const darkYellow = "#806F37";
-const lightYellow = "#FFDD6E";
-const green = "#66bb6a";
+const red = "#E2231A"; //UNICEF CODEBOOL
+const blue = "#1CABE2";
+const darkBlue = "#374EA2";
+const orange = "#F26A21";
+const darkorange = "#806F37";
+const lightorange = "#FFDD6E";
+const green = "#00833D";
 const grey = "#bdbdbd";
-const purpleXyellow = "#999EFF";
+const purpleXorange = "#999EFF";
 const colorSetLSISAreaChart = ["#FFAC4DB3", "#BF9C73B3", "#FFCF99B3", "#B37836B3", "#7F5626B3"];
 const colorSetLSISEducationChart = ["#C7C7EAB3", "#1739E5B3", "#0F2699B3", "#4455AAB3", "#5C73E5B3", "#0A1A66B3"];
 const colorSetLSISEthnicityChart = ["#39806EB3", "#BFFFEFB3", "#608078B3", "#5CCCB0B3", "#73FFDCB3"];
@@ -106,7 +106,7 @@ function buildChart (value) {
       },{
         label: 'Overweight',
         data: valueO,
-        backgroundColor: lightBlue,
+        backgroundColor: darkBlue,
         borderWidth: 0,
       }]
     },
@@ -202,15 +202,15 @@ function buildChart (value) {
                     data: WHO,
                     type: 'line',
                     fill: false,
-                    borderColor: '#E71C23',
+                    borderColor: red,
                     pointStyle: "line",
                     borderWidth: 0,
                 },
                 {
                     label: 'Percentage of Women Anemia Prevalence',
                     data: valueAnemia,
-                    backgroundColor: '#80d8ff',
-                    borderColor: '#0ABDE3',
+                    backgroundColor: blue,
+                    borderColor: blue,
                     borderWidth: 0,
                 }
 
@@ -254,7 +254,7 @@ function buildChart (value) {
       {
         label: 'Women Obese',
         data: valueWObese,
-        backgroundColor: lightBlue,
+        backgroundColor: darkBlue,
         borderWidth: 0,
       }]
     },
@@ -296,7 +296,7 @@ function buildChart (value) {
       datasets: [{
           label: 'NPAN Taget 70%',
           data: NPANTagetIYCF,
-          backgroundColor: 'lightPink',
+          backgroundColor: red,
           borderColor: 'red',
           borderWidth: 0,
           type: 'line',
@@ -306,13 +306,13 @@ function buildChart (value) {
       {
         label: 'Early Initiation of Breastfeeding',
         data: valueInitiationBreast,
-        backgroundColor: yellow,
+        backgroundColor: blue,
         borderWidth: 0,
       },
       {
         label: 'Exclusive Breastfeeding',
         data: valueExclusiveBreast,
-        backgroundColor: lightYellow,
+        backgroundColor: darkBlue,
         borderWidth: 0,
       }]
     },
@@ -349,7 +349,7 @@ function buildChart (value) {
             datasets: [{
                 label: 'NPAN Taget 50%',
                 data: NPANTagetMiniDiet,
-                backgroundColor: 'lightPink',
+                backgroundColor: red,
                 borderColor: 'red',
                 borderWidth: 0,
                 type: 'line',
@@ -358,12 +358,12 @@ function buildChart (value) {
             }, {
                 label: 'Prevalance of Minimum Diet Diversity',
                 data: valueMiniDiet,
-                backgroundColor: yellow,
+                backgroundColor: blue,
                 borderWidth: 0,
             }, {
                 label: 'Prevalance of Minimum Acceptable Diet',
                 data: valueAcceptDiet,
-                backgroundColor: lightYellow,
+                backgroundColor: darkBlue,
                 borderWidth: 0,
             }]
         },
@@ -400,7 +400,7 @@ function buildChart (value) {
                 {
                     label: 'Percentage of Women Dietary Diversity',
                     data: valueWomenDiet,
-                    backgroundColor: yellow,
+                    backgroundColor: blue,
                     borderWidth: 0,
                     order: 1
                 }]
@@ -433,7 +433,7 @@ function buildChart (value) {
                     mode: 'vertical',
                     scaleID: 'x-axis-0',
                     value: 32.4,
-                    borderColor: 'rgb(75, 192, 192)',
+                    borderColor: red,
                     borderWidth: 1,
                     label: {
                         enabled: true,
@@ -461,7 +461,7 @@ function buildChart (value) {
                 {
                     label: "Percentage of Vitamin A Supplement Coverage",
                     data: valueVitA,
-                    backgroundColor: green,
+                    backgroundColor: blue,
                     borderWidth: 0,
                 }]
         },
@@ -494,7 +494,7 @@ function buildChart (value) {
                     mode: 'vertical',
                     scaleID: 'x-axis-0',
                     value: 38.5,
-                    borderColor: 'rgb(75, 192, 192)',
+                    borderColor: red,
                     borderWidth: 1,
                     label: {
                         enabled: true,
@@ -516,7 +516,7 @@ function buildChart (value) {
                 {
                     label: 'Percentage of Who Received Deworming Coverage',
                     data: valueDeworm,
-                    backgroundColor: green,
+                    backgroundColor: blue,
                     borderWidth: 0,
                 }]
         },
@@ -549,7 +549,7 @@ function buildChart (value) {
                     mode: 'vertical',
                     scaleID: 'x-axis-0',
                     value: 38.7,
-                    borderColor: 'rgb(75, 192, 192)',
+                    borderColor: red,
                     borderWidth: 1,
                     label: {
                         enabled: true,
@@ -575,13 +575,13 @@ function buildChart (value) {
                     pointStyle: "line",
                     borderWidth: 0,
                     fill: false,
-                    backgroundColor: blue,
-                    borderColor: blue,
+                    backgroundColor: red,
+                    borderColor: red,
                 },
                 {
                     label: 'Iron/Folic Supplement Coverage',
                     data: valueIronFolic,
-                    backgroundColor: green,
+                    backgroundColor: blue,
                     borderWidth: 0,
                 },
             ]
@@ -671,7 +671,7 @@ function buildChart (value) {
             datasets: [{
                     label: '',
                     data: [100,0],
-                    backgroundColor: '#0091EA',
+                    backgroundColor: blue,
                     borderWidth: 0
 
                 }]
@@ -700,7 +700,7 @@ function buildChart (value) {
             datasets: [{
                     label: '',
                     data: [100],
-                    backgroundColor: '#26ae60',
+                    backgroundColor: blue,
                     borderWidth: 0
 
                 }]
@@ -1318,3 +1318,16 @@ $(document).ready(function(){
 
 
 //*******Test Chart on the top of Home tab
+
+// When the user scrolls down 50px from the top of the document, resize the header's font size
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.getElementById("navBarTop").style.fontSize = "1rem";
+        document.getElementById("navBarTop").style.height = "70px";
+    } else {
+        document.getElementById("navBarTop").style.fontSize = "1rem";
+        document.getElementById("navBarTop").style.height = "100px";
+    }
+}

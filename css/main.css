@@ -22,8 +22,15 @@
  /*Customize Navbar and Body*/
  body {
      padding-top: 3.2rem;  /*Prevent overlapping between NavBar and Body*/
-     font-family: Arial, Helvetica, "Phetsarath OT", sans-serif !important;
+     font-family: Helvetica, Arial, sans-serif,'Noto Sans', 'Noto Sans Lao', Phetsarath OT !important;
  }
+
+ #navBarTop {
+     font-size: 1rem;
+     height: 100px;
+     transition: 0.2s;
+ }
+
 
 /*Customize Card*/
 .card {
@@ -212,18 +219,18 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
 
 /* Main header of the graph */ 
 #header{/* Nutrition Overview */ 
-  background-color: #34AE8D;
+  background-color: #1CABE2;
   color: #ffffff;
 
 }
 .card#sec1{
-  background: #87C7F3;
+  background: #1CABE2;
   height: auto !important;
   color: #ffffff;
   font-size: 15px;
 }
 .card#sec2{
-  background: #FFCA22;
+  background: #1CABE2;
   height: auto !important;
   color: #ffffff;
   font-size: 15px;
@@ -235,7 +242,7 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
   font-weight: bold;
 }
 .card#sec3{
-  background-color: #A1C654;
+  background-color: #1CABE2;
   height: auto !important;
   color: #ffffff;
   font-size: 15px;
@@ -256,8 +263,11 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
  }
 
 /*Customize Footer Logo*/
+ #supportHeaderText {
+     backgroud-color: #F7F8FA !important;
+ }
  #euLogo, #unicefLogo, #laoGovLogo {
-     height: 3rem;
+     max-width: 10rem;
      filter: grayscale(1);
      -webkit-filter: grayscale(1);
 
@@ -268,6 +278,7 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
 
  }
  #footer-copyright {
+     height: 30vh;
      padding: 0;
      background-color: #173C78 !important;
  }
@@ -275,6 +286,54 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
      margin-top: 0 !important;
      margin-bottom: 0 !important;
  }
+
+ /*Customize the Supporter Logo Footer*/
+ #support-laogov-logo, #support-eu-logo, #support-unicef-logo {
+     box-shadow: none;
+     padding: 50px;
+     height: 30vh;
+     align-items: center;
+ }
+
+ /*   footer class  */
+ .footerclass {
+     background-color: #F7F8FA;
+     bottom: 0;
+     width: 100%;
+     display: inline-block;
+     min-height:300px;
+     margin-top:30px;
+     padding: 0;
+     text-align: left;
+ }
+ #copyright-text p {
+     text-align: left;
+ }
+ .footerHead{
+     font-size:14px;
+     line-height:21px;
+     font-weight:600;
+     color:#2d2d2b;
+ }
+ .footerTxt{
+     font-size:14px;
+     line-height:21px;
+     font-weight:400;
+     color:#2d2d2b;
+ }
+ .footerSMS{
+     font-size:11px;
+     line-height:10px;
+     color:#8E8F8F;
+ }
+ .fab{
+     color:#9399A5;
+ }
+ /* Tabs panel */
+ .tabbable-panel {
+     padding: 10px;
+ }
+
  .icon1 {
           display: inline-block;
           background: url(../images/sprites-1.png) no-repeat;
