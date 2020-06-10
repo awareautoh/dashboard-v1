@@ -268,14 +268,6 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
  }
  #euLogo, #unicefLogo, #laoGovLogo {
      max-width: 10rem;
-     filter: grayscale(1);
-     -webkit-filter: grayscale(1);
-
- }
- #euLogo:hover, #unicefLogo:hover, #laoGovLogo:hover {
-     filter: none;
-     -webkit-filter: grayscale(0);
-
  }
  #footer-copyright {
      height: 30vh;

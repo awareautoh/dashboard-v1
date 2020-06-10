@@ -16,6 +16,8 @@ function getLanguage() {
         $('#sentinelSurvey-tab').text(language["sentinelSurvey"]);
         $('#dhis-tab').text(language["dhis"]);
         $('#agricultureCencus-tab').text(language["agricultureCencus"]);
+        $('#data-repository-link').text(language["data-repository-link"]);
+        $('#about-nipn-link').text(language["about-nipn-link"]);
 
         //*********Overview of Nutrition Row
         $('#overviewOfNutrition').text(language["overviewOfNutrition"]);

@@ -100,31 +100,31 @@ function buildChart(value) {
                 {
                     label: 'Crop and live stock sale',
                     data: replacedValueCropAndLivestock,
-                    backgroundColor: hhMainSourceIncomeColor[0],
+                    backgroundColor: blue,
                     borderWidth: 0,
                 },
                 {
                     label: 'Business',
                     data: replacedValueBusiness,
-                    backgroundColor: hhMainSourceIncomeColor[1],
+                    backgroundColor: darkBlue,
                     borderWidth: 0,
                 },
                 {
                     label: 'Salary and skilled wage labour',
                     data: replacedValueSalaryAndSkilledWageLabour,
-                    backgroundColor: hhMainSourceIncomeColor[2],
+                    backgroundColor: darkGrey,
                     borderWidth: 0,
                 },
                 {
                     label: 'Unskilled wage labour',
                     data: replacedValueUnskilledWageLabour,
-                    backgroundColor: hhMainSourceIncomeColor[3],
+                    backgroundColor: grey,
                     borderWidth: 0,
                 },
                 {
                     label: 'Other',
                     data: replacedValueOther,
-                    backgroundColor: hhMainSourceIncomeColor[4],
+                    backgroundColor: purple,
                     borderWidth: 0,
                 },
             ]
@@ -178,25 +178,25 @@ function buildChart(value) {
                 {
                     label: 'Less than 5M',
                     data: replacedValueL5M,
-                    backgroundColor: AnnualHHIncomeColor[0],
+                    backgroundColor: blue,
                     borderWidth: 0,
                 },
                 {
                     label: '5M-10M',
                     data: replacedValue5M10M,
-                    backgroundColor: AnnualHHIncomeColor[1],
+                    backgroundColor: darkBlue,
                     borderWidth: 0,
                 },
                 {
                     label: '10M-20M',
                     data: replacedValue10M20M,
-                    backgroundColor: AnnualHHIncomeColor[2],
+                    backgroundColor: darkGrey,
                     borderWidth: 0,
                 },
                 {
                     label: 'More than 20M',
                     data: replacedValueM20M,
-                    backgroundColor: AnnualHHIncomeColor[3],
+                    backgroundColor: grey,
                     borderWidth: 0,
                 },
             ]
@@ -244,7 +244,7 @@ function buildChart(value) {
                 {
                     label: 'Minimum Acceptable Diet',
                     data: replacedValueMiniDiet,
-                    backgroundColor: yellow,
+                    backgroundColor: blue,
                     borderWidth: 0,
                 },
             ]
@@ -285,7 +285,7 @@ function buildChart(value) {
                 {
                     label: 'Vitamin A Supplementation',
                     data: replacedValueVitaminA,
-                    backgroundColor: yellow,
+                    backgroundColor: blue,
                     borderWidth: 0,
                 },
             ]
@@ -338,19 +338,19 @@ function buildChart(value) {
                 {
                     label: 'Obese',
                     data: replacedValueObese,
-                    backgroundColor: maternalNutritionColor[0],
+                    backgroundColor: blue,
                     borderWidth: 0,
                 },
                 {
                     label: 'Overweight',
                     data: replacedValueOverweight,
-                    backgroundColor: maternalNutritionColor[1],
+                    backgroundColor: darkBlue,
                     borderWidth: 0,
                 },
                 {
                     label: 'Underweight',
                     data: replacedValueWomenUnderweight,
-                    backgroundColor: maternalNutritionColor[2],
+                    backgroundColor: darkGrey,
                     borderWidth: 0,
                 },
             ]
@@ -502,7 +502,7 @@ function buildChart(value) {
                 {
                     label: 'Household Food Security',
                     data: replacedValueHHFoodSecurity,
-                    backgroundColor: green,
+                    backgroundColor: blue,
                     borderWidth: 0,
                 },
             ]

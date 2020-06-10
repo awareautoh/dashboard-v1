@@ -54,7 +54,7 @@ function buildChart (value) {
                     {
                         label: "Total",
                         data: avalue,
-                        backgroundColor: '#ffee58',
+                        backgroundColor: blue,
                         borderWidth: 0,
 
                         
@@ -63,7 +63,7 @@ function buildChart (value) {
                     {
                         label: "Low land rainfed paddy",
                         data: avalue2,
-                        backgroundColor: '#10b4fb',
+                        backgroundColor: darkBlue,
                         borderWidth: 0,
                         
     
@@ -71,7 +71,7 @@ function buildChart (value) {
                     {
                         label: "Dry Season paddy",
                         data: avalue3,
-                        backgroundColor: '#f30d0d',
+                        backgroundColor: darkGrey,
                         borderWidth: 0,
                         
     
@@ -79,7 +79,7 @@ function buildChart (value) {
                     {
                         label: "Upland rainfed paddy",
                         data: avalue4,
-                        backgroundColor: '#2aad32',
+                        backgroundColor: grey,
                         borderWidth: 0,
                         
                     }
@@ -138,8 +138,8 @@ function buildChart (value) {
                                         {
                                             label: "Total",
                                             data: agri2value,
-                                            backgroundColor: '#ffee58',
-                                            borderColor:'#ffee58',
+                                            backgroundColor: blue,
+                                            borderColor: blue,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -151,8 +151,8 @@ function buildChart (value) {
                                         {
                                             label: "Low landrainfed paddy",
                                             data: agri2value2,
-                                            backgroundColor: '#10b4fb',
-                                            borderColor: '#2196f3',
+                                            backgroundColor: darkBlue,
+                                            borderColor: darkBlue,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -163,8 +163,8 @@ function buildChart (value) {
                                         {
                                             label: "Dry Season paddy",
                                             data: agri2value3,
-                                            backgroundColor: '#f30d0d',
-                                            borderColor: '#f30d0d',
+                                            backgroundColor: darkGrey,
+                                            borderColor: darkGrey,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -175,8 +175,8 @@ function buildChart (value) {
                                         {
                                             label: "Upland rainfed paddy",
                                             data: agri2value4,
-                                            backgroundColor: '#2aad32',
-                                            borderColor: '#2aad32',
+                                            backgroundColor: grey,
+                                            borderColor: grey,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -243,8 +243,8 @@ function buildChart (value) {
                                         {
                                             label: "Total",
                                             data: agri3value,
-                                            backgroundColor: '#ffee58',
-                                            borderColor:'#ffee58',
+                                            backgroundColor: blue,
+                                            borderColor: blue,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -256,8 +256,8 @@ function buildChart (value) {
                                         {
                                             label: "Lowland rainfed paddy",
                                             data: agri3value2,
-                                            backgroundColor: '#10b4fb',
-                                            borderColor: '#2196f3',
+                                            backgroundColor: darkBlue,
+                                            borderColor: darkBlue,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -268,8 +268,8 @@ function buildChart (value) {
                                         {
                                             label: "Dry Season paddy",
                                             data: agri3value3,
-                                            backgroundColor: '#f30d0d',
-                                            borderColor: '#f30d0d',
+                                            backgroundColor: darkGrey,
+                                            borderColor: darkGrey,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -280,8 +280,8 @@ function buildChart (value) {
                                         {
                                             label: "Upland rainfed paddy",
                                             data: agri3value4,
-                                            backgroundColor: '#2aad32',
-                                            borderColor: '#2aad32',
+                                            backgroundColor: grey,
+                                            borderColor: grey,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -347,7 +347,7 @@ function buildChart (value) {
                                         {
                                             label: "Leafy Stem Vegetables",
                                             data: agriVet1value,
-                                            backgroundColor: green,
+                                            backgroundColor: blue,
                                             
                                             
                                             
@@ -356,7 +356,7 @@ function buildChart (value) {
                                         {
                                             label: "Root, Bulb and Tuberous",
                                             data: agriVet1value2,
-                                            backgroundColor: red,
+                                            backgroundColor: darkBlue,
                                         
                                             
                         
@@ -364,7 +364,7 @@ function buildChart (value) {
                                         {
                                             label: "Fruitbearing",
                                             data: agriVet1value3,
-                                            backgroundColor: blue,
+                                            backgroundColor: darkGrey,
                                             
                                             
                         
@@ -435,8 +435,7 @@ function buildChart (value) {
                                         {
                                             label: "Leafy Stem Vegetables",
                                             data: agriVet2value,
-                                            backgroundColor: green,
-                                            borderColor:'#259b35',
+                                            backgroundColor: blue,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -448,9 +447,7 @@ function buildChart (value) {
                                         {
                                             label: "Root, Bulb and Tuberous",
                                             data: agriVet2value2,
-                                            
-                                            borderColor: '#ef5b15',
-                                            backgroundColor:red,
+                                            backgroundColor: darkBlue,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -461,8 +458,7 @@ function buildChart (value) {
                                         {
                                             label: "Fruitbearing",
                                             data: agriVet2value3,
-                                            backgroundColor:blue,
-                                            borderColor: '#af2f9a',
+                                            backgroundColor: darkGrey,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -544,8 +540,7 @@ function buildChart (value) {
                                         {
                                             label: "Leafy Stem Vegetables",
                                             data: agriVet3value,
-                                            backgroundColor: green,
-                                            borderColor:'#ef5b15',
+                                            backgroundColor: blue,
                                             pointRadius: 3,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -557,9 +552,7 @@ function buildChart (value) {
                                         {
                                             label: "Root, Bulb and Tuberous",
                                             data: agriVet3value2,
-                                            
-                                            borderColor: '#259b35',
-                                            backgroundColor:red,
+                                            backgroundColor: darkBlue,
                                             pointRadius: 3,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -570,8 +563,7 @@ function buildChart (value) {
                                         {
                                             label: "Fruitbearing",
                                             data: agriVet3value3,
-                                            backgroundColor:blue,
-                                            borderColor: '#af2f9a',
+                                            backgroundColor: darkGrey,
                                             pointRadius: 3,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -636,8 +628,8 @@ function buildChart (value) {
                                         {
                                             label: "Buffalo",
                                             data: agriVet4value,
-                                            backgroundColor: '#FFEE58',
-                                            borderColor:'#FFEE58',
+                                            backgroundColor: blue,
+                                            borderColor: blue,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -649,9 +641,8 @@ function buildChart (value) {
                                         {
                                             label: "Cattle",
                                             data: agriVet4value2,
-                                            
-                                            borderColor: '#00A8F0',
-                                            backgroundColor:'#00A8F0',
+                                            borderColor: darkBlue,
+                                            backgroundColor: darkBlue,
                                             pointRadius: 5,
                                             pointBorderColor:'#7e807e',
                                             pointBorderwidth:1,
@@ -713,16 +704,16 @@ function buildChart (value) {
                     {
                         label: "Pig",
                         data: agriVet5value,
-                        backgroundColor: '#fd837b',
-                        borderColor:'#fd837b',
+                        backgroundColor: blue,
+                        borderColor: blue,
                         fill: false,
                     },
                     {
                         label: "Goat and Sheep",
                         data: agriVet5value2,
                         
-                        borderColor: '#00688b',
-                        backgroundColor:'#00688b',
+                        borderColor: darkBlue,
+                        backgroundColor: darkBlue,
                         fill: false,
                     },
                 ]
@@ -771,8 +762,8 @@ function buildChart (value) {
                                              {
                                                  label: "Culture fish",
                                                  data: agriVet6value,
-                                                 backgroundColor: '#fbaa1d',
-                                                 borderColor:'#fbaa1d',
+                                                 backgroundColor: blue,
+                                                 borderColor: blue,
                                                  pointRadius: 5,
                                                  pointBorderColor:'#7e807e',
                                                  pointBorderwidth:1,
@@ -784,9 +775,8 @@ function buildChart (value) {
                                              {
                                                  label: "Capture fish",
                                                  data: agriVet6value2,
-                                                 
-                                                 borderColor: '#fd837b',
-                                                 backgroundColor:'#fd837b',
+                                                 borderColor: darkBlue,
+                                                 backgroundColor: darkBlue,
                                                  pointRadius: 5,
                                                  pointBorderColor:'#7e807e',
                                                  pointBorderwidth:1,
@@ -857,7 +847,7 @@ function buildChart (value) {
                 {
                     label: "Poultry",
                     data: agriVet7value,
-                    backgroundColor: yellow,
+                    backgroundColor: blue,
                     fill: true,
                 }
             ]
