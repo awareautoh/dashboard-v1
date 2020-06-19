@@ -1,8 +1,21 @@
 "use strict";
-//Color Shade
-const hhMainSourceIncomeColor = ["#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600"];
-const AnnualHHIncomeColor = ["#003f5c", "#7a5195", "#ef5675","#ffa600"];
-const maternalNutritionColor = ["#003f5c", "#bc5090", "#ffa600"];
+
+//Color shade
+const red = "#E2231A"; //UNICEF CODE BOOK COLOR
+const blue = "#1CABE2"; //UNICEF CODE BOOK COLOR
+const darkBlue = "#374EA2"; //UNICEF CODE BOOK COLOR
+const yellow = "#FFC20E"; //UNICEF CODE BOOK COLOR
+const orange = "#F26A21"; //UNICEF CODE BOOK COLOR
+const darkorange = "#806F37";
+const lightorange = "#FFDD6E";
+const green = "#00833D"; //UNICEF CODE BOOK COLOR
+const grey = "#bdbdbd";
+const darkGrey = "#777779"; //UNICEF CODE BOOK COLOR
+const purple = "#6A1E74";
+const colorSetLSISAreaChart = ["#FFAC4DB3", "#BF9C73B3", "#FFCF99B3", "#B37836B3", "#7F5626B3"];
+const colorSetLSISEducationChart = ["#C7C7EAB3", "#1739E5B3", "#0F2699B3", "#4455AAB3", "#5C73E5B3", "#0A1A66B3"];
+const colorSetLSISEthnicityChart = ["#39806EB3", "#BFFFEFB3", "#608078B3", "#5CCCB0B3", "#73FFDCB3"];
+const colorSetLSISWealthChart = ["#4C74A8B3", "#68A0E8B3", "#2F4869B3", "#6EA9F5B3", "#5D8ECFB3"];
 
 
 //File Path for import data
@@ -31,6 +44,14 @@ Promise.all([
     d3.csv(nssProvincePath),
 ]).then(buildChart);
 
+//*************************************/
+//Chart.js global config
+//*************************************/
+Chart.plugins.unregister(ChartDataLabels); //cogfig Chart.JS label pugin not to show label on all chart by default
+Chart.defaults.global.plugins.deferred.delay = 250; //Global set up for ChartJS plugin: deffer, delay transition: 500
+Chart.defaults.global.plugins.deferred.xOffset = "50%"; //Global set up for ChartJS plugin: deffer, 50% view point to activate plugin
+Chart.defaults.global.defaultFontFamily = "'Noto Sans', Helvetica, Arial, sans-serif, 'Noto Sans Lao', Phetsarath OT"; //set font family
+Chart.defaults.global.plugins.datalabels.color = '#fff';
 
 //**********************************/
 //Build Chart All ChartJS gose here

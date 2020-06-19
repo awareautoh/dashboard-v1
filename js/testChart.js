@@ -9,7 +9,7 @@ d3.csv(trendDataPath).then(buildTrendOverviewChart); //Read CSV file via D3JS Li
 
 function buildTrendOverviewChart(value) {
     //Set variable for import data
-    let importedValue = value.map(d => d["overview-stunting"]);
+    let importedValue = value.map(d => +d["overview-stunting"]);
     let importedYear = value.map(d => d.year);
 
 
@@ -33,7 +33,7 @@ function buildTrendOverviewChart(value) {
             return x(d.year)
         })
         .y(d => {
-            return y(d["overview-stunting"])
+            return y(+d["overview-stunting"])
         });
 
     //To filter the line for dash line and normal line
@@ -44,17 +44,7 @@ function buildTrendOverviewChart(value) {
         return d["noted"] === "f";
     });
 
-
     //draw a line
-    svg.append("path")
-        .datum(value)
-        .attr("fill", "none")
-        .attr("stroke-width", 2)
-        .attr("stroke", "#039245")
-        .attr("stroke-dasharray", "5, 5")
-        .attr("stroke-linejoin", "round")
-        .attr("stroke-linecap", "round")
-        .attr("d", line(b));
     svg.append("path")
         .datum(value)
         .attr("fill", "none")
@@ -63,6 +53,12 @@ function buildTrendOverviewChart(value) {
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round")
         .attr("d", line(a));
+    // svg.append("circle")
+    //     .datum(value)
+    //     .attr("fill", uBlue)
+    //     .attr("cx", d => x(d.year))
+    //     .attr("cy", d => { return y(d["overview-stunting"]) })
+    //     .attr("r", 5);
 
 
     //Create Axis line
@@ -86,7 +82,7 @@ function buildTrendOverviewChart(value) {
         .call(yAxis);
 
     //Create a tooltip
-    let tooltip2 = d3.select(".tab-content").append("div")
+    let tooltip2 = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
 
@@ -102,10 +98,10 @@ function buildTrendOverviewChart(value) {
         .selectAll("text")
         .data(value)
         .join("text")
-        .text(d => `${d["overview-stunting"]}~${d.source}`)
+        .text(d => `${d["overview-stunting"]}`)
         .attr("dy", "0.35em")
         .attr("x", d => x(d.year))
-        .attr("y", d => y(d["overview-stunting"]))
+        .attr("y", d => y(+d["overview-stunting"]))
         .clone(true).lower()
         .attr("fill", "none")
         .attr("stroke", "white")
@@ -149,8 +145,8 @@ function buildProvinceOverviewChart(value) {
             datasets: [{
                 label: 'trend',
                 data: importedValue,
-                backgroundColor: blue,
-                hoverBackgroundColor: darkBlue,
+                backgroundColor: uBlue,
+                hoverBackgroundColor: uDarkBlue,
                 borderWidth: 0,
             },]
         },
@@ -192,9 +188,9 @@ $(document).ready(function () {
     //Set Scale
     let colorScale = d3.scaleThreshold()
         .domain([0, 0.025, 0.10, 0.20, 0.30])
-        .range(["#fafafa", "#0091ea", "#00c853", "#ffd600", "#ff6d00", "#d50000"]);
+        .range([uGrey, uGreen, uLightGreen, uYellow, uBlue, uDarkBlue]);
     //Set tooltips
-    let tooltip1 = d3.select(".tab-content").append("div")
+    let tooltip1 = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
 
@@ -211,10 +207,9 @@ $(document).ready(function () {
     function creatMapOverview(value) {
         let lao = value[0];
         let testStunting = value[1];
-        console.log(testStunting);
         //Import Map Topojson type as Geojson structure
         let myMap = topojson.feature(lao, lao.objects.LAO_ADM1);
-        //Set porjection map type
+        //Set projection map type
         let projection = d3.geoMercator()
             .fitSize([400, 400], myMap); //Auto fit SVG refer to svg set at HTML
 
@@ -243,9 +238,7 @@ $(document).ready(function () {
 
         //Draw a line border for each province
         svg.append("path")
-            .datum(topojson.mesh(lao, lao.objects.LAO_ADM1, function (a, b) {
-                return a !== b;
-            }))
+            .datum(topojson.mesh(lao, lao.objects.LAO_ADM1))
             .attr("class", "mapBorder")
             .attr("d", d3.geoPath().projection(projection));
 
@@ -255,7 +248,7 @@ $(document).ready(function () {
             .attr("transform", "translate(0,250)")
             .append(() => legend({
                 color: d3.scaleThreshold(["<2.5", "2.5", "10", "20", ">=30"],
-                    ["#0091ea", "#00c853", "#ffd600", "#ff6d00", "#d50000"]),
+                    [uGreen, uLightGreen, uYellow, uBlue, uDarkBlue]),
                 title: "WHO Classification, 2017 (%)",
                 width: 190
             }));
@@ -328,17 +321,17 @@ function generateResult(input) { //this function get the input from the id of on
                 //Set Color scale
                 let colorScale = d3.scaleThreshold()
                     .domain([0, 0.025, 0.10, 0.20, 0.30])
-                    .range(["#fafafa", "#0091ea", "#00c853", "#ffd600", "#ff6d00", "#d50000"]);
+                    .range([uGrey, uGreen, uLightGreen, uYellow, uBlue, uDarkBlue]);
 
                 //Set tooltips
-                let tooltip2 = d3.select(".tab-content").append("div")
+                let tooltip2 = d3.select("body").append("div")
                     .attr("class", "tooltip")
                     .style("opacity", 0);
                 //Import Map Topojson type as Geojson structure
                 let myMap = topojson.feature(lao, lao.objects.LAO_ADM1);
                 //Set projection map type
                 let projection = d3.geoMercator()
-                    .fitSize([320, 320], myMap); //Auto fit SVG refer to svg set at HTML
+                    .fitSize([400, 400], myMap); //Auto fit SVG refer to svg set at HTML
 
                 //Draw a graph use "g" because draw multiple path in one time
                 svg.selectAll("path").remove();
@@ -365,9 +358,7 @@ function generateResult(input) { //this function get the input from the id of on
 
                 //Draw a line border for each province
                 svg.append("path")
-                    .datum(topojson.mesh(lao, lao.objects.LAO_ADM1, function (a, b) {
-                        return a !== b;
-                    }))
+                    .datum(topojson.mesh(lao, lao.objects.LAO_ADM1))
                     .attr("class", "mapBorder")
                     .attr("d", d3.geoPath().projection(projection));
             } else { //If no color cut off specific
@@ -376,7 +367,7 @@ function generateResult(input) { //this function get the input from the id of on
                     .domain([d3.min(rawDataFromCSV), d3.max(rawDataFromCSV)])
                     .range(d3.schemeBlues[4]);
                 //Set tooltips
-                let tooltip2 = d3.select(".tab-content").append("div")
+                let tooltip2 = d3.select("body").append("div")
                     .attr("class", "tooltip")
                     .style("opacity", 0);
                 //Import Map Topojson type as Geojson structure
@@ -410,9 +401,7 @@ function generateResult(input) { //this function get the input from the id of on
 
                 //Draw a line border for each province
                 svg.append("path")
-                    .datum(topojson.mesh(lao, lao.objects.LAO_ADM1, function (a, b) {
-                        return a !== b;
-                    }))
+                    .datum(topojson.mesh(lao, lao.objects.LAO_ADM1))
                     .attr("class", "mapBorder")
                     .attr("d", d3.geoPath().projection(projection));
             }
@@ -452,7 +441,7 @@ function generateResult(input) { //this function get the input from the id of on
                     .attr("transform", "translate(0,250)")
                     .append(() => legend({
                         color: d3.scaleThreshold(["<2.5", "2.5", "10", "20", ">=30"],
-                            ["#0091ea", "#00c853", "#ffd600", "#ff6d00", "#d50000"]),
+                            [uGreen, uLightGreen, uYellow, uBlue, uDarkBlue]),
                         title: "WHO Classification, 2017 (%)",
                         width: 190
                     }));
@@ -500,21 +489,20 @@ function generateResult(input) { //this function get the input from the id of on
             return d["noted"] === "f";
         });
 
+        console.log(value);
 
         //draw a line
         svg.selectAll("path").remove();
-        svg.append("path")
+        svg.append("circle")
             .datum(value)
             .join()
             .transition()
             .duration(2000)
-            .attr("fill", "none")
-            .attr("stroke-width", 2)
-            .attr("stroke", "#039245")
-            .attr("stroke-dasharray", "5, 5")
-            .attr("stroke-linejoin", "round")
-            .attr("stroke-linecap", "round")
-            .attr("d", line(b));
+            .attr("fill", uBlue)
+            .attr("stroke", "none")
+            .attr("cx", d => d.year)
+            .attr("cy", d => d[currentActive])
+            .attr("r", 5);
         svg.append("path")
             .datum(value)
             .join()
@@ -567,7 +555,7 @@ function generateResult(input) { //this function get the input from the id of on
             .selectAll("text")
             .data(value)
             .join("text")
-            .text(d => `${d[currentActive]}~${d.source}`)
+            .text(d => `${d[currentActive]}`)
             .attr("dy", "0.35em")
             .attr("x", d => x(d.year))
             .attr("y", d => y(d[currentActive]))
@@ -617,8 +605,8 @@ function generateResult(input) { //this function get the input from the id of on
                         datasets: [{
                             label: 'trend',
                             data: importedValue,
-                            backgroundColor: blue,
-                            hoverBackgroundColor: darkBlue,
+                            backgroundColor: uBlue,
+                            hoverBackgroundColor: uDarkBlue,
                             borderWidth: 0,
                         },]
                     },

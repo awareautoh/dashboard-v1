@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentinel Survey-NIPN Dashboard V1.1</title>
+    <meta name="title" content="NIPN Lao PDR Dashboard"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="images/nipn-favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--    <link rel="stylesheet" type="text/css" href="css/main.css">-->
+    <!-- Google jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/language.js"></script> <!-- Script for multi language -->
+    <!-- BS CSS -->
+    <link rel="stylesheet" href="js/bootstrap-4/css/bootstrap.min.css">
+    <script src="js/bootstrap-4/js/bootstrap.bundle.min.js"></script>
+    <script src="js/load.js"></script>
+    <!-- BS OPT THEME -->
+    <!--Add Awesome font for icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <!--ChartJS Library-->
+    <script src="js/Chart293.min.js"></script>
+    <!--ChartJS Label Library-->
+    <script src="js/chartjs-plugin-datalabels.js"></script>
+    <!-- Import plugin for to show annotation on Chart.js -->
+    <script src="js/chartjs-plugin-annotation.min.js"></script>
+    <!--Load ChartJS plugin: Annotation from local-->
+    <script src="js/chartjs-plugin-deferred.min.js"></script>
+    <!--Load ChartJS plugin: defer transition from local-->
+    <script src="js/d3.v5.min.js"></script>
+    <script src="js/d3_legend.js"></script> <!-- Import script for add legend to map -->
+    <script src="js/d3-sankey.min.js"></script>  <!-- Add Sankey D3JS -->
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+    <!-- Import TopoJSON to read topoJSON Map file -->
+
+    <style>
+        /* Add Initial CSS Here */
+    </style>
+</head>
+<body onload="modal()">
+<!--  activate spinner   here -->
+<div class="modal fade bd-example-modal-lg" data-backdrop="static" data-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" style="width: 48px">
+            <span class="fa fa-spinner fa-spin fa-3x"></span>
+        </div>
+    </div>
+</div>
+<!--    End spinner                -->
+<!--Header-->
+<header id="content-header">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" id="navBarTop">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/nipn-favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <img src="images/laos.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                NIPN Dashboard
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarList"
+                    aria-controls="navBarList" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navBarList">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" id="home-tab" href="/index.html"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="national-profile-tab" href="/national-profiles.html"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="dhis-tab" href="routine-monitoring.html"></a>
+                    </li>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkSurvey" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            More Data
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkSurvey">
+                            <a class="dropdown-item active" id="sentinelSurvey-tab" href="sentinel-survey.html" ></a>
+                            <a class="dropdown-item" id="agricultureCensus-tab" href="agriculture-census.html"></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkNIPN" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About NIPN
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkNIPN">
+                            <a class="dropdown-item" id="data-repository-link" href="https://nipn.cdr.gov.la/repository/"></a>
+                            <a class="dropdown-item" id="about-nipn-link" href="https://nipn.cdr.gov.la"></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="lang-option-list">
+                <a href="">
+                    <img id='button-en-lang' src="images/uk.png" width="30" height="30" alt="English">
+                </a>
+                <a href="">
+                    <img id='button-la-lang' src="images/laos.png" width="30" height="30" alt="ພາສາລາວ">
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+<!--END Header-->
+
+<!--Content-->
+
+<!--
+            *******************************************
+            Start NSS Tab
+            *******************************************
+        -->
+<div class="container" id="content-container">
+    <script src="js/nssChart.js"></script>
+    <!-- Start Section 1: Socio Demographic -->
+    <div class="row">
+        <div class="col-lg-12 mt-4">
+            <div class="card sectionHeader">
+                <h2>
+                    Socio Demographic
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 mt-4">
+            <div class="cardChart">
+                <h3 class="topic" style="padding-top: 10px;">
+                    Household Main Source Income
+                    <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
+                </h3>
+                <div style="position: relative; display: block; height: 360px; width: auto;">
+                    <canvas id="nssHHMainSourceIncome"></canvas>
+                </div>
+                <h3 class="topic" style="padding-top: 10px;">
+                    Annual Household Income
+                    <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
+                </h3>
+                <div style="position: relative; display: block; height: 360px; width: auto;">
+                    <canvas id="nssAnnualHHIncome"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Section 2: WASH -->
+    <div class="row">
+        <div class="col-lg-12 mt-4">
+            <div class="card sectionHeader">
+                <h2>WASH</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mt-4">
+            <div class="cardChart">
+                <h3 class="topic" style="padding-top: 10px;">
+                    Open Defecation
+                    <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
+                </h3>
+                <div style="position: relative; display: block; height: 360px; width: auto;">
+                    <svg id="nssOpenDefecation" style="width: 100%; height: 100%; display: block; margin: auto;"
+                         viewBox="0 0 360 360"></svg>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-4">
+            <div class="cardChart">
+                <h3 class="topic" style="padding-top: 10px;">
+                    Incidence of Diarrhoeal Disease
+                    <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
+                </h3>
+                <div style="position: relative; display: block; height: 360px; width: auto;">
+                    <svg id="nssDiarrhoeal" style="width: 100%; height: 100%; display: block; margin: auto;"
+                         viewBox="0 0 360 360"></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Section 3: IYCF -->
+    <div class="row">
+        <div class="col-lg-12 mt-4">
+            <div class="card sectionHeader">
+                <h2>IYCF</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mt-4">
+            <div class="cardChart">
+                <h3 class="topic" style="padding-top: 10px;">
+                    Minimum Acceptable Diet
+                    <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
+                </h3>
+                <div style="position: relative; display: block; height: 360px; width: auto;">
+                    <canvas id="nssMiniAcceptDiet"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-4">
+            <div class="cardChart">
+                <h3 class="topic" style="padding-top: 10px;">
+                    Vitamin A Supplementation
+                    <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
+                </h3>
+                <div style="position: relative; display: block; height: 360px; width: auto;">
+                    <canvas id="nssVitaminA"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start section 4: Maternal Nutrition -->
+    <div class="row">
+        <div class="col-lg-12 mt-4">
+            <div class="card sectionHeader">
+                <h2>Maternal Nutrition</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 mt-4">
+            <div class="cardChart">
+                <h3 class="topic" style="padding-top: 10px;">
+                    Status of Women (BMI)
+                    <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
+                </h3>
+                <div style="position: relative; display: block; height: 360px; width: auto;">
+                    <canvas id="nssWomenBMI"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start section 5: Mulnutrition Nutrition -->
+    <div class="row">
+        <div class="col-lg-12 mt-4">
+            <div class="card sectionHeader">
+                <h2>Child Mulnutrition</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 mt-4">
+            <div class="card">
+                <div id="toolbarLSIS" style="text-align: center;">
+                    <button type="button" id='lsisStuntingButton' class="btn btn-outline-primary"
+                            aria-pressed="true" data-toggle="button"
+                            style="margin: 10px 5px 15px 5px; display: inline-block;">Stunting
+                    </button>
+                    <button type="button" id='lsisWastingButton' class="btn btn-outline-primary"
+                            data-toggle="button"
+                            style="margin: 10px 5px 15px 5px; display: inline-block;">Wasting
+                    </button>
+                    <button type="button" id='lsisUnderweightButton' class="btn btn-outline-primary"
+                            data-toggle="button"
+                            style="margin: 10px 5px 15px 5px; display: inline-block;">Underweight
+                    </button>
+                </div>
+                <div style="position: relative; display: block; height: 360px; width: auto;">
+                    <canvas id="nssChildMulnutrition"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Start section 6: Food Security -->
+    <div class="row">
+        <div class="col-lg-12 mt-4">
+            <div class="card sectionHeader">
+                <h2>Household Food Security</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 mt-4">
+            <div class="cardChart">
+                <h3 class="topic" style="padding-top: 10px;">
+                    Household Food Insecurity
+                    <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
+                </h3>
+                <div style="position: relative; display: block; height: 360px; width: auto;">
+                    <canvas id="nssHHFoodInsecurity"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end Sentinel Survey -->
+
+<!--END Content-->
+
+<!--Footer-->
+<div class="container-fluid" id="content-footer">
+    <div class="row mt-4">
+        <div class="card col-lg-12" id="support-header">
+            <div id="supportHeaderText" class="card-body text-center align-middle text-muted bg-white">
+                <h1>
+                    Supported By:
+                </h1>
+            </div>
+        </div>
+        <div class="card col-lg-4 col-md-4" id="support-laogov-logo">
+            <img id="laoGovLogo" src="images/Lao_Government_logo.png">
+        </div>
+        <div class="card col-lg-4 col-md-4" id="support-eu-logo">
+            <img id="euLogo" src="images/EU_logo.png">
+        </div>
+        <div class="card col-lg-4 col-md-4" id="support-unicef-logo">
+            <img id="unicefLogo" src="images/UNICEF_logo_2.png">
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="background-color: #F7F8FA;">
+    <div class="footerclass">
+        <div class="container">
+            <div class="row" style="margin-top:10px;">
+                <div class="col-sm-7" id="copyright-logo">
+                    <img src="https://cdr.gov.la/wp-content/uploads/2020/02/CDR-LOGO-OFFICIAL-300x205.png"
+                         width="128px"/>
+                    <img src="images/logo_nipn_en.png"
+                         width="128px"/>
+                </div>
+                <div class="col-sm-5" id="copyright-text">
+                    <p>
+                        <span class="footerHead">Centre for Development Policy Research</span> <br/><br>
+                        <span class="footerTxt">Fifth floor (new building) of Ministry of Planning and Investment.<br/>
+                   Souphanouvong Avenue, Sithan neua Village, Sikottabong District, Vientiane Capital</span><br/><br/>
+                        contact@cdr.gov.la <br/><br/>
+                        <a href="https://www.facebook.com/CDRMPI" target="_blank"><i class="fab fa-facebook fa-3x"></i></a>
+                    </p>
+                </div>
+            </div>
+            <hr/>
+            <div class="row" style="margin-bottom:10px;">
+                <div class="col-sm-7">
+                    <span class="footerSMS">Copyright © <?php echo date("Y"); ?>
+                        Center for Development Policy Research</span>
+                </div>
+                <div class="col-sm-5">
+                    <span class="footerSMS">Privacy Policy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Footer -->
+</body>
+</html>

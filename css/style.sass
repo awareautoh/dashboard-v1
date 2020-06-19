@@ -1,0 +1,267 @@
+$font-default: 'Noto Sans', Helvetica, Arial, sans-serif, 'Noto Sans Lao', Phetsarath OT
+$uBlue: #1CABE2 //UNICEF CODE BOOK COLOR
+$uGreen: #00833D //UNICEF CODE BOOK COLOR
+$uLightGreen: #80BD41 //UNICEF CODE BOOK COLOR
+$uYellow: #FFC20E //UNICEF CODE BOOK COLOR
+$uOrange: #F26A21 //UNICEF CODE BOOK COLOR
+$uRed: #E2231A //UNICEF CODE BOOK COLOR
+$uDarkRed: #961A49 //UNICEF CODE BOOK COLOR
+$uPurple: #6A1E74 //UNICEF CODE BOOK COLOR
+$uGrey: #D8D1C9 //UNICEF CODE BOOK
+$uDarkGrey: #777779 //UNICEF CODE BOOK COLOR
+$uBlack: #2D2926 //UNICEF CODE BOOK COLOR
+$uDarkBlue: #374EA2 //UNICEF CODE BOOK COLOR
+/*Spinner*/
+.bd-example-modal-lg .modal-dialog
+  display: table
+  position: relative
+  margin: 0 auto
+  top: calc(50% - 24px)
+
+.bd-example-modal-lg .modal-dialog .modal-content
+  background-color: transparent
+  border: none
+
+/*Customize Nav bar and Body*/
+body
+  padding-top: 4rem
+  font-family: $font-default !important
+
+#navBarTop
+  font-size: 1rem
+  min-height: 80px
+#navBarList
+  .navbar-nav
+    .nav-item.active, .nav-item.dropdown.active
+      border-bottom: 5px solid $uBlue
+    .nav-item, .nav-item.dropdown.active
+      &:hover
+        transition: 100ms
+        border-bottom: 5px solid $uBlue
+
+/*Customize Card*/
+.card
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+  height: 100%
+  width: 100%
+  border-radius: 0 !important
+  border: 0 !important
+
+.cardChart
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+  transition: 0.3s
+  height: 100%
+  width: 100%
+
+.footer-fixed-bottom-wrap
+  width: 100%
+  height: auto
+  z-index: 1000 !important
+  bottom: 0
+  margin-top: 5px
+
+
+.footer-fixed-bottom
+  text-align: center
+  background: #efefef
+
+
+.footer-fixed-bottom > .copyright
+  margin: 0
+  padding: 25px
+
+
+.footer-fixed-bottom > .btn
+  border-radius: 0
+
+
+/* box shadow on the top menu */
+.bg-light
+  box-shadow: 3px 3px 3px #aaa
+
+/* top header */
+
+.header-fixed-bottom-wrap
+  width: 100%
+  height: auto
+  z-index: 1000 !important
+  bottom: 0
+  text-align: right
+
+
+.header-fixed-bottom
+  text-align: right
+  background: #efefef
+  padding: 15px
+
+
+.header-fixed-bottom > .copyright
+  margin: 0
+  padding: 25px
+  box-shadow: 10px 10px 5px #888
+
+
+.header-fixed-bottom > .btn
+  border-radius: 0
+
+
+/* Map Chart Customize*/
+.mapBorder
+  fill: none
+  stroke: #eee
+  pointer-events: none
+
+/* Modified Map Tooltip */
+div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus
+  position: absolute
+  text-align: center
+  width: 100px
+  height: 30px
+  padding: 2px
+  font: 12px sans-serif
+  background: #fff
+  border: 0
+  pointer-events: none
+
+
+/* Main header of the graph*/
+/* Nutrition Overview*/
+#overview-table-card
+  height: 600px
+  padding: 1.2rem
+
+/*Card for Section Header*/
+.card.sectionHeader
+  background-color: #1CABE2
+  height: auto
+  color: #fff
+  h2
+    padding: 10px
+    text-align: center
+
+.topic
+  padding: 10px
+  text-align: center
+  color: $uDarkGrey
+  font-weight: bold
+
+/* Customize Draw Chart Area for ChartJS Canvas Tag */
+.drawChart
+  position: relative
+  display: block
+  height: 360px
+  width: 100%
+
+
+/*Customize Footer Logo*/
+#supportHeaderText
+   backgroud-color: #F7F8FA !important
+
+#euLogo, #unicefLogo, #laoGovLogo
+   max-width: 10rem
+
+#footer-copyright
+   height: 30vh
+   padding: 0
+   background-color: #173C78 !important
+
+#textCopyright
+   margin-top: 0 !important
+   margin-bottom: 0 !important
+ 
+
+//Customize the Supporter Logo Footer
+#support-laogov-logo, #support-eu-logo, #support-unicef-logo
+ box-shadow: none
+ padding: 50px
+ height: 30vh
+ align-items: center
+
+#lang-option-list
+  a
+    color: #fff
+  &:hover
+    text-decoration: none
+ 
+
+/*footer class*/
+.footerclass
+   background-color: #F7F8FA
+   bottom: 0
+   width: 100%
+   display: inline-block
+   min-height: 300px
+   margin-top: 30px
+   padding: 0
+   text-align: left
+ 
+#copyright-text
+  p
+    text-align: left
+ 
+.footerHead
+   font-size: 14px
+   line-height: 21px
+   font-weight: 600
+   color: #2d2d2b
+
+.footerTxt
+   font-size: 14px
+   line-height: 21px
+   font-weight: 400
+   color: #2d2d2b
+
+.footerSMS
+   font-size: 11px
+   line-height: 10px
+   color: #8E8F8F
+
+.fab
+   color: #9399A5
+
+
+/* To config ChatJS Size by config Class name, please add this to desire class to global config for ChartJS */
+.chartJS
+   position: relative
+   display: block
+   height: 360px
+   width: auto
+ 
+
+/* The CSS for TEST */
+
+/* Table Row Green Highlight */
+/*Add Darkgreen color to th and td tag*/
+#header-overview-table
+  tr
+    color: $uDarkGrey
+    text-align: center
+    th:first-of-type
+      width: 20rem
+#overview-table-content
+  font-size: 14px
+
+tr.greenTag > th, tr.greenTag > td:first-of-type
+  color: #039245
+  width: 20rem
+
+/*Add red color to th and td tag*/
+tr.redTag > th, tr.redTag > td:first-of-type
+  color: #ea5771
+  width: 20rem
+
+/*Add red color to th and td tag*/
+tr.yellowTag > th, tr.yellowTag > td:first-of-type
+  color: #ecb800
+  width: 20rem
+
+
+/*Add Grey colour to the third column of the table*/
+tr.greenTag > td:nth-child(3), tr.redTag > td:nth-child(3), tr.yellowTag > td:nth-child(3)
+  color: gray
+  width: 5rem
+
+.tableLegend
+  color: $uDarkGrey
+  font-size: 0.8rem
+/* END TEST CSS */

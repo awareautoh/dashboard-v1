@@ -15,7 +15,7 @@ function getLanguage() {
         $('#national-profile-tab').text(language["national-profile"]);
         $('#sentinelSurvey-tab').text(language["sentinelSurvey"]);
         $('#dhis-tab').text(language["dhis"]);
-        $('#agricultureCencus-tab').text(language["agricultureCencus"]);
+        $('#agricultureCensus-tab').text(language["agricultureCensus"]);
         $('#data-repository-link').text(language["data-repository-link"]);
         $('#about-nipn-link').text(language["about-nipn-link"]);
 

@@ -3,9 +3,9 @@
   "national-profile": "National Profiles",
   "sentinelSurvey": "SENTINEL SURVEY",
   "dhis": "Routine Monitoring",
-  "agricultureCencus": "AGRICULTURE CENCUS",
+  "agricultureCensus": "AGRICULTURE CENSUS",
   "data-repository-link": "Data Repository",
-  "about-nipn-link": "About NIPN",
+  "about-nipn-link": "NIPN Homepage",
   "overviewOfNutrition": "Overview of Nutrition",
   "textCardIcon1": "Exclusive breastfeeding under 6 months",
   "textCardIcon2": "Underweight prevalence",
@@ -18,8 +18,8 @@
   "overviewWastingButton": "Sort Wasting",
   "overviewOverweightButton": "Sort Overweight",
   "overviewResetButton": "Reset",
-  "textHeaderWomenUndernutrition": "Women Undernutrition",
+  "textHeaderWomenUndernutrition": "Women Under Nutrition",
   "textHeaderPrevalenceOfOverweightAndObesity": "Prevalence of Overweight and Obesity",
-  "textSec2Header": "Immediate determinants of Undernutrition",
+  "textSec2Header": "Immediate determinants of Under Nutrition",
   "infantAndYoungChildFeedingPractices": "Infant and Young Child Feeding Practices"
 }

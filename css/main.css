@@ -19,7 +19,7 @@
      border: none;
  }
 
- /*Customize Navbar and Body*/
+
  body {
      padding-top: 3.2rem;  /*Prevent overlapping between NavBar and Body*/
      font-family: Helvetica, Arial, sans-serif,'Noto Sans', 'Noto Sans Lao', Phetsarath OT !important;
