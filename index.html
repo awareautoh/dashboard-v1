@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>NIPN Dashboard V1.1</title>
-    <meta charset="utf-8">
     <meta name="title" content="NIPN Lao PDR Dashboard"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/png" href="images/nipn-favicon.png"/>
@@ -28,10 +28,10 @@
     <script src="js/chartjs-plugin-deferred.min.js"></script>
     <!--Load ChartJS plugin: defer transition from local-->
     <script src="js/d3.v5.min.js"></script>
-    <script src="js/d3_legend.js"></script> <!-- Import script for add legend to map -->
-    <script src="js/d3-sankey.min.js"></script>  <!-- Add Sankey D3JS -->
-    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+    <!-- Import script for add legend to map -->
+    <script src="js/d3_legend.js"></script>
     <!-- Import TopoJSON to read topoJSON Map file -->
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
 
     <style>
         /* Add Initial CSS Here */
@@ -110,7 +110,7 @@
     </nav>
 </header>
 <div class="container" id="content-container">
-    <script src="js/allcharts.js"></script>
+<!--    Section Overview of Nutrition-->
     <div class="row mt-5">
         <div class="col-lg-12">
             <div class="card sectionHeader">
@@ -285,18 +285,26 @@
                                role="tab"
                                aria-controls="contact" aria-selected="false">Map</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="table-tab" data-toggle="tab" href="#tableTab"
+                               role="tab"
+                               aria-controls="contact" aria-selected="false">Table</a>
+                        </li>
                     </ul>
                 </div>
                 <div id="contentOfNavBarOverviewCard">
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="lineTab" role="tabpanel"
                              aria-labelledby="nav-home-tab" style="padding: 1rem;">
-                            <div id="drawLineChart"
-                                 style="position: relative; display: block; height: 460px; width: auto;">
-                                <svg id="lineChartForOverviewCard"
-                                     style="width: 100%; height: 100%; display: block; margin: auto;"
-                                     viewBox="0 0 440 440">
-                                </svg>
+                            <!--                            <div id="drawLineChart"-->
+                            <!--                                 style="position: relative; display: block; height: 460px; width: auto;">-->
+                            <!--                                <svg id="lineChartForOverviewCard"-->
+                            <!--                                     style="width: 100%; height: 100%; display: block; margin: auto;"-->
+                            <!--                                     viewBox="0 0 440 440">-->
+                            <!--                                </svg>-->
+                            <!--                            </div>-->
+                            <div class="drawChart" id="drawLineChart">
+                                <canvas id="overview-trend-line-chart"></canvas>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="barTab" role="tabpanel"
@@ -314,6 +322,22 @@
                                      style="width: 100%; height: 100%; display: block; margin: auto;"
                                      viewBox="0 0 400 400">
                                 </svg>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tableTab" role="tabpanel"
+                             aria-labelledby="nav-contact-tab" style="padding: 1rem;">
+                            <div id="drawTableChart"
+                                 style="position: relative; display: block; height: 460px; width: auto;">
+                                <table class="table table-striped" id="overview-data-table">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Province</th>
+                                        <th scope="col">2017</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="overview-data-table-content">
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -354,23 +378,26 @@
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card">
-                <h3 class="topic pt-3">
-                    <sec id="textTitleChildMalnutrition"></sec>
-                    <div class="dropup" style="text-align: right; float: right;">
+                <div class="card-title">
+                    <h3 class="topic pt-3">
+                        <sec id="textTitleChildMalnutrition"></sec>
+                    </h3>
+                    <div class="download-box">
                         <button class="btn btn-outline-primary" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bars"></i>
+                            <i class="fas fa-info-circle"></i>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                             style="right: 0; left: initial;">
+                            <li><a class="dropdown-item" href="#" id="metadata-info">
+                                Metadata</a></li>
                             <li><a class="dropdown-item" href="#" id="wastingAndOverweightChartPNGDownload"
                                    download="chart.png"></a></li>
                             <li><a class="dropdown-item" href="#"
                                    id="wastingAndOverweightChartDataDownload"></a></li>
                         </ul>
                     </div>
-                </h3>
-
+                </div>
                 <div class="drawChart">
                     <canvas id="wastingAndOverweightChart"></canvas>
                 </div>
@@ -412,6 +439,40 @@
         <div class="col-lg-12 mt-4">
             <div class="card sectionHeader">
                 <h2 id="textSec2Header"></h2>
+            </div>
+        </div>
+        <div class="col-lg-12 mt-4">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="cardChart">
+                        Col 1
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="cardChart">
+                        Col 2
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="cardChart">
+                        Col 3
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="cardChart">
+                        Col 4
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="cardChart">
+                        Col 5
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="cardChart">
+                        Col 6
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-lg-6 mt-4">
@@ -481,7 +542,6 @@
         </div>
     </div>
     <!-- Section 3: Which nutrition-specific interventions are implemented? -->
-
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card sectionHeader">
@@ -571,13 +631,13 @@
             </div>
         </div>
         <div class="card col-lg-4 col-md-4" id="support-laogov-logo">
-            <img id="laoGovLogo" src="images/Lao_Government_logo.png">
+            <img id="laoGovLogo" src="images/Lao_Government_logo.png" alt="">
         </div>
         <div class="card col-lg-4 col-md-4" id="support-eu-logo">
-            <img id="euLogo" src="images/EU_logo.png">
+            <img id="euLogo" src="images/EU_logo.png" alt="">
         </div>
         <div class="card col-lg-4 col-md-4" id="support-unicef-logo">
-            <img id="unicefLogo" src="images/UNICEF_logo_2.png">
+            <img id="unicefLogo" src="images/UNICEF_logo_2.png" alt="">
         </div>
     </div>
 </div>
@@ -587,9 +647,9 @@
             <div class="row" style="margin-top:10px;">
                 <div class="col-sm-7" id="copyright-logo">
                     <img src="https://cdr.gov.la/wp-content/uploads/2020/02/CDR-LOGO-OFFICIAL-300x205.png"
-                         width="128px"/>
+                         width="128px" alt=""/>
                     <img src="images/logo_nipn_en.png"
-                         width="128px"/>
+                         width="128px" alt=""/>
                 </div>
                 <div class="col-sm-5" id="copyright-text">
                     <p>
@@ -615,7 +675,10 @@
     </div>
 </div>
 <!-- END Footer -->
+
+
 <!-- The script of overview tab -->
+<script src="js/allcharts.js"></script>
 <script src="js/testChart.js"></script>
 </body>
 </html>

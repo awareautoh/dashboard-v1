@@ -5,7 +5,7 @@
   Created date: 29 Nov 2019
   The national platforms for Nutrition project Lao PDR
   Data Analysis Unit, Center for Development Policy Research
-  Ministry of Planning and Inestment
+  Ministry of Planning and Investment
 
 */
 
@@ -61,7 +61,7 @@ Chart.defaults.global.plugins.datalabels.color = '#fff';
 
 
 //**********************************/
-//Build Chart All ChartJS gose here
+//Build Chart All ChartJS goes here
 //*********************************/
 function buildChart(value) {
     const wasting = value[0];
@@ -80,21 +80,21 @@ function buildChart(value) {
     //*******************************/
     //---Wasting Chart---
     //Create a sub data from main file (sorting list)
-    let wastingSort = wasting.slice().sort((a, b) => a.ValueWasting - b.ValueWasting);
-    let overWeightSort = wasting.slice().sort((a, b) => a.ValueOverWeight - b.ValueOverWeight);
+    let wastingSort = wasting.slice().sort((a, b) => a["ValueWasting"] - b["ValueWasting"]);
+    let overWeightSort = wasting.slice().sort((a, b) => a["ValueOverWeight"] - b["ValueOverWeight"]);
     //Create Variable by Stat index
-    let provinceW = wasting.map(d => d.Province);
-    let valueW = wasting.map(d => d.ValueWasting);
-    let provinceO = wasting.map(d => d.Province);
-    let valueO = wasting.map(d => d.ValueOverWeight);
+    let provinceW = wasting.map(d => d["Province"]);
+    let valueW = wasting.map(d => d["ValueWasting"]);
+    let provinceO = wasting.map(d => d["Province"]);
+    let valueO = wasting.map(d => d["ValueOverWeight"]);
     //Sorted Variable for Wasting
-    let provinceWSort = wastingSort.map(d => d.Province);
-    let valueWSort = wastingSort.map(d => d.ValueWasting);
-    let valueOByWSort = wastingSort.map(d => d.ValueOverWeight);
+    let provinceWSort = wastingSort.map(d => d["Province"]);
+    let valueWSort = wastingSort.map(d => d["ValueWasting"]);
+    let valueOByWSort = wastingSort.map(d => d["ValueOverWeight"]);
     //Sorted Variable for Overweight
-    let provinceOSort = overWeightSort.map(d => d.Province);
-    let valueOSort = overWeightSort.map(d => d.ValueWasting);
-    let valueSByOSort = overWeightSort.map(d => d.ValueOverWeight);
+    let provinceOSort = overWeightSort.map(d => d["Province"]);
+    let valueOSort = overWeightSort.map(d => d["ValueWasting"]);
+    let valueSByOSort = overWeightSort.map(d => d["ValueOverWeight"]);
     let getWastingAndOverweightChart = document.getElementById('wastingAndOverweightChart').getContext("2d");
     let wastingAndOverweightChart = new Chart(getWastingAndOverweightChart, {
         type: 'bar',
@@ -153,7 +153,7 @@ function buildChart(value) {
     ]
 
     //Function to highlight activated button and update data based on click button
-    $(document).ready(function () {
+    let highlightActivatedButton = () => {
         let toolbarOverview = document.getElementById("toolbarOverview");
         let btnClass = toolbarOverview.getElementsByClassName("btn btn-outline-primary");
 
@@ -165,13 +165,13 @@ function buildChart(value) {
 
         for (let i = 0; i < btnClass.length; i++) {
             btnClass[i].addEventListener("click", function () { //Add event to capture click
-                for (let j = 0; j < btnClass.length; j++) { //remove previous actived element
+                for (let j = 0; j < btnClass.length; j++) { //remove previous activated element
                     listOverviewButton.map(element => {
                         document.getElementById(element).classList.remove("active");
                     });
                 }
                 //this.classList.add("active"); //Add color highlight for activated button
-                //Update data for Child Mulnutrition Chart
+                //Update data for Child Malnutrition Chart
                 overviewTestChart.map(element => {
                     if (Object.keys(element) == btnClass[i].id) {
                         wastingAndOverweightChart.data.datasets[0].data = element[btnClass[i].id][0];
@@ -182,7 +182,8 @@ function buildChart(value) {
                 });
             });
         }
-    });
+    }
+    highlightActivatedButton();
 
 
 //---Women Under nutrition Chart---
@@ -240,8 +241,8 @@ function buildChart(value) {
     });
 
 //Creat Women Overweight and Obesity Chart
-    let valueWOverWeight = overWeightObese.map(d => d.ValueWomenOverWeight);
-    let valueWObese = overWeightObese.map(d => d.ValueObese);
+    let valueWOverWeight = overWeightObese.map(d => d["ValueWomenOverWeight"]);
+    let valueWObese = overWeightObese.map(d => d["ValueObese"]);
     let getWomenOverweightAndObese = document.getElementById('womenOverweightAndObese').getContext("2d");
     let womenOverweightAndObese = new Chart(getWomenOverweightAndObese, {
         type: 'bar',
@@ -699,9 +700,9 @@ function buildChart(value) {
 //---Section 4 Chart
 
 //--->Socio Status Chart
-    let socioStatusSort = socio.slice().sort((a, b) => b.ValueSocioStatus - a.ValueSocioStatus);
-    let valueSocio = socioStatusSort.map(d => d.ValueSocioStatus);
-    let nationalSocio = socioStatusSort.map(d => d.NationalSocioStatus);
+    let socioStatusSort = socio.slice().sort((a, b) => b["ValueSocioStatus"] - a["ValueSocioStatus"]);
+    let valueSocio = socioStatusSort.map(d => d["ValueSocioStatus"]);
+    let nationalSocio = socioStatusSort.map(d => d["NationalSocioStatus"]);
     let getSocioStatusChart = document.getElementById('socioStatusChart').getContext("2d");
     let socioStatusChart = new Chart(getSocioStatusChart, {
         type: 'bar',
@@ -756,12 +757,10 @@ function buildChart(value) {
             wastingAndOverweightChart.chart.data.datasets[1].label = 'ເດັກນໍ້າໜັກເກີນມາດຕະຖານ';
             drawVitAChart.chart.data.datasets[0].label = "ເປີເຊັນການປົກຫຸ້ມວິຕາມິນເອ";
         }
-        //console.log(drawVitAChart);
     }
-
     changeLanguage();
 
-};
+}
 
 //**********************************************/
 //END All ChartJS Section//
@@ -770,8 +769,8 @@ function buildChart(value) {
 //*******************************************
 //---Section Create Map**********************
 //*******************************************
-//Open Defaction Map
-$(document).ready(function () {
+//Open Defecation Map
+const defecationMap = () => {
     //Set variable map directory
     let mapDraw = ("map/LAO_ADM1.json");
     let openDefacePath = ("data/openDefaceMap.csv");
@@ -789,7 +788,7 @@ $(document).ready(function () {
     let openDefaceSort = d3.map();
     let promise = [
         d3.json(mapDraw),
-        d3.csv(openDefacePath, d => openDefaceSort.set(d.feature_id, +d.ValueOpenDaface))
+        d3.csv(openDefacePath, d => openDefaceSort.set(d.feature_id, +d["ValueOpenDaface"]))
     ];
 
     Promise.all(promise).then(creatMap);
@@ -798,8 +797,8 @@ $(document).ready(function () {
         let lao = value[0];
         //Draw a graph use "g" because draw multiple path in one time
         //Import Map Topojson type as Geojson structure
-        let openDefaceMap = topojson.feature(lao, lao.objects.LAO_ADM1);
-        //Set porjection map type
+        let openDefaceMap = topojson.feature(lao, lao.objects["LAO_ADM1"]);
+        //Set projection map type
         let projection = d3.geoMercator()
             .fitSize([320, 320], openDefaceMap);
 
@@ -829,7 +828,7 @@ $(document).ready(function () {
 
         //Draw a line border for each province
         svg.append("path")
-            .datum(topojson.mesh(lao, lao.objects.LAO_ADM1))
+            .datum(topojson.mesh(lao, lao.objects["LAO_ADM1"]))
             .attr("class", "mapBorder")
             .attr("d", d3.geoPath().projection(projection));
 
@@ -844,10 +843,10 @@ $(document).ready(function () {
                 width: 190
             }));
     }
-});
-
-//---->Women Status Map
-$(document).ready(function () {
+}
+defecationMap();
+//Women Status Map
+const womenStatusMap = () => {
     //Set variable map directory
     let mapDraw = ("map/LAO_ADM1.json");
     let womenStatusPath = ("data/womenStatusMap.csv");
@@ -866,7 +865,7 @@ $(document).ready(function () {
     let womenStatusSort = d3.map();
     let promise = [
         d3.json(mapDraw),
-        d3.csv(womenStatusPath, d => womenStatusSort.set(d.feature_id, +d.ValueWomenStatus))
+        d3.csv(womenStatusPath, d => womenStatusSort.set(d.feature_id, +d["ValueWomenStatus"]))
     ];
 
     Promise.all(promise).then(creatMap);
@@ -874,7 +873,7 @@ $(document).ready(function () {
     function creatMap(value) {
         let lao = value[0];
         //Set variable for import map data
-        let womenStatusMap = topojson.feature(lao, lao.objects.LAO_ADM1);
+        let womenStatusMap = topojson.feature(lao, lao.objects["LAO_ADM1"]);
         //Set porjection map type
         let projection = d3.geoMercator()
             .fitSize([320, 320], womenStatusMap);
@@ -919,10 +918,10 @@ $(document).ready(function () {
                 width: 190
             }));
     }
-});
-
+}
+womenStatusMap();
 //Stunting 2011 Map
-$(document).ready(function () {
+const stunting2011Map = () => {
     //Set variable map directory
     let mapDraw = ("map/LAO_ADM1.json");
     let stuntingData = ("data/stunting_map.csv");
@@ -951,7 +950,7 @@ $(document).ready(function () {
         let stunting = value[1];
         //Import Map Topojson type as Geojson structure
         let myMap = topojson.feature(lao, lao.objects.LAO_ADM1);
-        //Set porjection map type
+        //Set projection map type
         let projection = d3.geoMercator()
             .fitSize([320, 320], myMap); //Auto fit SVG refer to svg set at HTML
 
@@ -969,7 +968,7 @@ $(document).ready(function () {
                 tooltip1.transition()
                     .duration(200)
                     .style("opacity", .9);
-                tooltip1.html(d.properties.Name + '<br>' + 'value:' + d.properties.feature_id)
+                tooltip1.html(d.properties.Name + '<br>' + 'value: ' + d.properties.feature_id)
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 28) + "px");
             })
@@ -989,7 +988,7 @@ $(document).ready(function () {
         svg.append("g")
             .attr("transform", "translate(0,250)")
             .append(() => legend({
-                color: d3.scaleThreshold(["<2.5", "2.5", "10", "20", ">=30"],
+                color: d3.scaleThreshold(["<2.5", "10", "20", ">=30"],
                     [uGreen, uLightGreen, uYellow, uBlue, uDarkBlue]),
                 title: "WHO Classification, 2017 (%)",
                 width: 190
@@ -997,10 +996,10 @@ $(document).ready(function () {
 
 
     }
-});
-
+}
+stunting2011Map();
 //Stunting 2017 Map
-$(document).ready(function () {
+const stunting2017Map = () => {
     //Set variable map directory
     let mapDraw = ("map/LAO_ADM1.json");
     let stuntingData = ("data/stunting_map.csv");
@@ -1048,7 +1047,7 @@ $(document).ready(function () {
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .9);
-                tooltip.html(d.properties.Name + '<br>' + 'value:' + d.properties.feature_id)
+                tooltip.html(d.properties.Name + '<br>' + 'value: ' + d.properties.feature_id)
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 28) + "px");
             })
@@ -1068,7 +1067,7 @@ $(document).ready(function () {
         svg.append("g")
             .attr("transform", "translate(0,250)")
             .append(() => legend({
-                color: d3.scaleThreshold(["<2.5", "2.5", "10", "20", ">=30"],
+                color: d3.scaleThreshold(["<2.5", "10", "20", ">=30"],
                     [uGreen, uLightGreen, uYellow, uBlue, uDarkBlue]),
                 title: "WHO Classification, 2017 (%)",
                 width: 190
@@ -1076,7 +1075,8 @@ $(document).ready(function () {
 
 
     }
-});
+}
+stunting2017Map();
 //************************
 //END MAP SECTION*********
 //************************

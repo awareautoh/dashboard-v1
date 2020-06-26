@@ -22,12 +22,22 @@ body {
   min-height: 80px;
 }
 
-#navBarList .navbar-nav .nav-item.active, #navBarList .navbar-nav .nav-item.dropdown.active {
-  border-bottom: 5px solid #1CABE2;
+#navBarList .navbar-nav .nav-item.active {
+  border-bottom: 3px solid #1CABE2;
 }
-#navBarList .navbar-nav .nav-item:hover, #navBarList .navbar-nav .nav-item.dropdown.active:hover {
+#navBarList .navbar-nav .nav-item.active a {
+  font-weight: bold;
+  color: #1CABE2;
+}
+#navBarList .navbar-nav .nav-item.dropdown.active .dropdown-menu .dropdown-item.active {
+  background-color: #D8D1C9;
+}
+#navBarList .navbar-nav .nav-item:hover {
   transition: 100ms;
-  border-bottom: 5px solid #1CABE2;
+  border-bottom: 3px solid #1CABE2;
+}
+#navBarList .navbar-nav .nav-item:hover a {
+  color: #1CABE2;
 }
 
 /*Customize Card*/
@@ -109,13 +119,14 @@ body {
 div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
   position: absolute;
   text-align: center;
-  width: 100px;
-  height: 30px;
-  padding: 2px;
-  font: 12px sans-serif;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  font-size: 0.8rem;
   background: #fff;
   border: 0;
   pointer-events: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Main header of the graph*/
@@ -149,6 +160,10 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
   display: block;
   height: 360px;
   width: 100%;
+}
+
+canvas {
+  padding: 12px;
 }
 
 /*Customize Footer Logo*/
@@ -225,14 +240,6 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
   color: #9399A5;
 }
 
-/* To config ChatJS Size by config Class name, please add this to desire class to global config for ChartJS */
-.chartJS {
-  position: relative;
-  display: block;
-  height: 360px;
-  width: auto;
-}
-
 /* The CSS for TEST */
 /* Table Row Green Highlight */
 /*Add Darkgreen color to th and td tag*/
@@ -276,6 +283,27 @@ tr.greenTag > td:nth-child(3), tr.redTag > td:nth-child(3), tr.yellowTag > td:nt
   font-size: 0.8rem;
 }
 
-/* END TEST CSS */
+/*END TEST CSS*/
+/*Download Box*/
+.download-box {
+  text-align: right;
+  float: right;
+}
+
+/*Card Header*/
+.card-title {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.card-title .topic {
+  flex: auto;
+}
+
+/*Overview Data Table Content*/
+#tableTab {
+  font-size: 12px;
+  overflow: auto;
+}
 
 /*# sourceMappingURL=style.css.map */

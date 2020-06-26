@@ -32,12 +32,21 @@ body
   min-height: 80px
 #navBarList
   .navbar-nav
-    .nav-item.active, .nav-item.dropdown.active
-      border-bottom: 5px solid $uBlue
-    .nav-item, .nav-item.dropdown.active
+    .nav-item.active
+      border-bottom: 3px solid $uBlue
+      a
+        font-weight: bold
+        color: $uBlue
+    .nav-item.dropdown.active
+      .dropdown-menu
+        .dropdown-item.active
+          background-color: $uGrey
+    .nav-item
       &:hover
         transition: 100ms
-        border-bottom: 5px solid $uBlue
+        border-bottom: 3px solid $uBlue
+        a
+          color: $uBlue
 
 /*Customize Card*/
 .card
@@ -80,7 +89,6 @@ body
   box-shadow: 3px 3px 3px #aaa
 
 /* top header */
-
 .header-fixed-bottom-wrap
   width: 100%
   height: auto
@@ -88,22 +96,18 @@ body
   bottom: 0
   text-align: right
 
-
 .header-fixed-bottom
   text-align: right
   background: #efefef
   padding: 15px
-
 
 .header-fixed-bottom > .copyright
   margin: 0
   padding: 25px
   box-shadow: 10px 10px 5px #888
 
-
 .header-fixed-bottom > .btn
   border-radius: 0
-
 
 /* Map Chart Customize*/
 .mapBorder
@@ -115,13 +119,14 @@ body
 div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus
   position: absolute
   text-align: center
-  width: 100px
-  height: 30px
-  padding: 2px
-  font: 12px sans-serif
+  width: auto
+  height: auto
+  padding: 10px
+  font-size: .8rem
   background: #fff
   border: 0
   pointer-events: none
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
 
 
 /* Main header of the graph*/
@@ -151,6 +156,8 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus
   display: block
   height: 360px
   width: 100%
+canvas
+  padding: 12px
 
 
 /*Customize Footer Logo*/
@@ -219,15 +226,6 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus
 .fab
    color: #9399A5
 
-
-/* To config ChatJS Size by config Class name, please add this to desire class to global config for ChartJS */
-.chartJS
-   position: relative
-   display: block
-   height: 360px
-   width: auto
- 
-
 /* The CSS for TEST */
 
 /* Table Row Green Highlight */
@@ -264,4 +262,21 @@ tr.greenTag > td:nth-child(3), tr.redTag > td:nth-child(3), tr.yellowTag > td:nt
 .tableLegend
   color: $uDarkGrey
   font-size: 0.8rem
-/* END TEST CSS */
+/*END TEST CSS*/
+
+/*Download Box*/
+.download-box
+  text-align: right
+  float: right
+
+/*Card Header*/
+.card-title
+  padding: 10px
+  display: flex
+  align-items: center
+  .topic
+    flex: auto
+/*Overview Data Table Content*/
+#tableTab
+  font-size: 12px
+  overflow: auto
