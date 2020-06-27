@@ -289,195 +289,283 @@ function buildChart(value) {
 
 //IYCF Chart
     //Set Variable for Initiation Breastfeeding Chart
-    let initiationBreastSort = IYCF.slice().sort((a, b) => b.ValueEarlyBreast - a.ValueEarlyBreast);
-    let valueInitiationBreast = initiationBreastSort.map(d => d.ValueEarlyBreast);
-    let provinceInitiationBreast = initiationBreastSort.map(d => d.Province);
-    //Set Variable for Exclusive Breastfeeding Chart
-    let exclusiveBreastSort = IYCF.slice().sort((a, b) => b.ValueExclusiveBreast - a.ValueExclusiveBreast);
-    let valueExclusiveBreast = exclusiveBreastSort.map(d => d.ValueExclusiveBreast);
-    let provinceExclusiveBreast = exclusiveBreastSort.map(d => d.Province);
-    let NPANTargetIYCF = IYCF.map(d => d.NPANTarget);
-    let getExclusiveBreastfeeding = document.getElementById('exclusive-breastfeeding-chart').getContext("2d");
-    let exclusiveBreastfeedingChart = new Chart(getExclusiveBreastfeeding, {
-        type: 'bar',
-        data: {
-            labels: provinceExclusiveBreast,
-            datasets: [{
-                label: 'NPAN Taget 70%',
-                data: NPANTargetIYCF,
-                backgroundColor: uRed,
-                borderColor: uRed,
-                borderWidth: 0,
-                type: 'line',
-                pointStyle: "line",
-                fill: false,
-            },
-                {
-                    label: 'Exclusive Breastfeeding',
-                    data: valueExclusiveBreast,
-                    backgroundColor: uBlue,
-                    hoverBackgroundColor: uDarkBlue,
-                    borderWidth: 0,
+    // let initiationBreastSort = IYCF.slice().sort((a, b) => b.ValueEarlyBreast - a.ValueEarlyBreast);
+    // let valueInitiationBreast = initiationBreastSort.map(d => d.ValueEarlyBreast);
+    // let provinceInitiationBreast = initiationBreastSort.map(d => d.Province);
+    // //Set Variable for Exclusive Breastfeeding Chart
+    // let exclusiveBreastSort = IYCF.slice().sort((a, b) => b.ValueExclusiveBreast - a.ValueExclusiveBreast);
+    // let valueExclusiveBreast = exclusiveBreastSort.map(d => d.ValueExclusiveBreast);
+    // let provinceExclusiveBreast = exclusiveBreastSort.map(d => d.Province);
+    // let NPANTargetIYCF = IYCF.map(d => d.NPANTarget);
+    // let getExclusiveBreastfeeding = document.getElementById('exclusive-breastfeeding-chart').getContext("2d");
+    // let exclusiveBreastfeedingChart = new Chart(getExclusiveBreastfeeding, {
+    //     type: 'bar',
+    //     data: {
+    //         labels: provinceExclusiveBreast,
+    //         datasets: [{
+    //             label: 'NPAN Taget 70%',
+    //             data: NPANTargetIYCF,
+    //             backgroundColor: uRed,
+    //             borderColor: uRed,
+    //             borderWidth: 0,
+    //             type: 'line',
+    //             pointStyle: "line",
+    //             fill: false,
+    //         },
+    //             {
+    //                 label: 'Exclusive Breastfeeding',
+    //                 data: valueExclusiveBreast,
+    //                 backgroundColor: uBlue,
+    //                 hoverBackgroundColor: uDarkBlue,
+    //                 borderWidth: 0,
+    //             }]
+    //     },
+    //     options: {
+    //         scales: {
+    //             yAxes: [{
+    //                 ticks: {
+    //                     beginAtZero: true,
+    //                     maxTicksLimit: 5,
+    //                 },
+    //                 gridLines: {
+    //                     borderDash: [3, 10]
+    //                 }
+    //             }],
+    //             xAxes: [{
+    //                 gridLines: {
+    //                     drawOnChartArea: false,
+    //                 }
+    //             }],
+    //         },
+    //         maintainAspectRatio: false,
+    //     }
+    // });
+    // let getEarlyInitiationOfBreastfeedingChart = document.getElementById('early-initiation-of-breastfeeding-chart').getContext("2d");
+    // let earlyInitiationOfBreastfeedingChart = new Chart(getEarlyInitiationOfBreastfeedingChart, {
+    //     type: 'bar',
+    //     data: {
+    //         labels: provinceInitiationBreast,
+    //         datasets: [{
+    //             label: 'NPAN Taget 70%',
+    //             data: NPANTargetIYCF,
+    //             backgroundColor: uRed,
+    //             borderColor: uRed,
+    //             borderWidth: 0,
+    //             type: 'line',
+    //             pointStyle: "line",
+    //             fill: false,
+    //         },
+    //             {
+    //                 label: 'Early Initiation of Breastfeeding',
+    //                 data: valueInitiationBreast,
+    //                 backgroundColor: uBlue,
+    //                 hoverBackgroundColor: uDarkBlue,
+    //                 borderWidth: 0,
+    //             }]
+    //     },
+    //     options: {
+    //         scales: {
+    //             yAxes: [{
+    //                 ticks: {
+    //                     beginAtZero: true,
+    //                     maxTicksLimit: 5,
+    //                 },
+    //                 gridLines: {
+    //                     borderDash: [3, 10]
+    //                 }
+    //             }],
+    //             xAxes: [{
+    //                 gridLines: {
+    //                     drawOnChartArea: false,
+    //                 }
+    //             }],
+    //         },
+    //         maintainAspectRatio: false,
+    //     }
+    // });
+
+    //By Province
+    const creatDatasetForIYCFProvince = (provinceVariable, targetDatasetOfProvince) => {
+        IYCF.map(d => {
+            if (d["Province"] === provinceVariable) {
+                targetDatasetOfProvince.push(+d["ValueEarlyBreast"]);
+                targetDatasetOfProvince.push(+d["ValueExclusiveBreast"]);
+            }
+        });
+        miniDiet.map(d => {
+            if (d["Province"] === provinceVariable) {
+                targetDatasetOfProvince.push(+d["ValueMiniDietDiversity"]);
+                targetDatasetOfProvince.push(+d["ValueAcceptDiet"]);
+            }
+        });
+        return targetDatasetOfProvince
+    }
+    const creatChartForIYCFProvince = (provinceShortName, chartID, provinceDataset) => {
+        creatDatasetForIYCFProvince(provinceShortName, provinceDataset)
+        let getTemporaryChartID = document.getElementById(chartID).getContext("2d");
+        let thisChart = new Chart(getTemporaryChartID, {
+            type: 'polarArea',
+            data: {
+                labels: labelsIYCF,
+                datasets: [{
+                    label: '',
+                    data: provinceDataset,
+                    backgroundColor: [uBlue, uDarkBlue, uGrey, uDarkGrey],
                 }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
+            },
+            options: {
+                maintainAspectRatio: false,
+                legend: {
+                    display: false,
+                },
+                scales: {
                     ticks: {
-                        beginAtZero: true,
-                        maxTicksLimit: 5,
-                    },
-                    gridLines: {
-                        borderDash: [3, 10]
+                        maxTicksLimit: 11,
+                        min: 0,
+                        max: 100,
+                        suggestedMax: 100,
                     }
-                }],
-                xAxes: [{
-                    gridLines: {
-                        drawOnChartArea: false,
-                    }
-                }],
-            },
-            maintainAspectRatio: false,
-        }
-    });
-    let getEarlyInitiationOfBreastfeedingChart = document.getElementById('early-initiation-of-breastfeeding-chart').getContext("2d");
-    let earlyInitiationOfBreastfeedingChart = new Chart(getEarlyInitiationOfBreastfeedingChart, {
-        type: 'bar',
-        data: {
-            labels: provinceInitiationBreast,
-            datasets: [{
-                label: 'NPAN Taget 70%',
-                data: NPANTargetIYCF,
-                backgroundColor: uRed,
-                borderColor: uRed,
-                borderWidth: 0,
-                type: 'line',
-                pointStyle: "line",
-                fill: false,
-            },
-                {
-                    label: 'Early Initiation of Breastfeeding',
-                    data: valueInitiationBreast,
-                    backgroundColor: uBlue,
-                    hoverBackgroundColor: uDarkBlue,
-                    borderWidth: 0,
-                }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        maxTicksLimit: 5,
-                    },
-                    gridLines: {
-                        borderDash: [3, 10]
-                    }
-                }],
-                xAxes: [{
-                    gridLines: {
-                        drawOnChartArea: false,
-                    }
-                }],
-            },
-            maintainAspectRatio: false,
-        }
-    });
+                },
+            }
+        });
+    }
+
+    //Create Chart for IYCF Section by Province
+    //Set province variable for IYCF section
+    let IYCFVientianeCapital = [];
+    let IYCFPhongsaly = [];
+    let IYCFLuangnamtha = [];
+    let IYCFBokeo = [];
+    let IYCFOudomxay = [];
+    let IYCFLuangprabang = [];
+    let IYCFHuaphanh = [];
+    let IYCFXayabury = [];
+    let IYCFXiengkhuang = [];
+    let IYCFVientianeProvince = [];
+    let IYCFBorikhamxay = [];
+    let IYCFKhammuane = [];
+    let IYCFSavannakhet = [];
+    let IYCFSaravane = [];
+    let IYCFSékong = [];
+    let IYCFChampasak = [];
+    let IYCFAttapeu = [];
+    let IYCFXaysomboun = [];
+    let labelsIYCF = ['Early Initiation of Breastfeeding', 'Exclusive Breastfeeding',
+        'Minimum Diet Diversity', 'Minimum Acceptable Diet'];
+    //Activated function for creat a chart for each province
+    creatChartForIYCFProvince('VTE', 'IYCF-VientianeCapital-chart', IYCFVientianeCapital);
+    creatChartForIYCFProvince('PHO', 'IYCF-Phongsaly-chart', IYCFPhongsaly);
+    creatChartForIYCFProvince('LNT', 'IYCF-Luangnamtha-chart', IYCFLuangnamtha);
+    creatChartForIYCFProvince('BK', 'IYCF-Bokeo-chart', IYCFBokeo);
+    creatChartForIYCFProvince('ODX', 'IYCF-Oudomxay-chart', IYCFOudomxay);
+    creatChartForIYCFProvince('LPB', 'IYCF-Luangprabang-chart', IYCFLuangprabang);
+    creatChartForIYCFProvince('HPH', 'IYCF-Huaphanh-chart', IYCFHuaphanh);
+    creatChartForIYCFProvince('XYB', 'IYCF-Xayabury-chart', IYCFXayabury);
+    creatChartForIYCFProvince('XK', 'IYCF-Xiengkhuang-chart', IYCFXiengkhuang);
+    creatChartForIYCFProvince('VTP', 'IYCF-VientianeProvince-chart', IYCFVientianeProvince);
+    creatChartForIYCFProvince('BKX', 'IYCF-Borikhamxay-chart', IYCFBorikhamxay);
+    creatChartForIYCFProvince('KHM', 'IYCF-Khammuane-chart', IYCFKhammuane);
+    creatChartForIYCFProvince('SVK', 'IYCF-Savannakhet-chart', IYCFSavannakhet);
+    creatChartForIYCFProvince('SLV', 'IYCF-Saravane-chart', IYCFSaravane);
+    creatChartForIYCFProvince('SK', 'IYCF-Sékong-chart', IYCFSékong);
+    creatChartForIYCFProvince('CPS', 'IYCF-Champasak-chart', IYCFChampasak);
+    creatChartForIYCFProvince('ATP', 'IYCF-Attapeu-chart', IYCFAttapeu);
+    creatChartForIYCFProvince('XSB', 'IYCF-Xaysomboun-chart', IYCFXaysomboun);
 
 //MiniDiet Chart
-    //Set Variable for Minimum Diet Diversity Chart
-    let miniDietSort = miniDiet.slice().sort((a, b) => b.ValueMiniDietDiversity - a.ValueMiniDietDiversity);
-    let valueMiniDiet = miniDietSort.map(d => d.ValueMiniDietDiversity);
-    let provinceMiniDiet = miniDietSort.map(d => d.Province);
-    //Set Variable for Minimum Acceptable Diet
-    let acceptDietSort = miniDiet.slice().sort((a, b) => b.ValueAcceptDiet - a.ValueAcceptDiet);
-    let valueAcceptDiet = acceptDietSort.map(d => d.ValueAcceptDiet);
-    let provinceAcceptDiet = acceptDietSort.map(d => d.Province);
-    let NPANTargetMiniDiet = miniDiet.map(d => d.NPANTarget);
-    let getMiniDietChart = document.getElementById('prevalence-of-minimum-diet-diversity-chart').getContext("2d");
-    let miniDietChart = new Chart(getMiniDietChart, {
-        type: 'bar',
-        data: {
-            labels: provinceMiniDiet,
-            datasets: [{
-                label: 'NPAN Taget 50%',
-                data: NPANTargetMiniDiet,
-                backgroundColor: uRed,
-                borderColor: uRed,
-                borderWidth: 0,
-                type: 'line',
-                pointStyle: "line",
-                fill: false,
-            }, {
-                label: 'Prevalence of Minimum Diet Diversity',
-                data: valueMiniDiet,
-                backgroundColor: uBlue,
-                hoverBackgroundColor: uDarkBlue,
-                borderWidth: 0,
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        maxTicksLimit: 5,
-                    },
-                    gridLines: {
-                        borderDash: [3, 10]
-                    }
-                }],
-                xAxes: [{
-                    gridLines: {
-                        drawOnChartArea: false,
-                    }
-                }],
-            },
-            maintainAspectRatio: false,
-        }
-    });
-    let getAcceptDietChart = document.getElementById('prevalence-of-minimum-acceptable-diet-chart').getContext("2d");
-    let acceptDietChart = new Chart(getAcceptDietChart, {
-        type: 'bar',
-        data: {
-            labels: provinceAcceptDiet,
-            datasets: [{
-                label: 'NPAN Target 50%',
-                data: NPANTargetMiniDiet,
-                backgroundColor: uRed,
-                borderColor: uRed,
-                borderWidth: 0,
-                type: 'line',
-                pointStyle: "line",
-                fill: false,
-            }, {
-                label: 'Prevalence of Minimum Acceptable Diet',
-                data: valueAcceptDiet,
-                backgroundColor: uBlue,
-                hoverBackgroundColor: uDarkBlue,
-                borderWidth: 0,
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        maxTicksLimit: 5,
-                    },
-                    gridLines: {
-                        borderDash: [3, 10]
-                    }
-                }],
-                xAxes: [{
-                    gridLines: {
-                        drawOnChartArea: false,
-                    }
-                }],
-            },
-            maintainAspectRatio: false,
-        }
-    });
+//     //Set Variable for Minimum Diet Diversity Chart
+//     let miniDietSort = miniDiet.slice().sort((a, b) => b.ValueMiniDietDiversity - a.ValueMiniDietDiversity);
+//     let valueMiniDiet = miniDietSort.map(d => d.ValueMiniDietDiversity);
+//     let provinceMiniDiet = miniDietSort.map(d => d.Province);
+//     //Set Variable for Minimum Acceptable Diet
+//     let acceptDietSort = miniDiet.slice().sort((a, b) => b.ValueAcceptDiet - a.ValueAcceptDiet);
+//     let valueAcceptDiet = acceptDietSort.map(d => d.ValueAcceptDiet);
+//     let provinceAcceptDiet = acceptDietSort.map(d => d.Province);
+//     let NPANTargetMiniDiet = miniDiet.map(d => d.NPANTarget);
+//     let getMiniDietChart = document.getElementById('prevalence-of-minimum-diet-diversity-chart').getContext("2d");
+//     let miniDietChart = new Chart(getMiniDietChart, {
+//         type: 'bar',
+//         data: {
+//             labels: provinceMiniDiet,
+//             datasets: [{
+//                 label: 'NPAN Taget 50%',
+//                 data: NPANTargetMiniDiet,
+//                 backgroundColor: uRed,
+//                 borderColor: uRed,
+//                 borderWidth: 0,
+//                 type: 'line',
+//                 pointStyle: "line",
+//                 fill: false,
+//             }, {
+//                 label: 'Prevalence of Minimum Diet Diversity',
+//                 data: valueMiniDiet,
+//                 backgroundColor: uBlue,
+//                 hoverBackgroundColor: uDarkBlue,
+//                 borderWidth: 0,
+//             }]
+//         },
+//         options: {
+//             scales: {
+//                 yAxes: [{
+//                     ticks: {
+//                         beginAtZero: true,
+//                         maxTicksLimit: 5,
+//                     },
+//                     gridLines: {
+//                         borderDash: [3, 10]
+//                     }
+//                 }],
+//                 xAxes: [{
+//                     gridLines: {
+//                         drawOnChartArea: false,
+//                     }
+//                 }],
+//             },
+//             maintainAspectRatio: false,
+//         }
+//     });
+//     let getAcceptDietChart = document.getElementById('prevalence-of-minimum-acceptable-diet-chart').getContext("2d");
+//     let acceptDietChart = new Chart(getAcceptDietChart, {
+//         type: 'bar',
+//         data: {
+//             labels: provinceAcceptDiet,
+//             datasets: [{
+//                 label: 'NPAN Target 50%',
+//                 data: NPANTargetMiniDiet,
+//                 backgroundColor: uRed,
+//                 borderColor: uRed,
+//                 borderWidth: 0,
+//                 type: 'line',
+//                 pointStyle: "line",
+//                 fill: false,
+//             }, {
+//                 label: 'Prevalence of Minimum Acceptable Diet',
+//                 data: valueAcceptDiet,
+//                 backgroundColor: uBlue,
+//                 hoverBackgroundColor: uDarkBlue,
+//                 borderWidth: 0,
+//             }]
+//         },
+//         options: {
+//             scales: {
+//                 yAxes: [{
+//                     ticks: {
+//                         beginAtZero: true,
+//                         maxTicksLimit: 5,
+//                     },
+//                     gridLines: {
+//                         borderDash: [3, 10]
+//                     }
+//                 }],
+//                 xAxes: [{
+//                     gridLines: {
+//                         drawOnChartArea: false,
+//                     }
+//                 }],
+//             },
+//             maintainAspectRatio: false,
+//         }
+//     });
 
 //Women Diet Chart
     let womenDietSort = womenDiet.slice().sort((a, b) => b.ValueWomenDiet - a.ValueWomenDiet);
@@ -758,6 +846,7 @@ function buildChart(value) {
             drawVitAChart.chart.data.datasets[0].label = "ເປີເຊັນການປົກຫຸ້ມວິຕາມິນເອ";
         }
     }
+
     changeLanguage();
 
 }

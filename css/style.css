@@ -49,13 +49,6 @@ body {
   border: 0 !important;
 }
 
-.cardChart {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  height: 100%;
-  width: 100%;
-}
-
 .footer-fixed-bottom-wrap {
   width: 100%;
   height: auto;
@@ -160,6 +153,10 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
   display: block;
   height: 360px;
   width: 100%;
+}
+
+.drawChart.IYCF {
+  height: 140px;
 }
 
 canvas {
@@ -304,6 +301,36 @@ tr.greenTag > td:nth-child(3), tr.redTag > td:nth-child(3), tr.yellowTag > td:nt
 #tableTab {
   font-size: 12px;
   overflow: auto;
+}
+
+/*IYCF Section*/
+.IYCF.Legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.IYCF.Legend div {
+  margin: 10px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.IYCF.Legend div p {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+.IYCF.Legend #IYCF-legend-early-breast rect {
+  fill: #1CABE2;
+}
+.IYCF.Legend #IYCF-legend-exclusive-breast rect {
+  fill: #374EA2;
+}
+.IYCF.Legend #IYCF-legend-minimum-diet-diversity rect {
+  fill: #D8D1C9;
+}
+.IYCF.Legend #IYCF-legend-minimum-acceptable-diet rect {
+  fill: #777779;
 }
 
 /*# sourceMappingURL=style.css.map */

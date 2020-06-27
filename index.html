@@ -348,7 +348,7 @@
     <!-- Section Map Stunting -->
     <div class="row">
         <div class="col-lg-6 mt-4">
-            <div class="cardChart">
+            <div class="card">
                 <h5 class="topic"> Stunting 2011</h5>
                 <div class="drawChart">
                     <svg id="test" style="width: 100%; height: 100%; display: block; margin: auto;"
@@ -357,7 +357,7 @@
             </div>
         </div>
         <div class="col-lg-6 mt-4">
-            <div class="cardChart">
+            <div class="card">
                 <h5 class="topic"> Stunting 2017</h5>
                 <div class="drawChart">
                     <svg id="test1" style="width: 100%; height: 100%; display: block; margin: auto;"
@@ -442,89 +442,231 @@
             </div>
         </div>
         <div class="col-lg-12 mt-4">
-            <div class="row">
-                <div class="col-lg-2">
-                    <div class="cardChart">
-                        Col 1
+            <div class="card">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="IYCF Legend">
+                            <div>
+                                <svg id="IYCF-legend-early-breast" width="15" height="15">
+                                    <rect x="0" y="0" width="15" height="15"/>
+                                </svg><p>Early Initiation of Breastfeeding</p>
+                            </div>
+                            <div>
+                                <svg id="IYCF-legend-exclusive-breast" width="15" height="15">
+                                    <rect x="0" y="0" width="15" height="15"/>
+                                </svg><p>Exclusive Breastfeeding</p>
+                            </div>
+                            <div>
+                                <svg id="IYCF-legend-minimum-diet-diversity" width="15" height="15">
+                                    <rect x="0" y="0" width="15" height="15"/>
+                                </svg><p>Minimum Diet Diversity</p>
+                            </div>
+                            <div>
+                                <svg id="IYCF-legend-minimum-acceptable-diet" width="15" height="15">
+                                    <rect x="0" y="0" width="15" height="15"/>
+                                </svg><p>Minimum Acceptable Diet</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="cardChart">
-                        Col 2
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Vientiane Capital</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-VientianeCapital-chart"></canvas>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="cardChart">
-                        Col 3
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Phongsaly</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Phongsaly-chart"></canvas>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="cardChart">
-                        Col 4
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Luangnamtha</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Luangnamtha-chart"></canvas>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="cardChart">
-                        Col 5
+                    <div class="col-lg-3 col-md-6">
+                            <div class="topic">
+                                <h6>Oudomxay</h6>
+                            </div>
+                            <div class="drawChart IYCF">
+                                <canvas id="IYCF-Oudomxay-chart"></canvas>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="cardChart">
-                        Col 6
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Bokeo</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Bokeo-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                            <div class="topic">
+                                <h6>Luangprabang</h6>
+                            </div>
+                            <div class="drawChart IYCF">
+                                <canvas id="IYCF-Luangprabang-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Huaphanh</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Huaphanh-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Xayabury</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Xayabury-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Xiengkhuang</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Xiengkhuang-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Vientiane</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-VientianeProvince-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Borikhamxay</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Borikhamxay-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Khammuane</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Khammuane-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Savannakhet</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Savannakhet-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Saravane</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Saravane-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Sékong</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Sékong-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Champasak</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Champasak-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Attapeu</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Attapeu-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="topic">
+                            <h6>Xaysomboun</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Xaysomboun-chart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+<!--        Below is old code layout for IYCF section-->
+<!--        <div class="col-lg-6 mt-4">-->
+<!--            <div class="card">-->
+<!--                <h5 class="topic">-->
+<!--                    <sec id="early-initiation-of-breastfeeding">-->
+<!--                        Early Initiation of Breastfeeding-->
+<!--                    </sec>-->
+<!--                </h5>-->
+<!--                <div class="drawChart">-->
+<!--                    <canvas id="early-initiation-of-breastfeeding-chart"></canvas>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-6 mt-4">-->
+<!--            <div class="card">-->
+<!--                <h5 class="topic">-->
+<!--                    <sec id="exclusive-breastfeeding">-->
+<!--                        Exclusive Breastfeeding-->
+<!--                    </sec>-->
+<!--                </h5>-->
+<!--                <div class="drawChart">-->
+<!--                    <canvas id="exclusive-breastfeeding-chart"></canvas>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-6 mt-4">-->
+<!--            <div class="card">-->
+<!--                <h5 class="topic">-->
+<!--                    <sec id="prevalence-of-minimum-diet-diversity">-->
+<!--                        Prevalence of Minimum Diet Diversity-->
+<!--                    </sec>-->
+<!--                </h5>-->
+<!--                <div class="drawChart">-->
+<!--                    <canvas id="prevalence-of-minimum-diet-diversity-chart"></canvas>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-6 mt-4">-->
+<!--            <div class="card">-->
+<!--                <h5 class="topic">-->
+<!--                    <sec id="prevalence-of-minimum-acceptable-diet">-->
+<!--                        Prevalence of Minimum Acceptable Diet-->
+<!--                    </sec>-->
+<!--                </h5>-->
+<!--                <div class="drawChart">-->
+<!--                    <canvas id="prevalence-of-minimum-acceptable-diet-chart"></canvas>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        END-->
         <div class="col-lg-6 mt-4">
-            <div class="cardChart">
-                <h5 class="topic">
-                    <sec id="early-initiation-of-breastfeeding">
-                        Early Initiation of Breastfeeding
-                    </sec>
-                </h5>
-                <div class="drawChart">
-                    <canvas id="early-initiation-of-breastfeeding-chart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 mt-4">
-            <div class="cardChart">
-                <h5 class="topic">
-                    <sec id="exclusive-breastfeeding">
-                        Exclusive Breastfeeding
-                    </sec>
-                </h5>
-                <div class="drawChart">
-                    <canvas id="exclusive-breastfeeding-chart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 mt-4">
-            <div class="cardChart">
-                <h5 class="topic">
-                    <sec id="prevalence-of-minimum-diet-diversity">
-                        Prevalence of Minimum Diet Diversity
-                    </sec>
-                </h5>
-                <div class="drawChart">
-                    <canvas id="prevalence-of-minimum-diet-diversity-chart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 mt-4">
-            <div class="cardChart">
-                <h5 class="topic">
-                    <sec id="prevalence-of-minimum-acceptable-diet">
-                        Prevalence of Minimum Acceptable Diet
-                    </sec>
-                </h5>
-                <div class="drawChart">
-                    <canvas id="prevalence-of-minimum-acceptable-diet-chart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 mt-4">
-            <div class="cardChart">
+            <div class="card">
                 <h5 class="topic"> Women Dietary Diversity</h5>
                 <div class="drawChart">
                     <canvas id="womenDietChart"></canvas>
@@ -532,7 +674,7 @@
             </div>
         </div>
         <div class="col-lg-6 mt-4">
-            <div class="cardChart">
+            <div class="card">
                 <h5 class="topic"> Open Defecation</h5>
                 <div class="drawChart">
                     <svg id="openDefaceMap" style="width: 100%; height: 100%; display: block; margin: auto;"
@@ -549,7 +691,7 @@
             </div>
         </div>
         <div class="col-lg-6 mt-4">
-            <div class="cardChart">
+            <div class="card">
                 <h5 class="topic"> Vitamin A Supplementation Coverage</h5>
                 <div class="drawChart">
                     <canvas id="vitAChart"></canvas>
@@ -557,7 +699,7 @@
             </div>
         </div>
         <div class="col-lg-6 mt-4">
-            <div class="cardChart">
+            <div class="card">
                 <h5 class="topic"> Children who received Deworming Coverage</h5>
                 <div class="drawChart">
                     <canvas id="dewormingChart"></canvas>
@@ -565,7 +707,7 @@
             </div>
         </div>
         <div class="col-lg-12 mt-4">
-            <div class="cardChart">
+            <div class="card">
                 <h5 class="topic"> Iron/Folic Acid Supplementation Coverage</h5>
                 <div class="drawChart">
                     <canvas id="ironFolicChart"></canvas>
@@ -582,7 +724,7 @@
             </div>
         </div>
         <div class="col-lg-6 mt-4">
-            <div class="cardChart">
+            <div class="card">
                 <h5 class="topic">Status of Women</h5>
                 <div class="drawChart">
                     <svg id="womenStatusMap" style="width: 100%; height: 100%; display: block; margin: auto;"
@@ -591,7 +733,7 @@
             </div>
         </div>
         <div class="col-lg-6 mt-4">
-            <div class="cardChart">
+            <div class="card">
                 <h5 class="topic">Socio Status</h5>
                 <div class="drawChart">
                     <canvas id="socioStatusChart"></canvas>
@@ -604,7 +746,7 @@
     <div class="row">
         <!-- Section6: reference -->
         <div class="col-lg-12 mt-4">
-            <div class="cardChart">
+            <div class="card">
                 <h5 class="topic"> Data Source</h5>
                 <ul class="list-group">
                     <li class="list-group-item">(1) Lao Social Indicator Survey (2011)</li>
