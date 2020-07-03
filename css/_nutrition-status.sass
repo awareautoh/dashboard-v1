@@ -1,0 +1,189 @@
+/*Nutrition Status CSS*/
+@import 'base' //Import Base CSS
+/* Modified Map Tooltip */
+div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus
+  position: absolute
+  text-align: center
+  width: auto
+  height: auto
+  padding: 10px
+  font-size: .8rem
+  background: #fff
+  border: 0
+  pointer-events: none
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+
+
+/* Main header of the graph*/
+/* Nutrition Overview*/
+#overview-table-card
+  height: 600px
+  padding: 1.2rem
+
+/*Card for Section Header*/
+.card.sectionHeader
+  background-color: #1CABE2
+  height: auto
+  color: #fff
+  h2
+    padding: 10px
+    text-align: center
+
+/*Customize Card*/
+//IYCF Section
+.drawChart.IYCF
+  height: 140px
+//Overview Section
+#drawLineChart, #drawProvinceChart
+  height: 500px
+
+/*Customize Footer Logo*/
+#supportHeaderText
+  backgroud-color: #F7F8FA !important
+
+#euLogo, #unicefLogo, #laoGovLogo
+  max-width: 10rem
+
+#footer-copyright
+  height: 30vh
+  padding: 0
+  background-color: #173C78 !important
+
+#textCopyright
+  margin-top: 0 !important
+  margin-bottom: 0 !important
+
+
+//Customize the Supporter Logo Footer
+#support-laogov-logo, #support-eu-logo, #support-unicef-logo
+  box-shadow: none
+  padding: 50px
+  height: 30vh
+  align-items: center
+
+#lang-option-list
+  a
+    color: #fff
+  &:hover
+    text-decoration: none
+
+
+/*footer class*/
+.footerclass
+  background-color: #F7F8FA
+  bottom: 0
+  width: 100%
+  display: inline-block
+  min-height: 300px
+  margin-top: 30px
+  padding: 0
+  text-align: left
+
+#copyright-text
+  p
+    text-align: left
+
+.footerHead
+  font-size: 14px
+  line-height: 21px
+  font-weight: 600
+  color: #2d2d2b
+
+.footerTxt
+  font-size: 14px
+  line-height: 21px
+  font-weight: 400
+  color: #2d2d2b
+
+.footerSMS
+  font-size: 11px
+  line-height: 10px
+  color: #8E8F8F
+
+.fab
+  color: #9399A5
+
+/* The CSS for TEST */
+
+/* Table Row Green Highlight */
+/*Add Darkgreen color to th and td tag*/
+#header-overview-table
+  tr
+    color: $uDarkGrey
+    text-align: center
+    th:first-of-type
+      width: 20rem
+#overview-table-content
+  font-size: 14px
+
+tr.greenTag > th, tr.greenTag > td:first-of-type
+  color: #039245
+  width: 20rem
+
+/*Add red color to th and td tag*/
+tr.redTag > th, tr.redTag > td:first-of-type
+  color: #ea5771
+  width: 20rem
+
+/*Add red color to th and td tag*/
+tr.yellowTag > th, tr.yellowTag > td:first-of-type
+  color: #ecb800
+  width: 20rem
+
+
+/*Add Grey colour to the third column of the table*/
+tr.greenTag > td:nth-child(3), tr.redTag > td:nth-child(3), tr.yellowTag > td:nth-child(3)
+  color: gray
+  width: 5rem
+
+.tableLegend
+  color: $uDarkGrey
+  font-size: 0.8rem
+/*END TEST CSS*/
+
+/*Download Box*/
+.download-box
+  text-align: right
+  float: right
+
+/*Card Header*/
+.card-title
+  padding: 10px
+  display: flex
+  align-items: center
+  .topic
+    flex: auto
+/*Overview Data Table Content*/
+#tableTab
+  font-size: 12px
+  overflow: auto
+
+/*IYCF Section*/
+//Customize topic and legend
+.IYCF.Legend
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+  div
+    margin: 10px
+    font-size: 12px
+    display: flex
+    justify-content: center
+    align-items: center
+    p
+      color: $uDarkGrey
+      margin-left: 5px
+      margin-bottom: 0
+  #IYCF-legend-early-breast
+    rect
+      fill: $uBlue
+  #IYCF-legend-exclusive-breast
+    rect
+      fill: $uDarkBlue
+  #IYCF-legend-minimum-diet-diversity
+    rect
+      fill: $uGrey
+  #IYCF-legend-minimum-acceptable-diet
+    rect
+      fill: $uDarkGrey
+/*END Nutrition Status CSS*/

@@ -1,0 +1,134 @@
+/*BASE CSS*/
+$font-default: 'Noto Sans', Helvetica, Arial, sans-serif, 'Noto Sans Lao', Phetsarath OT
+$uBlue: #1CABE2 //UNICEF CODE BOOK COLOR
+$uGreen: #00833D //UNICEF CODE BOOK COLOR
+$uLightGreen: #80BD41 //UNICEF CODE BOOK COLOR
+$uYellow: #FFC20E //UNICEF CODE BOOK COLOR
+$uOrange: #F26A21 //UNICEF CODE BOOK COLOR
+$uRed: #E2231A //UNICEF CODE BOOK COLOR
+$uDarkRed: #961A49 //UNICEF CODE BOOK COLOR
+$uPurple: #6A1E74 //UNICEF CODE BOOK COLOR
+$uGrey: #D8D1C9 //UNICEF CODE BOOK
+$uDarkGrey: #777779 //UNICEF CODE BOOK COLOR
+$uBlack: #2D2926 //UNICEF CODE BOOK COLOR
+$uDarkBlue: #374EA2 //UNICEF CODE BOOK COLOR
+
+/*Spinner*/
+.bd-example-modal-lg .modal-dialog
+  display: table
+  position: relative
+  margin: 0 auto
+  top: calc(50% - 24px)
+
+.bd-example-modal-lg .modal-dialog .modal-content
+  background-color: transparent
+  border: none
+
+/*Customize Nav bar and Body*/
+body
+  padding-top: 4rem
+  font-family: $font-default !important
+
+#navBarTop
+  font-size: 1rem
+  min-height: 80px
+#navBarList
+  .navbar-nav
+    .nav-item.active
+      border-bottom: 3px solid $uBlue
+      a
+        font-weight: bold
+        color: $uBlue
+    .nav-item.dropdown.active
+      .dropdown-menu
+        .dropdown-item.active
+          background-color: $uGrey
+    .nav-item
+      &:hover
+        transition: 100ms
+        border-bottom: 3px solid $uBlue
+        a
+          color: $uBlue
+
+/*Customize Card*/
+.card
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+  height: 100%
+  width: 100%
+  border-radius: 0 !important
+  border: 0 !important
+
+.footer-fixed-bottom-wrap
+  width: 100%
+  height: auto
+  z-index: 1000 !important
+  bottom: 0
+  margin-top: 5px
+
+
+.footer-fixed-bottom
+  text-align: center
+  background: #efefef
+
+
+.footer-fixed-bottom > .copyright
+  margin: 0
+  padding: 25px
+
+
+.footer-fixed-bottom > .btn
+  border-radius: 0
+
+/* Customize Draw Chart Area for ChartJS Canvas Tag */
+.drawChart
+  position: relative
+  display: block
+  height: 360px
+  width: 100%
+canvas
+  padding: 12px
+
+/* box shadow on the top menu */
+.bg-light
+  box-shadow: 3px 3px 3px #aaa
+
+/* top header */
+.header-fixed-bottom-wrap
+  width: 100%
+  height: auto
+  z-index: 1000 !important
+  bottom: 0
+  text-align: right
+
+.header-fixed-bottom
+  text-align: right
+  background: #efefef
+  padding: 15px
+
+.header-fixed-bottom > .copyright
+  margin: 0
+  padding: 25px
+  box-shadow: 10px 10px 5px #888
+
+.header-fixed-bottom > .btn
+  border-radius: 0
+
+/* Map Chart Customize*/
+.mapBorder
+  fill: none
+  stroke: #eee
+  pointer-events: none
+
+/*Customize Header and Text8?
+.topic
+  padding: 10px
+  text-align: center
+  margin-bottom: 0
+  color: $uDarkGrey
+  font-weight: bold
+.text-content
+  padding: 10px
+  text-align: center
+  margin-bottom: 0
+  color: $uBlack
+/*END BASE CSS*/

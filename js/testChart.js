@@ -125,7 +125,7 @@ d3.csv(provinceDataPath).then(buildProvinceOverviewChart);
 //
 //     svg.node();
 // }
-    //Activate Function
+//Activate Function
 
 //
 // Trend Chart
@@ -173,6 +173,7 @@ function buildTrendOverviewChart(valueOfTrend) {
                 fill: "none",
                 lineTension: 0,
                 borderWidth: 0,
+                pointRadius: 8,
             }, {
                 type: 'scatter',
                 label: 'trend',
@@ -181,8 +182,10 @@ function buildTrendOverviewChart(valueOfTrend) {
                 borderColor: uDarkBlue,
                 fill: "none",
                 borderWidth: 0,
+                pointRadius: 8,
             }]
         },
+        plugins: [ChartDataLabels],
         options: {
             scales: {
                 yAxes: [{
@@ -203,10 +206,29 @@ function buildTrendOverviewChart(valueOfTrend) {
             legend: {
                 display: false,
             },
+            tooltips: {
+                callbacks: {
+                    title: function (tooltipItem, data) {
+                        let specificLabel = ['MICS 3', 'LSIS 1', 'LSIS 2', 'Target 2020', 'Target 2025'];
+                        return (tooltipItem[0].datasetIndex === 1) ? specificLabel[tooltipItem[0].index + 3] : specificLabel[tooltipItem[0].index]
+                    }
+                }
+            },
+            plugins: {
+                datalabels: {
+                    color: uBlack,
+                    anchor: 'start',
+                    align: 'bottom',
+                    formatter: function (value, context) {
+                        return (context.dataset.data[context.dataIndex]['y'] + '%');
+                    }
+                }
+            }
         }
     });
 
 }
+
 //END Trend Chart
 
 //
@@ -215,6 +237,7 @@ function buildTrendOverviewChart(valueOfTrend) {
 function buildProvinceOverviewChart(valueOfProvince) {
     let importedValue = (valueOfProvince.slice().sort((a, b) => b["overview-stunting"] - a["overview-stunting"])).map(d => d["overview-stunting"]);
     let importedProvinceLabel = (valueOfProvince.slice().sort((a, b) => b["overview-stunting"] - a["overview-stunting"])).map(d => d["Province"]);
+    let nationalLine = valueOfProvince.map(d => d["overview-stunting-national"]);
     let getProvinceTestChart = document.getElementById("provinceChartForOverviewCard");
     let provinceTestChart = new Chart(getProvinceTestChart, {
         type: 'horizontalBar',
@@ -249,6 +272,22 @@ function buildProvinceOverviewChart(valueOfProvince) {
             legend: {
                 display: false,
             },
+            annotation: {
+                events: ["mouseover"],
+                annotations: [{
+                    type: 'line',
+                    mode: 'vertical',
+                    scaleID: 'x-axis-0',
+                    value: nationalLine[0],
+                    borderColor: uRed,
+                    borderWidth: 1,
+                    label: {
+                        enabled: true,
+                        content: "National " + `${nationalLine[0]}` + "%",
+                        position: "center",
+                    },
+                }]
+            },
         }
     });
 
@@ -256,18 +295,20 @@ function buildProvinceOverviewChart(valueOfProvince) {
     //Table Chart
     //
     buildTableChart(valueOfProvince);
+
     function buildTableChart(value) {
         d3.select("#overview-data-table-content")
             .selectAll('tr')
             .data(value)
             .enter().append('tr')
-            .attr('id', d => "overview-data-table-content-row-"+`${d["Province"]}`)
+            .attr('id', d => "overview-data-table-content-row-" + `${d["Province"]}`)
             .html(d => {
-                return ('<td>' + `${d["Province"]}` + '</td>'+
+                return ('<td>' + `${d["Province"]}` + '</td>' +
                     '<td>' + `${d["overview-stunting"]}` + '</td>')
             });
     }
 }
+
 //END Province Chart
 //
 // Map Chart
@@ -355,6 +396,7 @@ mapOverview();
 //Test Import Data From JSON File
 const dataJSONPath = "data/dataJSON.json";
 d3.json(dataJSONPath).then(importDataJSON);
+
 function importDataJSON(data) {
 }
 
@@ -412,9 +454,25 @@ function generateResult(input) { //this function get the input from the id of on
             let lao = value[0];
             let testStunting = value[1];
             let rawDataFromCSV = value[2];
+            //To generate initial Legend label if there is no reference of cut off
+            let printTheRange = [];
+            generateRangeOfDataForColorScale();
 
+            function generateRangeOfDataForColorScale() {
+                let startingPoint = d3.min(rawDataFromCSV);
+                let endingPoint = d3.max(rawDataFromCSV);
+                let theRangeOfData = endingPoint - startingPoint;
+                let theProportion = theRangeOfData / 4;
+                let initialTheRangeForCalculation = [startingPoint];
+                for (let i = 0; i < 4; i++) {
+                    printTheRange.push(Math.round(initialTheRangeForCalculation[i] + theProportion));
+                    initialTheRangeForCalculation.push(initialTheRangeForCalculation[i] + theProportion);
+                }
+                return printTheRange
+            }
 
-            if (currentActive === defaultActive) {  //If the input has specific color cut off is true
+            //If the input has specific color cut off is true
+            if (currentActive === defaultActive) {
                 //Set Color scale
                 let colorScale = d3.scaleThreshold()
                     .domain([0, 0.025, 0.10, 0.20, 0.30])
@@ -458,11 +516,11 @@ function generateResult(input) { //this function get the input from the id of on
                     .datum(topojson.mesh(lao, lao.objects.LAO_ADM1))
                     .attr("class", "mapBorder")
                     .attr("d", d3.geoPath().projection(projection));
-            } else { //If no color cut off specific
+            } else {
                 //Set the color scale
-                let colorScale = d3.scaleOrdinal()
-                    .domain([d3.min(rawDataFromCSV), d3.max(rawDataFromCSV)])
-                    .range(d3.schemeBlues[4]);
+                let colorScale = d3.scaleThreshold()
+                    .domain(printTheRange)
+                    .range([uGreen, uLightGreen, uYellow, uBlue, uDarkBlue]);
                 //Set tooltips
                 let tooltip2 = d3.select("body").append("div")
                     .attr("class", "tooltip")
@@ -505,18 +563,6 @@ function generateResult(input) { //this function get the input from the id of on
 
 
             //This to checked if the input has the cut off reference for fill the color of map
-            //To generate initial Legend label if there is no reference of cut off
-            let startingPoint = d3.min(rawDataFromCSV);
-            let endingPoint = d3.max(rawDataFromCSV);
-            let theRangeOfData = endingPoint - startingPoint;
-            let theProportion = theRangeOfData / 4;
-            let printTheRange = [];
-            let initialTheRangeForCalculation = [startingPoint];
-            for (let i = 0; i < 4; i++) {
-                printTheRange.push(Math.round(initialTheRangeForCalculation[i] + theProportion));
-                initialTheRangeForCalculation.push(initialTheRangeForCalculation[i] + theProportion);
-            }
-
             if (currentActive !== defaultActive) {
                 svg.select(".map-legend").remove();
                 svg.append("g")
@@ -524,7 +570,7 @@ function generateResult(input) { //this function get the input from the id of on
                     .attr("transform", "translate(0,250)")
                     .append(() => legend({
                         color: d3.scaleThreshold(printTheRange,
-                            d3.schemeBlues[4]),
+                            [uGreen, uLightGreen, uYellow, uBlue, uDarkBlue]),
                         title: "Clustering",
                         width: 190
                     }));
@@ -684,6 +730,7 @@ function generateResult(input) { //this function get the input from the id of on
             .append("canvas")
             .attr("id", "overview-trend-line-chart");
         d3.csv(trendDataPath).then(buildTrendOverviewChartIfUndefined);
+
         function buildTrendOverviewChartIfUndefined(valueOfTrend) {
             //To filter the line for dash line and normal line
             let presentData = valueOfTrend.filter(function (d) { //filter data only current and past
@@ -727,6 +774,7 @@ function generateResult(input) { //this function get the input from the id of on
                         fill: "none",
                         lineTension: 0,
                         borderWidth: 0,
+                        pointRadius: 8,
                     }, {
                         type: 'scatter',
                         label: 'trend',
@@ -735,8 +783,10 @@ function generateResult(input) { //this function get the input from the id of on
                         borderColor: uDarkBlue,
                         fill: "none",
                         borderWidth: 0,
+                        pointRadius: 8,
                     }]
                 },
+                plugins: [ChartDataLabels],
                 options: {
                     scales: {
                         yAxes: [{
@@ -757,6 +807,24 @@ function generateResult(input) { //this function get the input from the id of on
                     legend: {
                         display: false,
                     },
+                    tooltips: {
+                        callbacks: {
+                            title: function (tooltipItem, data) {
+                                let specificLabel = ['MICS 3', 'LSIS 1', 'LSIS 2', 'Target 2020', 'Target 2025'];
+                                return (tooltipItem[0].datasetIndex === 1) ? specificLabel[tooltipItem[0].index + 3] : specificLabel[tooltipItem[0].index]
+                            }
+                        }
+                    },
+                    plugins: {
+                        datalabels: {
+                            color: uBlack,
+                            anchor: 'start',
+                            align: 'bottom',
+                            formatter: function (value, context) {
+                                return (context.dataset.data[context.dataIndex]['y'] + '%');
+                            }
+                        }
+                    },
                 }
             });
 
@@ -774,6 +842,7 @@ function generateResult(input) { //this function get the input from the id of on
         function buildProvinceOverviewChartIfUndefined(value) {
             let importedValue = (value.slice().sort((a, b) => b[currentActive] - a[currentActive])).map(d => d[currentActive]);
             let importedProvinceLabel = (value.slice().sort((a, b) => b[currentActive] - a[currentActive])).map(d => d["Province"]);
+            let nationalLine = value.map(d => d[[currentActive] + "-national"]);
             let getProvinceTestChart = document.getElementById("provinceChartForOverviewCard");
             let provinceTestChart = new Chart(getProvinceTestChart, {
                 type: 'horizontalBar',
@@ -808,12 +877,29 @@ function generateResult(input) { //this function get the input from the id of on
                     legend: {
                         display: false,
                     },
+                    annotation: {
+                        events: ["mouseover"],
+                        annotations: [{
+                            type: 'line',
+                            mode: 'vertical',
+                            scaleID: 'x-axis-0',
+                            value: nationalLine[0],
+                            borderColor: uRed,
+                            borderWidth: 1,
+                            label: {
+                                enabled: true,
+                                content: "National " + `${nationalLine[0]}` + "%",
+                                position: "center",
+                            },
+                        }]
+                    },
                 }
             });
 
 
             //Update overview Table Tab Content
             buildTableChart(value);
+
             function buildTableChart(valueOfTable) {
                 d3.select("#overview-data-table-content")
                     .selectAll('tr')
@@ -822,9 +908,9 @@ function generateResult(input) { //this function get the input from the id of on
                     .selectAll('tr')
                     .data(valueOfTable)
                     .enter().append('tr')
-                    .attr('id', d => "overview-data-table-content-row-"+`${d["Province"]}`)
+                    .attr('id', d => "overview-data-table-content-row-" + `${d["Province"]}`)
                     .html(d => {
-                        return ('<td>' + `${d["Province"]}` + '</td>'+
+                        return ('<td>' + `${d["Province"]}` + '</td>' +
                             '<td>' + `${d[currentActive]}` + '</td>')
                     });
             }

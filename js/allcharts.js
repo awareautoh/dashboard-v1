@@ -134,8 +134,8 @@ function buildChart(value) {
             animation: {
                 onComplete: function () {
                     let wastingAndOverweightChartURL = wastingAndOverweightChart.toBase64Image();
-                    downloadChartDataButton("#wastingAndOverweightChartPNGDownload", wastingAndOverweightChartURL);
-                    downloadChartDataButton("#wastingAndOverweightChartDataDownload", wastingPath);
+                    downloadChartDataButton("wastingAndOverweightChartPNGDownload", wastingAndOverweightChartURL);
+                    downloadChartDataButton("wastingAndOverweightChartDataDownload", wastingPath);
                 }
             }
         }
@@ -864,7 +864,7 @@ const defecationMap = () => {
     let mapDraw = ("map/LAO_ADM1.json");
     let openDefacePath = ("data/openDefaceMap.csv");
     //Set Scale
-    let colorScale = d3.scaleQuantize([0, 40], d3.schemeOranges[5]);
+    let colorScale = d3.scaleQuantize([0, 40], ["#07d0ff", "#00b0ef", "#008fda", "#1a6fc1", "#374ea2"]);
     //Set tooltips
     let tooltipOpenDeface = d3.select("body").append("div")
         .attr("class", "tooltipOpenDeface")
@@ -897,7 +897,11 @@ const defecationMap = () => {
             .enter()
             .append("path")
             .attr("d", d3.geoPath().projection(projection))
-            .attr("fill", d => colorScale(d.properties.feature_id = openDefaceSort.get(d.properties.feature_id)));
+            .attr("fill", d => {
+                d.properties.feature_id = openDefaceSort.get(d.properties.feature_id);
+                return (d.properties.feature_id === 64.6) ? `${uYellow}` : colorScale(d.properties.feature_id);
+            });
+
 
         svg.selectAll("path")
             .data(openDefaceMap.features)
@@ -926,8 +930,8 @@ const defecationMap = () => {
         svg.append("g")
             .attr("transform", "translate(0,250)")
             .append(() => legend({
-                color: d3.scaleThreshold(["<10", "<20", "<30", ">=40"],
-                    d3.schemeOranges[5]),
+                color: d3.scaleThreshold(["<10", "20", "30", ">40"],
+                    ["#07d0ff", "#00b0ef", "#008fda", "#1a6fc1", "#374ea2"]),
                 title: "Open Defecation (%)",
                 width: 190
             }));
@@ -1001,7 +1005,7 @@ const womenStatusMap = () => {
         svg.append("g")
             .attr("transform", "translate(0,250)")
             .append(() => legend({
-                color: d3.scaleThreshold(["70<", "80<", "87.9<", ">88"],
+                color: d3.scaleThreshold(["70<", "80", ">88"],
                     [uGreen, uLightGreen, uBlue, uDarkBlue]),
                 title: "GER Female Secondary School (%)",
                 width: 190
@@ -1172,8 +1176,8 @@ stunting2017Map();
 
 // function to save chart js as picture and download data
 function downloadChartDataButton(buttonElement, link) {
-    $(buttonElement).click(function () {
-        $(buttonElement).attr('href', link);
+    document.getElementById(buttonElement).addEventListener('click', () => {
+        document.getElementById(buttonElement).href = link;
     });
 }
 
@@ -1183,7 +1187,6 @@ function downloadChartDataButton(buttonElement, link) {
 window.onscroll = function () {
     scrollFunction()
 };
-
 function scrollFunction() {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
         document.getElementById("navBarTop").style.fontSize = "1rem";

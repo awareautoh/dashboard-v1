@@ -40,7 +40,7 @@
 
 <body onload="modal()">
 
-<!--  activate spiner   here -->
+<!--  activate spinner   here -->
 
 <div class="modal fade bd-example-modal-lg" data-backdrop="static" data-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-sm">
@@ -110,7 +110,7 @@
     </nav>
 </header>
 <div class="container" id="content-container">
-<!--    Section Overview of Nutrition-->
+    <!--    Section Overview of Nutrition-->
     <div class="row mt-5">
         <div class="col-lg-12">
             <div class="card sectionHeader">
@@ -269,13 +269,7 @@
                     <ul class="nav nav-tabs" id="overviewCardTab" role="tablist"
                         style="font-size: 1rem;">
                         <li class="nav-item">
-                            <a class="nav-link active" id="bar-tab" data-toggle="tab"
-                               href="#lineTab"
-                               role="tab"
-                               aria-controls="home" aria-selected="true">Trend</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="line-rentab" data-toggle="tab"
+                            <a class="nav-link active" id="line-rentab" data-toggle="tab"
                                href="#barTab"
                                role="tab"
                                aria-controls="profile" aria-selected="false">Province</a>
@@ -286,6 +280,12 @@
                                aria-controls="contact" aria-selected="false">Map</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" id="bar-tab" data-toggle="tab"
+                               href="#lineTab"
+                               role="tab"
+                               aria-controls="home" aria-selected="true">Trend</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" id="table-tab" data-toggle="tab" href="#tableTab"
                                role="tab"
                                aria-controls="contact" aria-selected="false">Table</a>
@@ -294,7 +294,7 @@
                 </div>
                 <div id="contentOfNavBarOverviewCard">
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="lineTab" role="tabpanel"
+                        <div class="tab-pane fade" id="lineTab" role="tabpanel"
                              aria-labelledby="nav-home-tab" style="padding: 1rem;">
                             <!--                            <div id="drawLineChart"-->
                             <!--                                 style="position: relative; display: block; height: 460px; width: auto;">-->
@@ -307,7 +307,7 @@
                                 <canvas id="overview-trend-line-chart"></canvas>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="barTab" role="tabpanel"
+                        <div class="tab-pane fade show active" id="barTab" role="tabpanel"
                              aria-labelledby="nav-profile-tab" style="padding: 1rem;">
                             <div class="chartJS" id="drawProvinceChart"
                                  style="position: relative; display: block; min-height: 440px; width: auto;">
@@ -345,27 +345,6 @@
             </div>
         </div>
     </div>
-    <!-- Section Map Stunting -->
-    <div class="row">
-        <div class="col-lg-6 mt-4">
-            <div class="card">
-                <h5 class="topic"> Stunting 2011</h5>
-                <div class="drawChart">
-                    <svg id="test" style="width: 100%; height: 100%; display: block; margin: auto;"
-                         viewBox="0 0 360 360"></svg>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 mt-4">
-            <div class="card">
-                <h5 class="topic"> Stunting 2017</h5>
-                <div class="drawChart">
-                    <svg id="test1" style="width: 100%; height: 100%; display: block; margin: auto;"
-                         viewBox="0 0 360 360"></svg>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Section 2.1  -->
     <!--Section 1 Key Nutrition Indicator-->
     <div class="row mt-4">
@@ -375,21 +354,52 @@
             </div>
         </div>
     </div>
+    <!-- Section Map Stunting -->
+    <div class="row">
+        <div class="col-lg-12 mt-4">
+            <div class="card">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h5 class="topic">Stunting Status in Lao PDR</h5>
+                        <p class="text-content">
+                            8 provinces have very high levels of stunting in 2017 compared to 13 provinces in 2011
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h6 class="topic">2011</h6>
+                        <div class="drawChart">
+                            <svg id="test" style="width: 100%; height: 100%; display: block; margin: auto;"
+                                 viewBox="0 0 360 360"></svg>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h6 class="topic">2017</h6>
+                        <div class="drawChart">
+                            <svg id="test1" style="width: 100%; height: 100%; display: block; margin: auto;"
+                                 viewBox="0 0 360 360"></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card">
                 <div class="card-title">
-                    <h3 class="topic pt-3">
-                        <sec id="textTitleChildMalnutrition"></sec>
-                    </h3>
+                    <h5 class="topic" id="textTitleChildMalnutrition"></h5>
                     <div class="download-box">
                         <button class="btn btn-outline-primary" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-info-circle"></i>
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                      d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                            style="right: 0; left: initial;">
-                            <li><a class="dropdown-item" href="#" id="metadata-info">
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" data-toggle="modal" href="#metadata-info-modal"
+                                   id="metadata-info">
                                 Metadata</a></li>
                             <li><a class="dropdown-item" href="#" id="wastingAndOverweightChartPNGDownload"
                                    download="chart.png"></a></li>
@@ -419,15 +429,52 @@
         </div>
         <div class="col-lg-12 mt-4">
             <div class="card">
-                <h3 class="topic pt-3">
-                    <sec id="textHeaderWomenUndernutrition"></sec>
-                </h3>
+                <div class="card-title">
+                    <h5 class="topic" id="textHeaderWomenUndernutrition"></h5>
+                    <div class="download-box">
+                        <button class="btn btn-outline-primary" type="button" id="dropdownMenuButtonWomenUnderNutrition"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                      d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#" id="metadata-info-women-under-nutrition">
+                                Metadata</a></li>
+                            <li><a class="dropdown-item" href="#" id="womenUnderNutritionChartPNGDownload"
+                                   download="chart.png">Export Graph</a></li>
+                            <li><a class="dropdown-item" href="#"
+                                   id="womenUnderNutritionChartDataDownload">Export Data</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="drawChart">
                     <canvas id="womenAnemia"></canvas>
                 </div>
-                <h3 class="topic pt-3">
-                    <sec id="textHeaderPrevalenceOfOverweightAndObesity"></sec>
-                </h3>
+                <div class="card-title">
+                    <h5 class="topic" id="textHeaderPrevalenceOfOverweightAndObesity"></h5>
+                    <div class="download-box">
+                        <button class="btn btn-outline-primary" type="button"
+                                id="dropdownMenuButtonWomenOverweightAndObesity"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                      d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#" id="metadata-info-women-overweight-and-obesity">
+                                Metadata</a></li>
+                            <li><a class="dropdown-item" href="#" id="womenOverweightAndObesityChartPNGDownload"
+                                   download="chart.png">Export Graph</a></li>
+                            <li><a class="dropdown-item" href="#"
+                                   id="womenOverweightAndObesityChartDataDownload">Export Data</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="drawChart">
                     <canvas id="womenOverweightAndObese"></canvas>
                 </div>
@@ -437,34 +484,36 @@
     <!-- Section 2: Immediate determinants of under nutrition-->
     <div class="row">
         <div class="col-lg-12 mt-4">
-            <div class="card sectionHeader">
-                <h2 id="textSec2Header"></h2>
-            </div>
-        </div>
-        <div class="col-lg-12 mt-4">
             <div class="card">
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
+                        <div id="IYCF-header">
+                            <h5 class="topic" id="textSec2Header"></h5>
+                        </div>
                         <div class="IYCF Legend">
                             <div>
                                 <svg id="IYCF-legend-early-breast" width="15" height="15">
                                     <rect x="0" y="0" width="15" height="15"/>
-                                </svg><p>Early Initiation of Breastfeeding</p>
+                                </svg>
+                                <p>Early Initiation of Breastfeeding</p>
                             </div>
                             <div>
                                 <svg id="IYCF-legend-exclusive-breast" width="15" height="15">
                                     <rect x="0" y="0" width="15" height="15"/>
-                                </svg><p>Exclusive Breastfeeding</p>
+                                </svg>
+                                <p>Exclusive Breastfeeding</p>
                             </div>
                             <div>
                                 <svg id="IYCF-legend-minimum-diet-diversity" width="15" height="15">
                                     <rect x="0" y="0" width="15" height="15"/>
-                                </svg><p>Minimum Diet Diversity</p>
+                                </svg>
+                                <p>Minimum Diet Diversity</p>
                             </div>
                             <div>
                                 <svg id="IYCF-legend-minimum-acceptable-diet" width="15" height="15">
                                     <rect x="0" y="0" width="15" height="15"/>
-                                </svg><p>Minimum Acceptable Diet</p>
+                                </svg>
+                                <p>Minimum Acceptable Diet</p>
                             </div>
                         </div>
                     </div>
@@ -493,11 +542,11 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                            <div class="topic">
-                                <h6>Oudomxay</h6>
-                            </div>
-                            <div class="drawChart IYCF">
-                                <canvas id="IYCF-Oudomxay-chart"></canvas>
+                        <div class="topic">
+                            <h6>Oudomxay</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Oudomxay-chart"></canvas>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -509,11 +558,11 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                            <div class="topic">
-                                <h6>Luangprabang</h6>
-                            </div>
-                            <div class="drawChart IYCF">
-                                <canvas id="IYCF-Luangprabang-chart"></canvas>
+                        <div class="topic">
+                            <h6>Luangprabang</h6>
+                        </div>
+                        <div class="drawChart IYCF">
+                            <canvas id="IYCF-Luangprabang-chart"></canvas>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -615,56 +664,56 @@
                 </div>
             </div>
         </div>
-<!--        Below is old code layout for IYCF section-->
-<!--        <div class="col-lg-6 mt-4">-->
-<!--            <div class="card">-->
-<!--                <h5 class="topic">-->
-<!--                    <sec id="early-initiation-of-breastfeeding">-->
-<!--                        Early Initiation of Breastfeeding-->
-<!--                    </sec>-->
-<!--                </h5>-->
-<!--                <div class="drawChart">-->
-<!--                    <canvas id="early-initiation-of-breastfeeding-chart"></canvas>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col-lg-6 mt-4">-->
-<!--            <div class="card">-->
-<!--                <h5 class="topic">-->
-<!--                    <sec id="exclusive-breastfeeding">-->
-<!--                        Exclusive Breastfeeding-->
-<!--                    </sec>-->
-<!--                </h5>-->
-<!--                <div class="drawChart">-->
-<!--                    <canvas id="exclusive-breastfeeding-chart"></canvas>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col-lg-6 mt-4">-->
-<!--            <div class="card">-->
-<!--                <h5 class="topic">-->
-<!--                    <sec id="prevalence-of-minimum-diet-diversity">-->
-<!--                        Prevalence of Minimum Diet Diversity-->
-<!--                    </sec>-->
-<!--                </h5>-->
-<!--                <div class="drawChart">-->
-<!--                    <canvas id="prevalence-of-minimum-diet-diversity-chart"></canvas>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col-lg-6 mt-4">-->
-<!--            <div class="card">-->
-<!--                <h5 class="topic">-->
-<!--                    <sec id="prevalence-of-minimum-acceptable-diet">-->
-<!--                        Prevalence of Minimum Acceptable Diet-->
-<!--                    </sec>-->
-<!--                </h5>-->
-<!--                <div class="drawChart">-->
-<!--                    <canvas id="prevalence-of-minimum-acceptable-diet-chart"></canvas>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        END-->
+        <!--        Below is old code layout for IYCF section-->
+        <!--        <div class="col-lg-6 mt-4">-->
+        <!--            <div class="card">-->
+        <!--                <h5 class="topic">-->
+        <!--                    <sec id="early-initiation-of-breastfeeding">-->
+        <!--                        Early Initiation of Breastfeeding-->
+        <!--                    </sec>-->
+        <!--                </h5>-->
+        <!--                <div class="drawChart">-->
+        <!--                    <canvas id="early-initiation-of-breastfeeding-chart"></canvas>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        <div class="col-lg-6 mt-4">-->
+        <!--            <div class="card">-->
+        <!--                <h5 class="topic">-->
+        <!--                    <sec id="exclusive-breastfeeding">-->
+        <!--                        Exclusive Breastfeeding-->
+        <!--                    </sec>-->
+        <!--                </h5>-->
+        <!--                <div class="drawChart">-->
+        <!--                    <canvas id="exclusive-breastfeeding-chart"></canvas>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        <div class="col-lg-6 mt-4">-->
+        <!--            <div class="card">-->
+        <!--                <h5 class="topic">-->
+        <!--                    <sec id="prevalence-of-minimum-diet-diversity">-->
+        <!--                        Prevalence of Minimum Diet Diversity-->
+        <!--                    </sec>-->
+        <!--                </h5>-->
+        <!--                <div class="drawChart">-->
+        <!--                    <canvas id="prevalence-of-minimum-diet-diversity-chart"></canvas>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        <div class="col-lg-6 mt-4">-->
+        <!--            <div class="card">-->
+        <!--                <h5 class="topic">-->
+        <!--                    <sec id="prevalence-of-minimum-acceptable-diet">-->
+        <!--                        Prevalence of Minimum Acceptable Diet-->
+        <!--                    </sec>-->
+        <!--                </h5>-->
+        <!--                <div class="drawChart">-->
+        <!--                    <canvas id="prevalence-of-minimum-acceptable-diet-chart"></canvas>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        END-->
         <div class="col-lg-6 mt-4">
             <div class="card">
                 <h5 class="topic"> Women Dietary Diversity</h5>
@@ -676,6 +725,10 @@
         <div class="col-lg-6 mt-4">
             <div class="card">
                 <h5 class="topic"> Open Defecation</h5>
+                <p class="text-content">
+                    24% of the population still practice open defecation. <b>Saravane</b> has the highest rate of open
+                    defecation.
+                </p>
                 <div class="drawChart">
                     <svg id="openDefaceMap" style="width: 100%; height: 100%; display: block; margin: auto;"
                          viewBox="0 0 360 360"></svg>
@@ -760,7 +813,6 @@
         </div>
     </div>
 </div> <!-- End container -->
-
 
 <!--Add Footer-->
 <div class="container-fluid" id="content-footer">
