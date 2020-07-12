@@ -1,6 +1,7 @@
-function modal(){
-    $('.modal').modal('show');
+window.onload = modal;
+function modal() {
+    $('#modalStart').modal('show');
     setTimeout(function () {
-        $('.modal').modal('hide');
+       $('#modalStart').modal('hide');
     }, 2000);
 }

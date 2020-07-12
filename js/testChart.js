@@ -209,7 +209,7 @@ function buildTrendOverviewChart(valueOfTrend) {
             tooltips: {
                 callbacks: {
                     title: function (tooltipItem, data) {
-                        let specificLabel = ['MICS 3', 'LSIS 1', 'LSIS 2', 'Target 2020', 'Target 2025'];
+                        let specificLabel = ['LSIS 1', 'LCASS','LSIS 2', 'Target 2020', 'Target 2025'];
                         return (tooltipItem[0].datasetIndex === 1) ? specificLabel[tooltipItem[0].index + 3] : specificLabel[tooltipItem[0].index]
                     }
                 }
@@ -810,7 +810,7 @@ function generateResult(input) { //this function get the input from the id of on
                     tooltips: {
                         callbacks: {
                             title: function (tooltipItem, data) {
-                                let specificLabel = ['MICS 3', 'LSIS 1', 'LSIS 2', 'Target 2020', 'Target 2025'];
+                                let specificLabel = ['LSIS 1', 'LCASS','LSIS 2', 'Target 2020', 'Target 2025'];
                                 return (tooltipItem[0].datasetIndex === 1) ? specificLabel[tooltipItem[0].index + 3] : specificLabel[tooltipItem[0].index]
                             }
                         }

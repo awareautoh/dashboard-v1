@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NIPN Dashboard V1.1</title>
+    <title>NIPN Dashboard V1.1.2</title>
     <meta name="title" content="NIPN Lao PDR Dashboard"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/png" href="images/nipn-favicon.png"/>
@@ -38,18 +38,16 @@
     </style>
 </head>
 
-<body onload="modal()">
+<body>
 
 <!--  activate spinner   here -->
-
-<div class="modal fade bd-example-modal-lg" data-backdrop="static" data-keyboard="false" tabindex="-1">
+<div class="modal fade bd-example-modal-lg" id ="modalStart" data-backdrop="static" data-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-sm">
         <div class="modal-content" style="width: 48px">
             <span class="fa fa-spinner fa-spin fa-3x"></span>
         </div>
     </div>
 </div>
-
 <!--    End spinner                -->
 
 <header id="content-header">
@@ -398,9 +396,12 @@
                             </svg>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" data-toggle="modal" href="#metadata-info-modal"
-                                   id="metadata-info">
-                                Metadata</a></li>
+                            <li><a class="metadataInfo dropdown-item" data-toggle="modal" href=""
+                                   id="metadata-info-overweight">
+                                Metadata Overweight</a></li>
+                            <li><a class="metadataInfo dropdown-item" data-toggle="modal" href=""
+                                   id="metadata-info-wasting">
+                                Metadata Wasting</a></li>
                             <li><a class="dropdown-item" href="#" id="wastingAndOverweightChartPNGDownload"
                                    download="chart.png"></a></li>
                             <li><a class="dropdown-item" href="#"
@@ -441,7 +442,7 @@
                             </svg>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="#" id="metadata-info-women-under-nutrition">
+                            <li><a class="metadataInfo dropdown-item" href="#" id="metadata-info-women-under-nutrition">
                                 Metadata</a></li>
                             <li><a class="dropdown-item" href="#" id="womenUnderNutritionChartPNGDownload"
                                    download="chart.png">Export Graph</a></li>
@@ -738,11 +739,6 @@
     </div>
     <!-- Section 3: Which nutrition-specific interventions are implemented? -->
     <div class="row">
-        <div class="col-lg-12 mt-4">
-            <div class="card sectionHeader">
-                <h2>Which nutrition-specific interventions are implemented?</h2>
-            </div>
-        </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
                 <h5 class="topic"> Vitamin A Supplementation Coverage</h5>
@@ -771,11 +767,6 @@
 
     <!-- Section 4: Which nutrition-sensitive interventions are implemented? -->
     <div class="row">
-        <div class="col-lg-12 mt-4">
-            <div class="card sectionHeader">
-                <h2>Which nutrition-sensitive interventions are implemented?</h2>
-            </div>
-        </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
                 <h5 class="topic">Status of Women</h5>
@@ -794,10 +785,49 @@
             </div>
         </div>
     </div>
-
-    <!-- Section 5: Provincial and Using DHIS2  -->
+    <!--    Section: Other Indicator-->
+<!--    <div class="row mt-4">-->
+<!--        <div class="col-lg-12 mt-4">-->
+<!--            <div class="card sectionHeader">-->
+<!--                <h2>Additional Key Nutrition Indicator</h2>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-12 mt-4">-->
+<!--            <div class="card">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-12">-->
+<!--                        <div class="dropdown" id="additional-indicator-dropdown-button-list">-->
+<!--                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink-additional-indicator-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                                Indicator List-->
+<!--                            </a>-->
+<!--                            <div class="dropdown-menu"  id="additional-indicator-dropdown-menu-list" aria-labelledby="dropdownMenuLink-additional-indicator-list">-->
+<!--                                <a class="dropdown-item" href="#">Household consumption of iodized salt</a>-->
+<!--                                <a class="dropdown-item" href="#">Another action</a>-->
+<!--                                <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4">-->
+<!--                        <h5 class="topic">-->
+<!--                            Trend-->
+<!--                        </h5>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4">-->
+<!--                        <h5 class="topic">-->
+<!--                            Province-->
+<!--                        </h5>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4">-->
+<!--                        <h5 class="topic">-->
+<!--                            Map-->
+<!--                        </h5>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <!-- Section6: reference -->
     <div class="row">
-        <!-- Section6: reference -->
         <div class="col-lg-12 mt-4">
             <div class="card">
                 <h5 class="topic"> Data Source</h5>
@@ -870,6 +900,98 @@
 </div>
 <!-- END Footer -->
 
+<!--Modal for Metadata Information for Each Indicator-->
+<div class="modal" id="metaData" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Metadata</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <th>Indicator Name:</th>
+                                    <td>Overweight</td>
+                                </tr>
+                                <tr>
+                                    <th>Agency's Name:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Definition:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Calculation:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Data Source:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Additional Source:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Level:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Periodicity/frequency:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Unit of Measure:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Sustainable Development Goal:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>WHO Target:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>National Nutrition Strategy Priority Intervention Area:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Sector:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Classification Within Sector:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Information System:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Indicator ID:</th>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- The script of overview tab -->
 <script src="js/allcharts.js"></script>

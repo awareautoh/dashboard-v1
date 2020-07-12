@@ -791,11 +791,12 @@ function buildChart(value) {
     let socioStatusSort = socio.slice().sort((a, b) => b["ValueSocioStatus"] - a["ValueSocioStatus"]);
     let valueSocio = socioStatusSort.map(d => d["ValueSocioStatus"]);
     let nationalSocio = socioStatusSort.map(d => d["NationalSocioStatus"]);
+    let provinceSocio = socioStatusSort.map(d => d["Province"]);
     let getSocioStatusChart = document.getElementById('socioStatusChart').getContext("2d");
     let socioStatusChart = new Chart(getSocioStatusChart, {
         type: 'bar',
         data: {
-            labels: province,
+            labels: provinceSocio,
             datasets: [
                 {
                     label: 'National 23.2%',
@@ -808,9 +809,10 @@ function buildChart(value) {
                     borderColor: uRed,
                 },
                 {
-                    label: 'Proportion of population below proverty line',
+                    label: 'Proportion of population below poverty line',
                     data: valueSocio,
                     backgroundColor: uBlue,
+                    hoverBackgroundColor: uDarkBlue,
                     borderWidth: 0,
                 },
             ]
@@ -1196,3 +1198,9 @@ function scrollFunction() {
         document.getElementById("navBarTop").style["min-height"] = "80px";
     }
 }
+
+//Metadata activate area
+d3.selectAll('.metadataInfo')
+    .on('click', () => {
+        $('#metaData').modal('show');
+    });
