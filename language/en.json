@@ -1,16 +1,12 @@
 {
-  "nutritionStatus": "Nutrition Status",
-  "national-profile": "National Profiles",
-  "sentinelSurvey": "SENTINEL SURVEY",
-  "dhis": "Routine Monitoring",
-  "agricultureCensus": "AGRICULTURE CENSUS",
-  "data-repository-link": "Data Repository",
-  "about-nipn-link": "NIPN Homepage",
-  "overviewOfNutrition": "Overview of Nutrition",
-  "textCardIcon1": "Exclusive breastfeeding under 6 months",
-  "textCardIcon2": "Underweight prevalence",
-  "textCardIcon3": "Overweight prevalence",
-  "textCardIcon4": "Minimum Diet Diversity",
+  "nutrition-profiles": "NATIONAL PROFILES",
+  "national-surveys": "NATIONAL SURVEYS",
+  "nutrition-surveillance": "NUTRITION SURVEILLANCE",
+  "dhis": "ROUTINE MONITORING",
+  "agricultural-statistics": "AGRICULTURAL STATISTICS",
+  "data-repository-link": "DATA REPOSITORY",
+  "about-nipn-link": "NIPN HOMEPAGE",
+  "snapshot-of-nutrition-indicators": "Snapshot of Nutrition Indicators",
   "textSec1Header": "Current Status of Key Nutrition Indicators",
   "textTitleChildMalnutrition": "Child Malnutrition",
   "wastingAndOverweightChartPNGDownload": "Export Graph",
@@ -20,6 +16,5 @@
   "overviewResetButton": "Reset",
   "textHeaderWomenUndernutrition": "Women Under Nutrition",
   "textHeaderPrevalenceOfOverweightAndObesity": "Prevalence of Overweight and Obesity",
-  "textSec2Header": "Infant and Young Child Feeding",
-  "infantAndYoungChildFeedingPractices": "Infant and Young Child Feeding Practices"
+  "textSec2Header": "Infant and Young Child Feeding"
 }

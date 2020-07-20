@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Routine Monitoring-NIPN Dashboard V1.1</title>
+    <title>Routine Monitoring-NIPN Lao PDR Dashboard V1.1.3</title>
     <meta name="title" content="NIPN Lao PDR Dashboard"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/png" href="images/nipn-favicon.png"/>
@@ -10,11 +10,11 @@
     <!--    <link rel="stylesheet" type="text/css" href="css/main.css">-->
     <!-- Google jQuery -->
     <script src="js/jquery.min.js"></script>
-    <script src="js/language.js"></script> <!-- Script for multi language -->
+    <script type="module" src="js/language-for-routine-monitoring-tab.js"></script> <!-- Script for multi language -->
     <!-- BS CSS -->
     <link rel="stylesheet" href="js/bootstrap-4/css/bootstrap.min.css">
     <script src="js/bootstrap-4/js/bootstrap.bundle.min.js"></script>
-    <script src="js/load.js"></script>
+    <script type="module" src="js/load.js"></script>
     <!-- BS OPT THEME -->
     <!--Add Awesome font for icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -29,8 +29,8 @@
     <!--Load ChartJS plugin: defer transition from local-->
     <script src="js/d3.v5.min.js"></script>
     <script src="js/d3_legend.js"></script> <!-- Import script for add legend to map -->
-    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
     <!-- Import TopoJSON to read topoJSON Map file -->
+    <script src="js/topojson.js"></script>
 
     <style>
         /* Add Initial CSS Here */
@@ -46,62 +46,69 @@
     </div>
 </div>
 <!--    End spinner                -->
-<!--Header-->
-<header id="content-header">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" id="navBarTop">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/nipn-favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                <img src="images/laos.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                NIPN Dashboard
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarList"
-                    aria-controls="navBarList" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navBarList">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" id="home-tab" href="/index.html"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="national-profile-tab" href="/national-profiles.html"></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" id="dhis-tab" href="routine-monitoring.html"></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkSurvey" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            More Data
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkSurvey">
-                            <a class="dropdown-item" id="sentinelSurvey-tab" href="sentinel-survey.html" ></a>
-                            <a class="dropdown-item" id="agricultureCensus-tab" href="agriculture-census.html"></a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkNIPN" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            About NIPN
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkNIPN">
-                            <a class="dropdown-item" id="data-repository-link" href="https://nipn.cdr.gov.la/repository/"></a>
-                            <a class="dropdown-item" id="about-nipn-link" href="https://nipn.cdr.gov.la"></a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+<!--Header and NavBar-->
+<div class="container-fluid" id="header-section">
+    <header class="site-header">
+        <div class="row" id="header-language-option">
             <div id="lang-option-list">
-                <a href="">
-                    <img id='button-en-lang' src="images/uk.png" width="30" height="30" alt="English">
+                <a id="lao-language-option" href="">
+                    ພາສາລາວ
                 </a>
-                <a href="">
-                    <img id='button-la-lang' src="images/laos.png" width="30" height="30" alt="ພາສາລາວ">
+                <a id="english-language-option" href="">
+                    English
                 </a>
             </div>
         </div>
-    </nav>
-</header>
-<!--END Header-->
+        <div class="row" id="header-logo-images">
+            <img src="images/logo_nipn_en.png" alt="NIPN-Logo">
+            <img src="images/header-nipn-website-with-line.png" alt="NIPN Lao PDR Motto">
+            <img src="images/laos.png" alt="Lao PDR Flag">
+        </div>
+    </header>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navBarTop">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarList" aria-controls="navBarList" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navBarList">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" id="home-tab" href="/index.html"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="national-surveys-tab" href="/national-surveys.html"></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" id="dhis-tab" href="routine-monitoring.html"></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkSurvey" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        MORE DATA
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkSurvey">
+                        <a class="dropdown-item" id="nutrition-surveillance-tab" href="nutrition-surveillance.html"></a>
+                        <a class="dropdown-item" id="agricultural-statistics-tab" href="agricultural-statistics.html"></a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkNIPN" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ABOUT NIPN
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkNIPN">
+                        <a class="dropdown-item" id="data-repository-link"
+                           href="https://nipn.cdr.gov.la/repository/"></a>
+                        <a class="dropdown-item" id="about-nipn-link" href="https://nipn.cdr.gov.la"></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--END Header and NavBar-->
+<!--Start Content-->
 <!--Content-->
 
 <!--END Content-->
@@ -131,10 +138,7 @@
         <div class="container">
             <div class="row" style="margin-top:10px;">
                 <div class="col-sm-7" id="copyright-logo">
-                    <img src="https://cdr.gov.la/wp-content/uploads/2020/02/CDR-LOGO-OFFICIAL-300x205.png"
-                         width="128px"/>
-                    <img src="images/logo_nipn_en.png"
-                         width="128px"/>
+                    <img src="images/logo_nipn_en.png" alt="NIPN Logo"/>
                 </div>
                 <div class="col-sm-5" id="copyright-text">
                     <p>

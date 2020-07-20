@@ -1,5 +1,8 @@
 "use strict";
-
+import * as base from  './base.js';
+base.default();
+import * as load from './load.js'
+load.default();
 //Color shade
 const red = "#E2231A"; //UNICEF CODE BOOK COLOR
 const blue = "#1CABE2"; //UNICEF CODE BOOK COLOR
@@ -565,7 +568,7 @@ $(document).ready(function () {
     //Set Scale
     let colorScale = d3.scaleQuantize([0, 40], d3.schemeOranges[5]);
     //Set tooltips
-    let tooltipOpenDeface = d3.select(".tab-content").append("div")
+    let tooltipOpenDeface = d3.select("body").append("div")
         .attr("class", "tooltipOpenDeface")
         .style("opacity", 0);
 
@@ -643,7 +646,7 @@ $(document).ready(function () {
     //Set Scale
     let colorScale = d3.scaleQuantize([0, 40], d3.schemeOranges[5]);
     //Set tooltips
-    let tooltipOpenDeface = d3.select(".tab-content").append("div")
+    let tooltipOpenDeface = d3.select("body").append("div")
         .attr("class", "tooltipOpenDeface")
         .style("opacity", 0);
 

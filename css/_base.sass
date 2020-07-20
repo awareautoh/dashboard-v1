@@ -26,12 +26,30 @@ $uDarkBlue: #374EA2 //UNICEF CODE BOOK COLOR
 
 /*Customize Nav bar and Body*/
 body
-  padding-top: 4rem
   font-family: $font-default !important
+//Customize Header Images
+#header-language-option
+  justify-content: flex-end
+  a
+    margin: .5rem
+    color: $uDarkGrey
+    &:hover
+      color: $uBlue
+#header-logo-images
+  flex-direction: row
+  flex-wrap: wrap
+  max-height: 100%
+  align-items: center
+  justify-content: space-around
+  img
+    max-height: 155px
+    max-width: 100%
+
 
 #navBarTop
   font-size: 1rem
   min-height: 80px
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 6px 8px rgba(0,0,0,0.11), 0 8px 16px rgba(0,0,0,0.11)
 #navBarList
   .navbar-nav
     .nav-item.active
@@ -52,32 +70,11 @@ body
 
 /*Customize Card*/
 .card
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 6px 8px rgba(0,0,0,0.11), 0 8px 16px rgba(0,0,0,0.11)
   height: 100%
   width: 100%
   border-radius: 0 !important
   border: 0 !important
-
-.footer-fixed-bottom-wrap
-  width: 100%
-  height: auto
-  z-index: 1000 !important
-  bottom: 0
-  margin-top: 5px
-
-
-.footer-fixed-bottom
-  text-align: center
-  background: #efefef
-
-
-.footer-fixed-bottom > .copyright
-  margin: 0
-  padding: 25px
-
-
-.footer-fixed-bottom > .btn
-  border-radius: 0
 
 /* Customize Draw Chart Area for ChartJS Canvas Tag */
 .drawChart
@@ -89,29 +86,9 @@ canvas
   padding: 12px
 
 /* box shadow on the top menu */
-.bg-light
-  box-shadow: 3px 3px 3px #aaa
-
-/* top header */
-.header-fixed-bottom-wrap
-  width: 100%
-  height: auto
-  z-index: 1000 !important
-  bottom: 0
-  text-align: right
-
-.header-fixed-bottom
-  text-align: right
-  background: #efefef
-  padding: 15px
-
-.header-fixed-bottom > .copyright
-  margin: 0
-  padding: 25px
-  box-shadow: 10px 10px 5px #888
-
-.header-fixed-bottom > .btn
-  border-radius: 0
+#content-header
+  #navBarTop
+    box-shadow: 0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 6px 8px rgba(0,0,0,0.11), 0 8px 16px rgba(0,0,0,0.11)
 
 /* Map Chart Customize*/
 .mapBorder
@@ -131,4 +108,17 @@ canvas
   text-align: center
   margin-bottom: 0
   color: $uBlack
+
+/* Footer Section */
+#copyright-logo
+  flex-direction: row
+  flex-wrap: wrap
+  max-height: 100%
+  align-items: center
+  justify-content: space-around
+  h5
+    margin: 1rem
+  img
+    max-width: 100%
+    height: auto
 /*END BASE CSS*/

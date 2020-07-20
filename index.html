@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NIPN Dashboard V1.1.2</title>
+    <title>NIPN Lao PDR Dashboard V1.1.3</title>
     <meta name="title" content="NIPN Lao PDR Dashboard"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/png" href="images/nipn-favicon.png"/>
@@ -10,11 +10,10 @@
     <!--    <link rel="stylesheet" type="text/css" href="css/main.css">-->
     <!-- Google jQuery -->
     <script src="js/jquery.min.js"></script>
-    <script src="js/language.js"></script> <!-- Script for multi language -->
+    <script type="module" src="js/language-for-national-profiles-tab.js"></script> <!-- Script for multi language -->
     <!-- BS CSS -->
     <link rel="stylesheet" href="js/bootstrap-4/css/bootstrap.min.css">
     <script src="js/bootstrap-4/js/bootstrap.bundle.min.js"></script>
-    <script src="js/load.js"></script>
     <!-- BS OPT THEME -->
     <!--Add Awesome font for icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -28,20 +27,17 @@
     <script src="js/chartjs-plugin-deferred.min.js"></script>
     <!--Load ChartJS plugin: defer transition from local-->
     <script src="js/d3.v5.min.js"></script>
-    <!-- Import script for add legend to map -->
-    <script src="js/d3_legend.js"></script>
+    <script src="js/d3_legend.js"></script> <!-- Import script for add legend to map -->
     <!-- Import TopoJSON to read topoJSON Map file -->
-    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+    <script src="js/topojson.js"></script>
 
     <style>
         /* Add Initial CSS Here */
     </style>
 </head>
-
 <body>
-
 <!--  activate spinner   here -->
-<div class="modal fade bd-example-modal-lg" id ="modalStart" data-backdrop="static" data-keyboard="false" tabindex="-1">
+<div class="modal fade bd-example-modal-lg" id="modalStart" data-backdrop="static" data-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-sm">
         <div class="modal-content" style="width: 48px">
             <span class="fa fa-spinner fa-spin fa-3x"></span>
@@ -49,70 +45,76 @@
     </div>
 </div>
 <!--    End spinner                -->
-
-<header id="content-header">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" id="navBarTop">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="">
-                <img src="images/nipn-favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                <img src="images/laos.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                NIPN Dashboard
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarList"
-                    aria-controls="navBarList" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navBarList">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link active" id="home-tab" href="/index.html"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="national-profile-tab" href="/national-profiles.html"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="dhis-tab" href="routine-monitoring.html"></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkSurvey" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            More Data
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkSurvey">
-                            <a class="dropdown-item" id="sentinelSurvey-tab" href="sentinel-survey.html"></a>
-                            <a class="dropdown-item" id="agricultureCensus-tab" href="agriculture-census.html"></a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkNIPN" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            About NIPN
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkNIPN">
-                            <a class="dropdown-item" id="data-repository-link"
-                               href="https://nipn.cdr.gov.la/repository/"></a>
-                            <a class="dropdown-item" id="about-nipn-link" href="https://nipn.cdr.gov.la"></a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+<!--Header and NavBar-->
+<div class="container-fluid" id="header-section">
+    <header class="site-header">
+        <div class="row" id="header-language-option">
             <div id="lang-option-list">
-                <a href="">
-                    <img id='button-en-lang' src="images/uk.png" width="30" height="30" alt="English">
+                <a id="lao-language-option" href="">
+                    ພາສາລາວ
                 </a>
-                <a href="">
-                    <img id='button-la-lang' src="images/laos.png" width="30" height="30" alt="ພາສາລາວ">
+                <a id="english-language-option" href="">
+                    English
                 </a>
             </div>
         </div>
-    </nav>
-</header>
-<div class="container" id="content-container">
+        <div class="row" id="header-logo-images">
+            <img src="images/logo_nipn_en.png" alt="NIPN-Logo">
+            <img src="images/header-nipn-website-with-line.png" alt="NIPN Lao PDR Motto">
+            <img src="images/laos.png" alt="Lao PDR Flag">
+        </div>
+    </header>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navBarTop">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarList" aria-controls="navBarList" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navBarList">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" id="home-tab" href="/index.html"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="national-surveys-tab" href="/national-surveys.html"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="dhis-tab" href="routine-monitoring.html"></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkSurvey" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        MORE DATA
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkSurvey">
+                        <a class="dropdown-item" id="nutrition-surveillance-tab" href="nutrition-surveillance.html"></a>
+                        <a class="dropdown-item" id="agricultural-statistics-tab" href="agricultural-statistics.html"></a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkNIPN" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ABOUT NIPN
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkNIPN">
+                        <a class="dropdown-item" id="data-repository-link"
+                           href="https://nipn.cdr.gov.la/repository/"></a>
+                        <a class="dropdown-item" id="about-nipn-link" href="https://nipn.cdr.gov.la"></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--END Header and NavBar-->
+<!--Start Content-->
+<!--Content-->
+<div class="container" id="container-national-profiles">
     <!--    Section Overview of Nutrition-->
     <div class="row mt-5">
         <div class="col-lg-12">
             <div class="card sectionHeader">
-                <h2 class="top" id="overviewOfNutrition"></h2>
+                <h2 class="top" id="snapshot-of-nutrition-indicators"></h2>
             </div>
         </div>
     </div>
@@ -127,7 +129,7 @@
                             <tr>
                                 <th scope="col">Indicator</th>
                                 <th scope="col">LSIS <br> 2017 (%)</th>
-                                <th scope="col">Target <br> 2025 (%)</th>
+                                <th scope="col">Target* <br> 2025 (%)</th>
                             </tr>
                             </thead>
                         </table>
@@ -138,7 +140,7 @@
                                style="margin-bottom: 0; padding: 0;">
                             <tbody>
                             <tr class="greenTag table-active" id="overview-stunting">
-                                <td>Stunting in children under 5 years old</td>
+                                <td>Stunting among children under 5 years old</td>
                                 <td>33</td>
                                 <td>25</td>
                             </tr>
@@ -151,9 +153,9 @@
                                style="margin-bottom: 0; padding: 0;">
                             <tbody>
                             <tr class="redTag" id="overview-wasting">
-                                <td>Wasting in children under 5 years old</td>
-                                <td> 9</td>
-                                <td> <5</td>
+                                <td>Wasting among children under 5 years old</td>
+                                <td>9</td>
+                                <td><5</td>
                             </tr>
                             </tbody>
                         </table>
@@ -164,9 +166,9 @@
                                style="margin-bottom: 0; padding: 0;">
                             <tbody>
                             <tr class="yellowTag" id="overview-underweight">
-                                <td>Underweight in children under 5 years old</td>
-                                <td> 21</td>
-                                <td> 12</td>
+                                <td>Underweight among children under 5 years old</td>
+                                <td>21</td>
+                                <td>12</td>
                             </tr>
                             </tbody>
                         </table>
@@ -177,9 +179,9 @@
                                style="margin-bottom: 0; padding: 0;">
                             <tbody>
                             <tr class="redTag" id="overview-c6-c59-anemia">
-                                <td>Children 6-59 months with Anemia</td>
-                                <td> 44</td>
-                                <td> 30</td>
+                                <td>Anaemia among children 6 to 59 months</td>
+                                <td>44</td>
+                                <td>30</td>
                             </tr>
                             </tbody>
                         </table>
@@ -190,9 +192,9 @@
                                style="margin-bottom: 0; padding: 0;">
                             <tbody>
                             <tr class="redTag" id="overview-wra-15-49-anemia">
-                                <td>Women of Reproductive Age (15-49Y) with Anemia</td>
-                                <td> 40</td>
-                                <td> 15</td>
+                                <td>Anaemia among women of reproductive age 15 to 49 years</td>
+                                <td>40</td>
+                                <td>15</td>
                             </tr>
                             </tbody>
                         </table>
@@ -203,9 +205,9 @@
                                style="margin-bottom: 0; padding: 0;">
                             <tbody>
                             <tr class="greenTag" id="overview-low-birth-weight">
-                                <td>Low Birth Weight</td>
-                                <td> 6.5</td>
-                                <td> 8</td>
+                                <td>Low birth weight among infants born</td>
+                                <td>6.5</td>
+                                <td>8</td>
                             </tr>
                             </tbody>
                         </table>
@@ -216,7 +218,7 @@
                                style="margin-bottom: 0; padding: 0;">
                             <tbody>
                             <tr class="redTag" id="overview-overweight">
-                                <td>Overweight</td>
+                                <td>Overweight among children under 5 years old</td>
                                 <td> 3.5</td>
                                 <td> <= 2</td>
                             </tr>
@@ -229,7 +231,7 @@
                                style="margin-bottom: 0; padding: 0;">
                             <tbody>
                             <tr class="redTag" id="overview-c0-c6-exclusively-breastfed">
-                                <td>Children 0-6 months Exclusively Breastfed</td>
+                                <td>Exclusively breastfed among children 0 to 6 months</td>
                                 <td> 45</td>
                                 <td> 60</td>
                             </tr>
@@ -244,25 +246,26 @@
                             <tr class="tableLegend">
                                 <td>
                                     <i class="fas fa-circle" style="color: #039245;"></i>
-                                    <a>On track</a>
+                                    <a>Achieved</a>
                                 </td>
                                 <td>
                                     <i class="fas fa-circle" style="color: #ecb800;"></i>
-                                    <a>Caution</a>
+                                    <a>On track</a>
                                 </td>
                                 <td>
                                     <i class="fas fa-circle" style="color: #ea5771;"></i>
-                                    <a>Out of track</a>
+                                    <a>Off track</a>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
                     </a>
                 </div>
+                <p>*Strategic target in 2025</p>
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="card" style="height: 600px; padding: 1rem;">
+            <div class="card" id="overview-content-card">
                 <div id="navBarOverviewCard">
                     <ul class="nav nav-tabs" id="overviewCardTab" role="tablist"
                         style="font-size: 1rem;">
@@ -343,508 +346,9 @@
             </div>
         </div>
     </div>
-    <!-- Section 2.1  -->
-    <!--Section 1 Key Nutrition Indicator-->
-    <div class="row mt-4">
-        <div class="col-lg">
-            <div class="card sectionHeader">
-                <h2 class="sec1" id="textSec1Header"></h2>
-            </div>
-        </div>
-    </div>
-    <!-- Section Map Stunting -->
-    <div class="row">
-        <div class="col-lg-12 mt-4">
-            <div class="card">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h5 class="topic">Stunting Status in Lao PDR</h5>
-                        <p class="text-content">
-                            8 provinces have very high levels of stunting in 2017 compared to 13 provinces in 2011
-                        </p>
-                    </div>
-                    <div class="col-lg-6">
-                        <h6 class="topic">2011</h6>
-                        <div class="drawChart">
-                            <svg id="test" style="width: 100%; height: 100%; display: block; margin: auto;"
-                                 viewBox="0 0 360 360"></svg>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h6 class="topic">2017</h6>
-                        <div class="drawChart">
-                            <svg id="test1" style="width: 100%; height: 100%; display: block; margin: auto;"
-                                 viewBox="0 0 360 360"></svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 mt-4">
-            <div class="card">
-                <div class="card-title">
-                    <h5 class="topic" id="textTitleChildMalnutrition"></h5>
-                    <div class="download-box">
-                        <button class="btn btn-outline-primary" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill"
-                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                      d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                            </svg>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="metadataInfo dropdown-item" data-toggle="modal" href=""
-                                   id="metadata-info-overweight">
-                                Metadata Overweight</a></li>
-                            <li><a class="metadataInfo dropdown-item" data-toggle="modal" href=""
-                                   id="metadata-info-wasting">
-                                Metadata Wasting</a></li>
-                            <li><a class="dropdown-item" href="#" id="wastingAndOverweightChartPNGDownload"
-                                   download="chart.png"></a></li>
-                            <li><a class="dropdown-item" href="#"
-                                   id="wastingAndOverweightChartDataDownload"></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="drawChart">
-                    <canvas id="wastingAndOverweightChart"></canvas>
-                </div>
-                <div id="toolbarOverview" style="text-align: center;">
-                    <button type="button" id='overviewWastingButton' class="btn btn-outline-primary"
-                            data-toggle="button"
-                            style="margin: 10px 5px 15px 5px; display: inline-block;">
-                    </button>
-                    <button type="button" id='overviewOverweightButton' class="btn btn-outline-primary"
-                            data-toggle="button" aria-pressed="false"
-                            style="margin: 10px 5px 15px 5px; display: inline-block;">
-                    </button>
-                    <button type="button" id='overviewResetButton' class="btn btn-outline-primary"
-                            data-toggle="button" aria-pressed="false"
-                            style="margin: 10px 5px 15px 5px; display: inline-block;">
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-12 mt-4">
-            <div class="card">
-                <div class="card-title">
-                    <h5 class="topic" id="textHeaderWomenUndernutrition"></h5>
-                    <div class="download-box">
-                        <button class="btn btn-outline-primary" type="button" id="dropdownMenuButtonWomenUnderNutrition"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill"
-                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                      d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                            </svg>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="metadataInfo dropdown-item" href="#" id="metadata-info-women-under-nutrition">
-                                Metadata</a></li>
-                            <li><a class="dropdown-item" href="#" id="womenUnderNutritionChartPNGDownload"
-                                   download="chart.png">Export Graph</a></li>
-                            <li><a class="dropdown-item" href="#"
-                                   id="womenUnderNutritionChartDataDownload">Export Data</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="drawChart">
-                    <canvas id="womenAnemia"></canvas>
-                </div>
-                <div class="card-title">
-                    <h5 class="topic" id="textHeaderPrevalenceOfOverweightAndObesity"></h5>
-                    <div class="download-box">
-                        <button class="btn btn-outline-primary" type="button"
-                                id="dropdownMenuButtonWomenOverweightAndObesity"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill"
-                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                      d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                            </svg>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="#" id="metadata-info-women-overweight-and-obesity">
-                                Metadata</a></li>
-                            <li><a class="dropdown-item" href="#" id="womenOverweightAndObesityChartPNGDownload"
-                                   download="chart.png">Export Graph</a></li>
-                            <li><a class="dropdown-item" href="#"
-                                   id="womenOverweightAndObesityChartDataDownload">Export Data</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="drawChart">
-                    <canvas id="womenOverweightAndObese"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Section 2: Immediate determinants of under nutrition-->
-    <div class="row">
-        <div class="col-lg-12 mt-4">
-            <div class="card">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12">
-                        <div id="IYCF-header">
-                            <h5 class="topic" id="textSec2Header"></h5>
-                        </div>
-                        <div class="IYCF Legend">
-                            <div>
-                                <svg id="IYCF-legend-early-breast" width="15" height="15">
-                                    <rect x="0" y="0" width="15" height="15"/>
-                                </svg>
-                                <p>Early Initiation of Breastfeeding</p>
-                            </div>
-                            <div>
-                                <svg id="IYCF-legend-exclusive-breast" width="15" height="15">
-                                    <rect x="0" y="0" width="15" height="15"/>
-                                </svg>
-                                <p>Exclusive Breastfeeding</p>
-                            </div>
-                            <div>
-                                <svg id="IYCF-legend-minimum-diet-diversity" width="15" height="15">
-                                    <rect x="0" y="0" width="15" height="15"/>
-                                </svg>
-                                <p>Minimum Diet Diversity</p>
-                            </div>
-                            <div>
-                                <svg id="IYCF-legend-minimum-acceptable-diet" width="15" height="15">
-                                    <rect x="0" y="0" width="15" height="15"/>
-                                </svg>
-                                <p>Minimum Acceptable Diet</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Vientiane Capital</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-VientianeCapital-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Phongsaly</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Phongsaly-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Luangnamtha</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Luangnamtha-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Oudomxay</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Oudomxay-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Bokeo</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Bokeo-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Luangprabang</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Luangprabang-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Huaphanh</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Huaphanh-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Xayabury</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Xayabury-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Xiengkhuang</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Xiengkhuang-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Vientiane</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-VientianeProvince-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Borikhamxay</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Borikhamxay-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Khammuane</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Khammuane-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Savannakhet</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Savannakhet-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Saravane</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Saravane-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Sékong</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Sékong-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Champasak</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Champasak-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Attapeu</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Attapeu-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="topic">
-                            <h6>Xaysomboun</h6>
-                        </div>
-                        <div class="drawChart IYCF">
-                            <canvas id="IYCF-Xaysomboun-chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--        Below is old code layout for IYCF section-->
-        <!--        <div class="col-lg-6 mt-4">-->
-        <!--            <div class="card">-->
-        <!--                <h5 class="topic">-->
-        <!--                    <sec id="early-initiation-of-breastfeeding">-->
-        <!--                        Early Initiation of Breastfeeding-->
-        <!--                    </sec>-->
-        <!--                </h5>-->
-        <!--                <div class="drawChart">-->
-        <!--                    <canvas id="early-initiation-of-breastfeeding-chart"></canvas>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!--        <div class="col-lg-6 mt-4">-->
-        <!--            <div class="card">-->
-        <!--                <h5 class="topic">-->
-        <!--                    <sec id="exclusive-breastfeeding">-->
-        <!--                        Exclusive Breastfeeding-->
-        <!--                    </sec>-->
-        <!--                </h5>-->
-        <!--                <div class="drawChart">-->
-        <!--                    <canvas id="exclusive-breastfeeding-chart"></canvas>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!--        <div class="col-lg-6 mt-4">-->
-        <!--            <div class="card">-->
-        <!--                <h5 class="topic">-->
-        <!--                    <sec id="prevalence-of-minimum-diet-diversity">-->
-        <!--                        Prevalence of Minimum Diet Diversity-->
-        <!--                    </sec>-->
-        <!--                </h5>-->
-        <!--                <div class="drawChart">-->
-        <!--                    <canvas id="prevalence-of-minimum-diet-diversity-chart"></canvas>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!--        <div class="col-lg-6 mt-4">-->
-        <!--            <div class="card">-->
-        <!--                <h5 class="topic">-->
-        <!--                    <sec id="prevalence-of-minimum-acceptable-diet">-->
-        <!--                        Prevalence of Minimum Acceptable Diet-->
-        <!--                    </sec>-->
-        <!--                </h5>-->
-        <!--                <div class="drawChart">-->
-        <!--                    <canvas id="prevalence-of-minimum-acceptable-diet-chart"></canvas>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!--        END-->
-        <div class="col-lg-6 mt-4">
-            <div class="card">
-                <h5 class="topic"> Women Dietary Diversity</h5>
-                <div class="drawChart">
-                    <canvas id="womenDietChart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 mt-4">
-            <div class="card">
-                <h5 class="topic"> Open Defecation</h5>
-                <p class="text-content">
-                    24% of the population still practice open defecation. <b>Saravane</b> has the highest rate of open
-                    defecation.
-                </p>
-                <div class="drawChart">
-                    <svg id="openDefaceMap" style="width: 100%; height: 100%; display: block; margin: auto;"
-                         viewBox="0 0 360 360"></svg>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Section 3: Which nutrition-specific interventions are implemented? -->
-    <div class="row">
-        <div class="col-lg-6 mt-4">
-            <div class="card">
-                <h5 class="topic"> Vitamin A Supplementation Coverage</h5>
-                <div class="drawChart">
-                    <canvas id="vitAChart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 mt-4">
-            <div class="card">
-                <h5 class="topic"> Children who received Deworming Coverage</h5>
-                <div class="drawChart">
-                    <canvas id="dewormingChart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-12 mt-4">
-            <div class="card">
-                <h5 class="topic"> Iron/Folic Acid Supplementation Coverage</h5>
-                <div class="drawChart">
-                    <canvas id="ironFolicChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 4: Which nutrition-sensitive interventions are implemented? -->
-    <div class="row">
-        <div class="col-lg-6 mt-4">
-            <div class="card">
-                <h5 class="topic">Status of Women</h5>
-                <div class="drawChart">
-                    <svg id="womenStatusMap" style="width: 100%; height: 100%; display: block; margin: auto;"
-                         viewBox="0 0 360 360"></svg>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 mt-4">
-            <div class="card">
-                <h5 class="topic">Socio Status</h5>
-                <div class="drawChart">
-                    <canvas id="socioStatusChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--    Section: Other Indicator-->
-<!--    <div class="row mt-4">-->
-<!--        <div class="col-lg-12 mt-4">-->
-<!--            <div class="card sectionHeader">-->
-<!--                <h2>Additional Key Nutrition Indicator</h2>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col-lg-12 mt-4">-->
-<!--            <div class="card">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-lg-12">-->
-<!--                        <div class="dropdown" id="additional-indicator-dropdown-button-list">-->
-<!--                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink-additional-indicator-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                                Indicator List-->
-<!--                            </a>-->
-<!--                            <div class="dropdown-menu"  id="additional-indicator-dropdown-menu-list" aria-labelledby="dropdownMenuLink-additional-indicator-list">-->
-<!--                                <a class="dropdown-item" href="#">Household consumption of iodized salt</a>-->
-<!--                                <a class="dropdown-item" href="#">Another action</a>-->
-<!--                                <a class="dropdown-item" href="#">Something else here</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-4">-->
-<!--                        <h5 class="topic">-->
-<!--                            Trend-->
-<!--                        </h5>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-4">-->
-<!--                        <h5 class="topic">-->
-<!--                            Province-->
-<!--                        </h5>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-4">-->
-<!--                        <h5 class="topic">-->
-<!--                            Map-->
-<!--                        </h5>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-    <!-- Section6: reference -->
-    <div class="row">
-        <div class="col-lg-12 mt-4">
-            <div class="card">
-                <h5 class="topic"> Data Source</h5>
-                <ul class="list-group">
-                    <li class="list-group-item">(1) Lao Social Indicator Survey (2011)</li>
-                    <li class="list-group-item">(2) Lao Expenditure and Consumption Survey (2013)</li>
-                    <li class="list-group-item">(3) Lao Social Indicator Survey II (2017)</li>
-                    <li class="list-group-item">(4) Lao Education and Sport Database (2017)</li>
-                    <li class="list-group-item">(5) Nutrition Sentinel Surveillance1 (2019)</li>
-                    <li class="list-group-item">(6) Multiple Indicator Cluster Survey (MICS3, 2006)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div> <!-- End container -->
-
-<!--Add Footer-->
+</div>
+<!--END Content-->
+<!--Footer-->
 <div class="container-fluid" id="content-footer">
     <div class="row mt-4">
         <div class="card col-lg-12" id="support-header">
@@ -855,13 +359,13 @@
             </div>
         </div>
         <div class="card col-lg-4 col-md-4" id="support-laogov-logo">
-            <img id="laoGovLogo" src="images/Lao_Government_logo.png" alt="">
+            <img id="laoGovLogo" src="images/Lao_Government_logo.png">
         </div>
         <div class="card col-lg-4 col-md-4" id="support-eu-logo">
-            <img id="euLogo" src="images/EU_logo.png" alt="">
+            <img id="euLogo" src="images/EU_logo.png">
         </div>
         <div class="card col-lg-4 col-md-4" id="support-unicef-logo">
-            <img id="unicefLogo" src="images/UNICEF_logo_2.png" alt="">
+            <img id="unicefLogo" src="images/UNICEF_logo_2.png">
         </div>
     </div>
 </div>
@@ -870,10 +374,7 @@
         <div class="container">
             <div class="row" style="margin-top:10px;">
                 <div class="col-sm-7" id="copyright-logo">
-                    <img src="https://cdr.gov.la/wp-content/uploads/2020/02/CDR-LOGO-OFFICIAL-300x205.png"
-                         width="128px" alt=""/>
-                    <img src="images/logo_nipn_en.png"
-                         width="128px" alt=""/>
+                    <img src="images/logo_nipn_en.png" alt="NIPN Logo"/>
                 </div>
                 <div class="col-sm-5" id="copyright-text">
                     <p>
@@ -899,102 +400,8 @@
     </div>
 </div>
 <!-- END Footer -->
-
-<!--Modal for Metadata Information for Each Indicator-->
-<div class="modal" id="metaData" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Metadata</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <table class="table table-bordered">
-                                <tbody>
-                                <tr>
-                                    <th>Indicator Name:</th>
-                                    <td>Overweight</td>
-                                </tr>
-                                <tr>
-                                    <th>Agency's Name:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Definition:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Calculation:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Data Source:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Additional Source:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Level:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Periodicity/frequency:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Unit of Measure:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Sustainable Development Goal:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>WHO Target:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>National Nutrition Strategy Priority Intervention Area:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Sector:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Classification Within Sector:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Information System:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Indicator ID:</th>
-                                    <td></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- The script of overview tab -->
-<script src="js/allcharts.js"></script>
+<!--Script-->
+<script type="module" src="js/national-profile.js"></script>
 <script src="js/testChart.js"></script>
 </body>
 </html>

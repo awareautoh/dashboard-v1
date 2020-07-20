@@ -1,5 +1,8 @@
 "use strict";
-
+import * as base from  './base.js';
+base.default();
+import * as load from './load.js'
+load.default();
 /*
   Version: 1.0
   Created date: 29 Nov 2019
@@ -8,7 +11,6 @@
   Ministry of Planning and Investment
 
 */
-
 //Color shade
 const uBlue = "#1CABE2"; //UNICEF CODE BOOK COLOR
 const uGreen = "#00833D"; //UNICEF CODE BOOK COLOR
@@ -26,8 +28,6 @@ const colorSetLSISAreaChart = ["#FFAC4DB3", "#BF9C73B3", "#FFCF99B3", "#B37836B3
 const colorSetLSISEducationChart = ["#C7C7EAB3", "#1739E5B3", "#0F2699B3", "#4455AAB3", "#5C73E5B3", "#0A1A66B3"];
 const colorSetLSISEthnicityChart = ["#39806EB3", "#BFFFEFB3", "#608078B3", "#5CCCB0B3", "#73FFDCB3"];
 const colorSetLSISWealthChart = ["#4C74A8B3", "#68A0E8B3", "#2F4869B3", "#6EA9F5B3", "#5D8ECFB3"];
-
-
 //File path for import data
 const wastingPath = "data/wasting_unsorted.csv";
 const anemiaPath = "data/prevalence_of_anemia.csv";
@@ -37,18 +37,7 @@ const minimumDietPath = "data/minimumDiet.csv";
 const womenDietPath = "data/womenDiet.csv";
 const session3Path = "data/session3_data.csv";
 const socioStatusPath = "data/socio_status.csv";
-
-
-Promise.all([
-    d3.csv(wastingPath),
-    d3.csv(anemiaPath),
-    d3.csv(weightAndObesity),
-    d3.csv(IYCFPath),
-    d3.csv(minimumDietPath),
-    d3.csv(womenDietPath),
-    d3.csv(session3Path),
-    d3.csv(socioStatusPath),
-]).then(buildChart);
+const masterIndicatorPath = 'data/21-indicators.csv';
 
 //*************************************/
 //Chart.js global config
@@ -59,10 +48,22 @@ Chart.defaults.global.plugins.deferred.xOffset = "50%"; //Global set up for Char
 Chart.defaults.global.defaultFontFamily = "'Noto Sans', Helvetica, Arial, sans-serif, 'Noto Sans Lao', Phetsarath OT"; //set font family
 Chart.defaults.global.plugins.datalabels.color = '#fff';
 
+Promise.all([
+    d3.csv(wastingPath),
+    d3.csv(anemiaPath),
+    d3.csv(weightAndObesity),
+    d3.csv(IYCFPath),
+    d3.csv(minimumDietPath),
+    d3.csv(womenDietPath),
+    d3.csv(session3Path),
+    d3.csv(socioStatusPath),
+    d3.csv(masterIndicatorPath),
+]).then(buildChart);
 
 //**********************************/
 //Build Chart All ChartJS goes here
 //*********************************/
+
 function buildChart(value) {
     const wasting = value[0];
     const anemia = value[1];
@@ -72,6 +73,41 @@ function buildChart(value) {
     const womenDiet = value[5];
     const mapSec3 = value[6];
     const socio = value[7];
+    const masterIndicator = value[8];
+
+    //This function will attach the indicator base on year and name of indicator
+    //National Input: 0 -> Not including national geography, 1: including national geography, 2: including all
+    const extractIndicator = (nameOfIndicator, year, nameOfTargetVariable, option) => {
+        if (option === 0) {
+            masterIndicator.map(d => {
+                if ((d['indicator'] === nameOfIndicator) && (d['year'] === year) && ((d['geography-level'] !== 'target-2020') && (d['geography-level'] !== 'target-2025') && (d['geography-level'] !== 'NATIONAL'))) {
+                    nameOfTargetVariable.push(d);
+                }
+                return nameOfTargetVariable
+            })
+        } else if (option === 1) {
+            masterIndicator.map(d => {
+                if ((d['indicator'] === nameOfIndicator) && (d['year'] === year) && ((d['geography-level'] !== 'target-2020') && (d['geography-level'] !== 'target-2025'))) {
+                    nameOfTargetVariable.push(d);
+                }
+                return nameOfTargetVariable
+            })
+        } else  {
+            masterIndicator.map(d => {
+                if ((d['indicator'] === nameOfIndicator) && (d['year'] === year)) {
+                    nameOfTargetVariable.push(d);
+                }
+                return nameOfTargetVariable
+            })
+        }
+        return nameOfTargetVariable
+    }
+
+    //Set Variable of Master Indicator (21 Indicators) dataset
+    let childrenWhoAreBreastfedNoNational = []; //Continued breastfeeding until 2 years of age
+    extractIndicator('% children 20-23 months who are breastfed (continued breastfeeding until 2 years of age)', '2017', childrenWhoAreBreastfedNoNational, 0);
+    console.log(childrenWhoAreBreastfedNoNational);
+
 
 
     //---Child Malnutrition Chart
@@ -390,6 +426,7 @@ function buildChart(value) {
             if (d["Province"] === provinceVariable) {
                 targetDatasetOfProvince.push(+d["ValueEarlyBreast"]);
                 targetDatasetOfProvince.push(+d["ValueExclusiveBreast"]);
+                targetDatasetOfProvince.push(+d["ValueWhoAreBreastfed"]);
             }
         });
         miniDiet.map(d => {
@@ -410,22 +447,29 @@ function buildChart(value) {
                 datasets: [{
                     label: '',
                     data: provinceDataset,
-                    backgroundColor: [uBlue, uDarkBlue, uGrey, uDarkGrey],
+                    backgroundColor: [uBlue, uDarkBlue, uPurple, uGrey, uDarkGrey],
                 }]
             },
+            plugins: [ChartDataLabels],
             options: {
                 maintainAspectRatio: false,
                 legend: {
                     display: false,
                 },
                 scales: {
-                    ticks: {
-                        maxTicksLimit: 11,
-                        min: 0,
-                        max: 100,
-                        suggestedMax: 100,
+                    yAxes: {
+                        gridLines: {
+                            display: false,
+                        }
                     }
                 },
+                plugins: {
+                    datalabels: {
+                        color: uBlack,
+                        anchor: 'end',
+                        align: 'end',
+                    }
+                }
             }
         });
     }
@@ -451,7 +495,7 @@ function buildChart(value) {
     let IYCFAttapeu = [];
     let IYCFXaysomboun = [];
     let labelsIYCF = ['Early Initiation of Breastfeeding', 'Exclusive Breastfeeding',
-        'Minimum Diet Diversity', 'Minimum Acceptable Diet'];
+        'Minimum Diet Diversity', 'Minimum Acceptable Diet', 'Continued breastfeeding at 2 years'];
     //Activated function for creat a chart for each province
     creatChartForIYCFProvince('VTE', 'IYCF-VientianeCapital-chart', IYCFVientianeCapital);
     creatChartForIYCFProvince('PHO', 'IYCF-Phongsaly-chart', IYCFPhongsaly);
@@ -1172,6 +1216,102 @@ const stunting2017Map = () => {
     }
 }
 stunting2017Map();
+
+const buildMapTemplate = (mapPath, elementSVGID, indicator) => {
+    //Set variable map directory
+    const mapDrawPath = ("map/LAO_ADM1.json");
+    let mapDataPath = mapPath;
+    //Set to select SVG DOM
+    let svg = d3.select(elementSVGID);
+    //Set Scale
+    let colorScale = d3.scaleThreshold()
+        .domain(d3.extent(mapDataPath.map(d => d["value"])))
+        .range([uGrey, uGreen, uLightGreen, uYellow, uBlue, uDarkBlue]);
+    //Set tooltips
+    let tooltip1 = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
+    //Set variable to import data
+    //Create function to generate data based on click event
+    let mapDataSort = d3.map();
+    let promise = [
+        d3.json(mapDrawPath),
+        d3.csv(mapDataPath, d => mapDataSort.set(d.feature_id, +d[indicator])),
+        d3.csv(mapDataPath, d => +d[indicator])
+    ];
+    Promise.all(promise).then(creatMapOverview);
+
+
+    function creatMapOverview(value) {
+        let lao = value[0];
+        let indicatorData = value[1];
+        let rawDataFromCSV = value[2];
+        //Import Map Topojson type as Geojson structure
+        let myMap = topojson.feature(lao, lao.objects.LAO_ADM1);
+        //Set projection map type
+        let projection = d3.geoMercator()
+            .fitSize([400, 400], myMap); //Auto fit SVG refer to svg set at HTML
+        //Separating data range by 4
+        let printTheRange = [];
+        generateRangeOfDataForColorScale();
+
+        function generateRangeOfDataForColorScale() {
+            let startingPoint = d3.min(rawDataFromCSV);
+            let endingPoint = d3.max(rawDataFromCSV);
+            let theRangeOfData = endingPoint - startingPoint;
+            let theProportion = theRangeOfData / 4;
+            let initialTheRangeForCalculation = [startingPoint];
+            for (let i = 0; i < 4; i++) {
+                printTheRange.push(Math.round(initialTheRangeForCalculation[i] + theProportion));
+                initialTheRangeForCalculation.push(initialTheRangeForCalculation[i] + theProportion);
+            }
+            return printTheRange
+        }
+
+        //Draw a graph use "g" because draw multiple path in one time
+        svg.append("g")
+            .selectAll("path")
+            .data(myMap.features)
+            .join("path")
+            .attr("d", d3.geoPath().projection(projection))
+            .attr("fill", d => colorScale((d.properties.feature_id = mapTestSort.get(d.properties.feature_id)) / 100));
+        svg.selectAll("path")
+            .data(myMap.features)
+            .on("mouseover", function (d) {
+                tooltip1.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tooltip1.html(d.properties.Name + '<br>' + 'value:' + d.properties.feature_id)
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px");
+            })
+            .on("mouseout", function (d) {
+                tooltip1.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
+
+        //Draw a line border for each province
+        svg.append("path")
+            .datum(topojson.mesh(lao, lao.objects.LAO_ADM1))
+            .attr("class", "mapBorder")
+            .attr("d", d3.geoPath().projection(projection));
+
+        // //Add Legend
+        // svg.append("g")
+        //     .attr("class", "map-legend")
+        //     .attr("transform", "translate(0,250)")
+        //     .append(() => legend({
+        //         color: d3.scaleThreshold(printTheRange,
+        //             [uGreen, uLightGreen, uYellow, uBlue, uDarkBlue]),
+        //         title: "Classification",
+        //         width: 190
+        //     }));
+
+
+    }
+}
 //************************
 //END MAP SECTION*********
 //************************
@@ -1182,25 +1322,4 @@ function downloadChartDataButton(buttonElement, link) {
         document.getElementById(buttonElement).href = link;
     });
 }
-
 //*******Test Chart on the top of Home tab
-
-//When the user scrolls down 50px from the top of the document, resize the header's font size
-window.onscroll = function () {
-    scrollFunction()
-};
-function scrollFunction() {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        document.getElementById("navBarTop").style.fontSize = "1rem";
-        document.getElementById("navBarTop").style["min-height"] = "auto";
-    } else {
-        document.getElementById("navBarTop").style.fontSize = "1rem";
-        document.getElementById("navBarTop").style["min-height"] = "80px";
-    }
-}
-
-//Metadata activate area
-d3.selectAll('.metadataInfo')
-    .on('click', () => {
-        $('#metaData').modal('show');
-    });

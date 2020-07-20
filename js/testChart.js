@@ -1,8 +1,33 @@
 "use strict";
+//Color shade
+const uBlue = "#1CABE2"; //UNICEF CODE BOOK COLOR
+const uGreen = "#00833D"; //UNICEF CODE BOOK COLOR
+const uLightGreen = "#80BD41"; //UNICEF CODE BOOK COLOR
+const uYellow = "#FFC20E"; //UNICEF CODE BOOK COLOR
+const uOrange = "#F26A21"; //UNICEF CODE BOOK COLOR
+const uRed = "#E2231A"; //UNICEF CODE BOOK COLOR
+const uDarkRed = "#961A49"; //UNICEF CODE BOOK COLOR
+const uPurple = "#6A1E74"; //UNICEF CODE BOOK COLOR
+const uGrey = "#D8D1C9"; //UNICEF CODE BOOK
+const uDarkGrey = "#777779"; //UNICEF CODE BOOK COLOR
+const uBlack = "#2D2926"; //UNICEF CODE BOOK COLOR
+const uDarkBlue = "#374EA2"; //UNICEF CODE BOOK COLOR
+const colorSetLSISAreaChart = ["#FFAC4DB3", "#BF9C73B3", "#FFCF99B3", "#B37836B3", "#7F5626B3"];
+const colorSetLSISEducationChart = ["#C7C7EAB3", "#1739E5B3", "#0F2699B3", "#4455AAB3", "#5C73E5B3", "#0A1A66B3"];
+const colorSetLSISEthnicityChart = ["#39806EB3", "#BFFFEFB3", "#608078B3", "#5CCCB0B3", "#73FFDCB3"];
+const colorSetLSISWealthChart = ["#4C74A8B3", "#68A0E8B3", "#2F4869B3", "#6EA9F5B3", "#5D8ECFB3"];
+
+//*************************************/
+//Chart.js global config
+//*************************************/
+Chart.plugins.unregister(ChartDataLabels); //cogfig Chart.JS label pugin not to show label on all chart by default
+Chart.defaults.global.plugins.deferred.delay = 250; //Global set up for ChartJS plugin: deffer, delay transition: 500
+Chart.defaults.global.plugins.deferred.xOffset = "50%"; //Global set up for ChartJS plugin: deffer, 50% view point to activate plugin
+Chart.defaults.global.defaultFontFamily = "'Noto Sans', Helvetica, Arial, sans-serif, 'Noto Sans Lao', Phetsarath OT"; //set font family
+Chart.defaults.global.plugins.datalabels.color = '#fff';
 
 const trendDataPath = "data/trendTest.csv"; //Create Variable Path
 const provinceDataPath = "data/provinceTest.csv" //Create Variable Path
-const twentyOneIndicatorPath = "data/21-indicators.csv";
 d3.csv(trendDataPath).then(buildTrendOverviewChart); //Read CSV file via D3JS Lib
 d3.csv(provinceDataPath).then(buildProvinceOverviewChart);
 // d3.csv(twentyOneIndicatorPath).then(buildTableChart);
@@ -942,7 +967,3 @@ document.getElementById("overview-wra-15-49-anemia").addEventListener("click", (
 document.getElementById("overview-low-birth-weight").addEventListener("click", () => generateResult("overview-low-birth-weight"));
 document.getElementById("overview-overweight").addEventListener("click", () => generateResult("overview-overweight"));
 document.getElementById("overview-c0-c6-exclusively-breastfed").addEventListener("click", () => generateResult("overview-c0-c6-exclusively-breastfed"));
-
-//Activate Function generateResult
-document.getElementById("button-en-lang").addEventListener("click", () => setLanguage('en'));
-document.getElementById("button-la-lang").addEventListener("click", () => setLanguage('lo'));
