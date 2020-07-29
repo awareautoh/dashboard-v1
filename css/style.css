@@ -46,6 +46,9 @@ body {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 6px 8px rgba(0, 0, 0, 0.11), 0 8px 16px rgba(0, 0, 0, 0.11);
 }
 
+#navBarList {
+  justify-content: center;
+}
 #navBarList .navbar-nav .nav-item.active {
   border-bottom: 3px solid #1CABE2;
 }
@@ -127,6 +130,75 @@ canvas {
 #copyright-logo img {
   max-width: 100%;
   height: auto;
+}
+
+/*Customize Footer Logo*/
+#euLogo, #unicefLogo, #laoGovLogo {
+  max-width: 10rem;
+}
+
+#footer-copyright {
+  height: 30vh;
+  padding: 0;
+  background-color: #173C78 !important;
+}
+
+#textCopyright {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#support-laogov-logo, #support-eu-logo, #support-unicef-logo {
+  box-shadow: none;
+  padding: 50px;
+  height: 30vh;
+  align-items: center;
+}
+
+#lang-option-list a {
+  color: #2D2926;
+}
+#lang-option-list:hover {
+  text-decoration: none;
+}
+
+.footerclass {
+  background-color: #F7F8FA;
+  bottom: 0;
+  width: 100%;
+  display: inline-block;
+  min-height: 300px;
+  margin-top: 30px;
+  padding: 0;
+  text-align: left;
+}
+
+#copyright-text p {
+  text-align: left;
+}
+
+.footerHead {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  color: #2d2d2b;
+}
+
+.footerTxt {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #2d2d2b;
+}
+
+.footerSMS {
+  font-size: 11px;
+  line-height: 10px;
+  color: #8E8F8F;
+}
+
+.fab {
+  color: #9399A5;
 }
 
 /*END BASE CSS*/
@@ -179,6 +251,9 @@ body {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 6px 8px rgba(0, 0, 0, 0.11), 0 8px 16px rgba(0, 0, 0, 0.11);
 }
 
+#navBarList {
+  justify-content: center;
+}
 #navBarList .navbar-nav .nav-item.active {
   border-bottom: 3px solid #1CABE2;
 }
@@ -262,6 +337,75 @@ canvas {
   height: auto;
 }
 
+/*Customize Footer Logo*/
+#euLogo, #unicefLogo, #laoGovLogo {
+  max-width: 10rem;
+}
+
+#footer-copyright {
+  height: 30vh;
+  padding: 0;
+  background-color: #173C78 !important;
+}
+
+#textCopyright {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#support-laogov-logo, #support-eu-logo, #support-unicef-logo {
+  box-shadow: none;
+  padding: 50px;
+  height: 30vh;
+  align-items: center;
+}
+
+#lang-option-list a {
+  color: #2D2926;
+}
+#lang-option-list:hover {
+  text-decoration: none;
+}
+
+.footerclass {
+  background-color: #F7F8FA;
+  bottom: 0;
+  width: 100%;
+  display: inline-block;
+  min-height: 300px;
+  margin-top: 30px;
+  padding: 0;
+  text-align: left;
+}
+
+#copyright-text p {
+  text-align: left;
+}
+
+.footerHead {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  color: #2d2d2b;
+}
+
+.footerTxt {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #2d2d2b;
+}
+
+.footerSMS {
+  font-size: 11px;
+  line-height: 10px;
+  color: #8E8F8F;
+}
+
+.fab {
+  color: #9399A5;
+}
+
 /*END BASE CSS*/
 /* Modified Map Tooltip */
 div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
@@ -308,81 +452,6 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
   height: 500px;
 }
 
-/*Customize Footer Logo*/
-#supportHeaderText {
-  backgroud-color: #F7F8FA !important;
-}
-
-#euLogo, #unicefLogo, #laoGovLogo {
-  max-width: 10rem;
-}
-
-#footer-copyright {
-  height: 30vh;
-  padding: 0;
-  background-color: #173C78 !important;
-}
-
-#textCopyright {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-#support-laogov-logo, #support-eu-logo, #support-unicef-logo {
-  box-shadow: none;
-  padding: 50px;
-  height: 30vh;
-  align-items: center;
-}
-
-#lang-option-list a {
-  color: #fff;
-}
-#lang-option-list:hover {
-  text-decoration: none;
-}
-
-/*footer class*/
-.footerclass {
-  background-color: #F7F8FA;
-  bottom: 0;
-  width: 100%;
-  display: inline-block;
-  min-height: 300px;
-  margin-top: 30px;
-  padding: 0;
-  text-align: left;
-}
-
-#copyright-text p {
-  text-align: left;
-}
-
-.footerHead {
-  font-size: 14px;
-  line-height: 21px;
-  font-weight: 600;
-  color: #2d2d2b;
-}
-
-.footerTxt {
-  font-size: 14px;
-  line-height: 21px;
-  font-weight: 400;
-  color: #2d2d2b;
-}
-
-.footerSMS {
-  font-size: 11px;
-  line-height: 10px;
-  color: #8E8F8F;
-}
-
-.fab {
-  color: #9399A5;
-}
-
-/* The CSS for TEST */
 /* Table Row Green Highlight */
 /*Add Darkgreen color to th and td tag*/
 #header-overview-table tr {
@@ -545,6 +614,9 @@ body {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 6px 8px rgba(0, 0, 0, 0.11), 0 8px 16px rgba(0, 0, 0, 0.11);
 }
 
+#navBarList {
+  justify-content: center;
+}
 #navBarList .navbar-nav .nav-item.active {
   border-bottom: 3px solid #1CABE2;
 }
@@ -628,77 +700,87 @@ canvas {
   height: auto;
 }
 
+/*Customize Footer Logo*/
+#euLogo, #unicefLogo, #laoGovLogo {
+  max-width: 10rem;
+}
+
+#footer-copyright {
+  height: 30vh;
+  padding: 0;
+  background-color: #173C78 !important;
+}
+
+#textCopyright {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#support-laogov-logo, #support-eu-logo, #support-unicef-logo {
+  box-shadow: none;
+  padding: 50px;
+  height: 30vh;
+  align-items: center;
+}
+
+#lang-option-list a {
+  color: #2D2926;
+}
+#lang-option-list:hover {
+  text-decoration: none;
+}
+
+.footerclass {
+  background-color: #F7F8FA;
+  bottom: 0;
+  width: 100%;
+  display: inline-block;
+  min-height: 300px;
+  margin-top: 30px;
+  padding: 0;
+  text-align: left;
+}
+
+#copyright-text p {
+  text-align: left;
+}
+
+.footerHead {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  color: #2d2d2b;
+}
+
+.footerTxt {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #2d2d2b;
+}
+
+.footerSMS {
+  font-size: 11px;
+  line-height: 10px;
+  color: #8E8F8F;
+}
+
+.fab {
+  color: #9399A5;
+}
+
 /*END BASE CSS*/
-#graphic {
-  padding-top: 60px;
+/* Customize icon on overview table */
+#icon-circle-achieved {
+  fill: #00833D;
 }
 
-#sections {
-  position: relative;
-  display: inline-block;
-  width: 250px;
-  top: 0;
-  z-index: 90;
-  padding-bottom: 200px;
+#icon-circle-on-track {
+  fill: #FFC20E;
 }
 
-.step {
-  margin-bottom: 200px;
-  font-family: "Noto Sans", Helvetica, Arial, sans-serif, "Noto Sans Lao", Phetsarath OT;
-  font-size: 16px;
-  line-height: 23px;
-  color: #767678;
-}
-
-#sections .title {
-  font-family: "Noto Sans", Helvetica, Arial, sans-serif, "Noto Sans Lao", Phetsarath OT;
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 2px;
-  color: #262626;
-  line-height: 1.2em;
-}
-
-#extra-space {
-  height: 300px;
-}
-
-#vis {
-  display: inline-block;
-  position: fixed;
-  top: 60px;
-  z-index: 1;
-  margin-left: 0;
-}
-
-/* height: 600px; */
-/* width: 600px; */
-/* background-color: #ddd; */
-#vis .title {
-  font-size: 120px;
-  text-anchor: middle;
-}
-
-#vis .sub-title {
-  font-size: 80px;
-  text-anchor: middle;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #666;
-  shape-rendering: crispEdges;
-}
-
-.highlight {
-  fill: #008080;
-  font-weight: bold;
-}
-
-.cough-arrow {
-  stroke: #000;
-  stroke-width: 4px;
+#icon-circle-off-track {
+  fill: #E2231A;
 }
 
 /*# sourceMappingURL=style.css.map */

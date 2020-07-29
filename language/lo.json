@@ -1,8 +1,10 @@
 {
-  "nutrition-profiles": "National Profiles",
+  "nutrition-profiles": "ຂໍ້ມູນແຫ່ງຊາດ",
   "national-surveys": "ການສໍາຫຼວດແຫ່ງຊາດ",
   "nutrition-surveillance": "ສໍາຫຼວດເຝົ້າລະວັງໂພຊະນາການ",
-  "dhis": "Routine Monitoring",
+  "dhis": "ຂໍ້ມູນບໍລິຫານ",
+  "more-data": "ຂໍ້ມູນອື່ນໆ",
+  "about-nipn": "ກ່ຽວກັບ NIPN",
   "agricultural-statistics": "ສະຖິຕິກະສິກໍາ",
   "data-repository-link": "ຖານຂໍ້ມູນ",
   "about-nipn-link": "ໜ້າຫຼັກ NIPN",

@@ -16,6 +16,16 @@ const colorSetLSISAreaChart = ["#FFAC4DB3", "#BF9C73B3", "#FFCF99B3", "#B37836B3
 const colorSetLSISEducationChart = ["#C7C7EAB3", "#1739E5B3", "#0F2699B3", "#4455AAB3", "#5C73E5B3", "#0A1A66B3"];
 const colorSetLSISEthnicityChart = ["#39806EB3", "#BFFFEFB3", "#608078B3", "#5CCCB0B3", "#73FFDCB3"];
 const colorSetLSISWealthChart = ["#4C74A8B3", "#68A0E8B3", "#2F4869B3", "#6EA9F5B3", "#5D8ECFB3"];
+//File path for import data
+const wastingPath = "data/wasting_unsorted.csv";
+const anemiaPath = "data/prevalence_of_anemia.csv";
+const weightAndObesity = "data/prevalence_overweight_and_obesity.csv";
+const IYCFPath = "data/IYCF.csv";
+const minimumDietPath = "data/minimumDiet.csv";
+const womenDietPath = "data/womenDiet.csv";
+const session3Path = "data/session3_data.csv";
+const socioStatusPath = "data/socio_status.csv";
+const masterIndicatorPath = 'data/21-indicators.csv';
 
 //*************************************/
 //Chart.js global config
@@ -26,131 +36,12 @@ Chart.defaults.global.plugins.deferred.xOffset = "50%"; //Global set up for Char
 Chart.defaults.global.defaultFontFamily = "'Noto Sans', Helvetica, Arial, sans-serif, 'Noto Sans Lao', Phetsarath OT"; //set font family
 Chart.defaults.global.plugins.datalabels.color = '#fff';
 
+
 const trendDataPath = "data/trendTest.csv"; //Create Variable Path
 const provinceDataPath = "data/provinceTest.csv" //Create Variable Path
+const twentyOneIndicatorPath = "data/21-indicators.csv";
 d3.csv(trendDataPath).then(buildTrendOverviewChart); //Read CSV file via D3JS Lib
 d3.csv(provinceDataPath).then(buildProvinceOverviewChart);
-// d3.csv(twentyOneIndicatorPath).then(buildTableChart);
-// function buildTrendOverviewChart(value) {
-//     //Set variable for import data
-//     let importedValue = value.map(d => +d["overview-stunting"]);
-//     let importedYear = value.map(d => d.year);
-//
-//
-//     //Set width and height
-//     let width = 440;
-//     let height = 440;
-//     let svg = d3.select("#lineChartForOverviewCard"); //Select DOM element to draw to graph
-//     let margin = ({top: 20, right: 30, bottom: 30, left: 40}); //Set the margin to draw graph
-//
-//     //Set line variable to draw a line
-//     let x = d3.scalePoint() //Use scale point for line category xAxis
-//         .domain(importedYear)
-//         .rangeRound([margin.left, width - margin.right]); //Set the length to start
-//
-//     let y = d3.scaleLinear()
-//         .domain([0, 60]) //Show the scale only for 0 to 60
-//         .range([height - margin.bottom, margin.top]);
-//     //Set a line using d3.line
-//     let line = d3.line()
-//         .x(d => {
-//             return x(d.year)
-//         })
-//         .y(d => {
-//             return y(+d["overview-stunting"])
-//         });
-//
-//     //To filter the line for dash line and normal line
-//     let a = value.filter(function (d) { //filter data only current and past
-//         return d["noted"] === "p";
-//     });
-//     let b = value.filter(function (d) { //filter data for target goal
-//         return d["noted"] === "f";
-//     });
-//
-//     //draw a line
-//     svg.append("path")
-//         .datum(value)
-//         .attr("fill", "none")
-//         .attr("stroke", "steelblue")
-//         .attr("stroke-width", 2)
-//         .attr("stroke-linejoin", "round")
-//         .attr("stroke-linecap", "round")
-//         .attr("d", line(a));
-//     // svg.append("circle")
-//     //     .datum(value)
-//     //     .attr("fill", uBlue)
-//     //     .attr("cx", d => x(d.year))
-//     //     .attr("cy", d => { return y(d["overview-stunting"]) })
-//     //     .attr("r", 5);
-//
-//
-//     //Create Axis line
-//     let xAxis = g => g
-//         .attr("transform", `translate(0,${height - margin.bottom})`)
-//         .call(d3.axisBottom(x).ticks(0).tickSizeOuter(0));
-//
-//     let yAxis = g => g
-//         .attr("transform", `translate(${margin.left},0)`)
-//         .call(d3.axisLeft(y).ticks(5))
-//         .call(g => g.select(".tick:last-of-type text").clone()
-//             .attr("x", 3)
-//             .attr("text-anchor", "start")
-//             .attr("font-weight", "bold")
-//             .text("Percentage"));
-//
-//     //Then draw a Axis
-//     svg.append("g")
-//         .call(xAxis);
-//     svg.append("g")
-//         .call(yAxis);
-//
-//     //Create a tooltip
-//     let tooltip2 = d3.select("body").append("div")
-//         .attr("class", "tooltip")
-//         .style("opacity", 0);
-//
-//     let labelPadding = 3;
-//     let z = d3.scaleOrdinal(value.columns.slice(1), d3.schemeCategory10);
-//
-//     svg.append("g")
-//         .attr("font-family", "sans-serif")
-//         .attr("font-size", 10)
-//         .attr("stroke-linecap", "round")
-//         .attr("stroke-linejoin", "round")
-//         .attr("text-anchor", "middle")
-//         .selectAll("text")
-//         .data(value)
-//         .join("text")
-//         .text(d => `${d["overview-stunting"]}`)
-//         .attr("dy", "0.35em")
-//         .attr("x", d => x(d.year))
-//         .attr("y", d => y(+d["overview-stunting"]))
-//         .clone(true).lower()
-//         .attr("fill", "none")
-//         .attr("stroke", "white")
-//         .attr("stroke-width", 6);
-//
-//
-//     // svg.selectAll("path")
-//     //     .data(value)
-//     //     .on("mouseover", function(d) {
-//     //         tooltip2.transition()
-//     //             .duration(200)
-//     //             .style("opacity", .9);
-//     //         tooltip2.html(d.year + '<br>' + 'value:' + d.value)
-//     //             .style("left", (d3.event.pageX) + "px")
-//     //             .style("top", (d3.event.pageY - 28) + "px");
-//     //     })
-//     //     .on("mouseout", function(d) {
-//     //         tooltip2.transition()
-//     //             .duration(500)
-//     //             .style("opacity", 0);
-//     //     });
-//
-//     svg.node();
-// }
-//Activate Function
 
 //
 // Trend Chart
@@ -453,8 +344,14 @@ function generateResult(input) { //this function get the input from the id of on
             document.getElementById(defaultActive).classList.remove("table-active");
         }
     } else {
-        document.getElementById(previousActive).classList.remove("table-active");
-        document.getElementById(currentActive).classList.add("table-active");
+        if (previousActive === undefined) {
+            previousActive = defaultActive;
+            document.getElementById(previousActive).classList.remove("table-active");
+            document.getElementById(currentActive).classList.add("table-active");
+        } else {
+            document.getElementById(previousActive).classList.remove("table-active");
+            document.getElementById(currentActive).classList.add("table-active");
+        }
     }
 
     //Update Map based on click input
@@ -616,139 +513,6 @@ function generateResult(input) { //this function get the input from the id of on
     updateMapOverview();
     //END Update map
 
-    //Update Trend Chart on click input
-    // d3.csv(trendDataPath).then(updateBuildTrendOverviewChart); //Read CSV file via D3JS Lib
-    // // function updateBuildTrendOverviewChart(value) {
-    // //     //Set variable for import data
-    // //     let importedValue = value.map(d => d[currentActive]);
-    // //     let importedYear = value.map(d => d.year);
-    // //
-    // //
-    // //     //Set width and height
-    // //     let width = 440;
-    // //     let height = 440;
-    // //     let svg = d3.select("#lineChartForOverviewCard"); //Select DOM element to draw to graph
-    // //     let margin = ({top: 20, right: 30, bottom: 30, left: 40}); //Set the margin to draw graph
-    // //
-    // //     //Set line variable to draw a line
-    // //     let x = d3.scalePoint() //Use scale point for line category xAxis
-    // //         .domain(importedYear)
-    // //         .rangeRound([margin.left, width - margin.right]); //Set the length to start
-    // //
-    // //     let y = d3.scaleLinear()
-    // //         .domain([0, 60]) //Show the scale only for 0 to 60
-    // //         .range([height - margin.bottom, margin.top]);
-    // //     //Set a line using d3.line
-    // //     let line = d3.line()
-    // //         .x(d => {
-    // //             return x(d.year)
-    // //         })
-    // //         .y(d => {
-    // //             return y(d[currentActive])
-    // //         });
-    // //
-    // //     //To filter the line for dash line and normal line
-    // //     let a = value.filter(function (d) { //filter data only current and past
-    // //         return d["noted"] === "p";
-    // //     });
-    // //     let b = value.filter(function (d) { //filter data for target goal
-    // //         return d["noted"] === "f";
-    // //     });
-    // //
-    // //     //draw a line
-    // //     svg.selectAll("path").remove();
-    // //     svg.append("circle")
-    // //         .datum(value)
-    // //         .join()
-    // //         .transition()
-    // //         .duration(2000)
-    // //         .attr("fill", uBlue)
-    // //         .attr("stroke", "none")
-    // //         .attr("cx", d => d.year)
-    // //         .attr("cy", d => d[currentActive])
-    // //         .attr("r", 5);
-    // //     svg.append("path")
-    // //         .datum(value)
-    // //         .join()
-    // //         .transition()
-    // //         .duration(2000)
-    // //         .attr("fill", "none")
-    // //         .attr("stroke", "steelblue")
-    // //         .attr("stroke-width", 2)
-    // //         .attr("stroke-linejoin", "round")
-    // //         .attr("stroke-linecap", "round")
-    // //         .attr("d", line(a));
-    // //
-    // //
-    // //     //Create Axis line
-    // //     let xAxis = g => g
-    // //         .attr("transform", `translate(0,${height - margin.bottom})`)
-    // //         .call(d3.axisBottom(x).ticks(0).tickSizeOuter(0));
-    // //
-    // //     let yAxis = g => g
-    // //         .attr("transform", `translate(${margin.left},0)`)
-    // //         .call(d3.axisLeft(y).ticks(5))
-    // //         .call(g => g.select(".tick:last-of-type text").clone()
-    // //             .attr("x", 3)
-    // //             .attr("text-anchor", "start")
-    // //             .attr("font-weight", "bold")
-    // //             .text("Percentage"));
-    // //
-    // //     //Then draw a Axis
-    // //     svg.selectAll("g").remove();
-    // //     svg.append("g")
-    // //         .call(xAxis);
-    // //     svg.append("g")
-    // //         .call(yAxis);
-    // //
-    // //     //Create a tooltip
-    // //     let tooltip3 = d3.select(".tab-content").append("div")
-    // //         .attr("class", "tooltip")
-    // //         .style("opacity", 0);
-    // //
-    // //     let labelPadding = 3;
-    // //     let z = d3.scaleOrdinal(value.columns.slice(1), d3.schemeCategory10);
-    // //
-    // //
-    // //     svg.append("g")
-    // //         .attr("font-family", "sans-serif")
-    // //         .attr("font-size", 10)
-    // //         .attr("stroke-linecap", "round")
-    // //         .attr("stroke-linejoin", "round")
-    // //         .attr("text-anchor", "middle")
-    // //         .selectAll("text")
-    // //         .data(value)
-    // //         .join("text")
-    // //         .text(d => `${d[currentActive]}`)
-    // //         .attr("dy", "0.35em")
-    // //         .attr("x", d => x(d.year))
-    // //         .attr("y", d => y(d[currentActive]))
-    // //         .clone(true).lower()
-    // //         .attr("fill", "none")
-    // //         .attr("stroke", "white")
-    // //         .attr("stroke-width", 6)
-    // //         .attr("class", "text-legend");
-    // //
-    // //
-    // //     // svg.selectAll("path")
-    // //     //     .data(value)
-    // //     //     .on("mouseover", function(d) {
-    // //     //         tooltip2.transition()
-    // //     //             .duration(200)
-    // //     //             .style("opacity", .9);
-    // //     //         tooltip2.html(d.year + '<br>' + 'value:' + d.value)
-    // //     //             .style("left", (d3.event.pageX) + "px")
-    // //     //             .style("top", (d3.event.pageY - 28) + "px");
-    // //     //     })
-    // //     //     .on("mouseout", function(d) {
-    // //     //         tooltip2.transition()
-    // //     //             .duration(500)
-    // //     //             .style("opacity", 0);
-    // //     //     });
-    // //
-    // //     svg.node();
-    // // }
-    // //END Update trend
     let buildTrendOverviewChart = () => {
         document.getElementById("overview-trend-line-chart").remove();
         d3.select("#drawLineChart")

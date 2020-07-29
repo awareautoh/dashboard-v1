@@ -7,7 +7,7 @@ const base = () => {
     };
 
     function scrollFunction() {
-        if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 250) {
+        if (document.documentElement.scrollTop > document.getElementById('navBarTop').offsetTop) {
             document.getElementById("navBarTop").style.fontSize = "1rem";
             document.getElementById("navBarTop").style["min-height"] = "auto";
             document.getElementById("navBarTop").classList.add("fixed-top");

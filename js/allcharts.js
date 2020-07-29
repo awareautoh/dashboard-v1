@@ -106,7 +106,6 @@ function buildChart(value) {
     //Set Variable of Master Indicator (21 Indicators) dataset
     let childrenWhoAreBreastfedNoNational = []; //Continued breastfeeding until 2 years of age
     extractIndicator('% children 20-23 months who are breastfed (continued breastfeeding until 2 years of age)', '2017', childrenWhoAreBreastfedNoNational, 0);
-    console.log(childrenWhoAreBreastfedNoNational);
 
 
 

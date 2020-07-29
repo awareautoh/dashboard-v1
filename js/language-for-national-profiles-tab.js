@@ -31,6 +31,8 @@ function inputLang(language) {
     document.getElementById('national-surveys-tab').innerText = language["national-surveys"];
     document.getElementById('nutrition-surveillance-tab').innerText = language["nutrition-surveillance"];
     document.getElementById('dhis-tab').innerText = language["dhis"];
+    document.getElementById('navbarDropdownMenuLinkSurvey').innerText = language["more-data"];
+    document.getElementById('navbarDropdownMenuLinkNIPN').innerText = language["about-nipn"];
     document.getElementById('agricultural-statistics-tab').innerText = language["agricultural-statistics"];
     document.getElementById('data-repository-link').innerText = language["data-repository-link"];
     document.getElementById('about-nipn-link').innerText = language["about-nipn-link"];
