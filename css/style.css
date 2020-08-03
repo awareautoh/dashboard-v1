@@ -133,10 +133,6 @@ canvas {
 }
 
 /*Customize Footer Logo*/
-#euLogo, #unicefLogo, #laoGovLogo {
-  max-width: 10rem;
-}
-
 #footer-copyright {
   height: 30vh;
   padding: 0;
@@ -148,11 +144,22 @@ canvas {
   margin-bottom: 0 !important;
 }
 
-#support-laogov-logo, #support-eu-logo, #support-unicef-logo {
-  box-shadow: none;
-  padding: 50px;
-  height: 30vh;
+#footer-supported-logo {
+  margin: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 100%;
   align-items: center;
+  justify-content: space-around;
+}
+#footer-supported-logo img {
+  margin: 1rem;
+  max-height: 155px;
+  max-width: 100%;
+}
+
+#footer-information {
+  padding: 1rem;
 }
 
 #lang-option-list a {
@@ -160,17 +167,6 @@ canvas {
 }
 #lang-option-list:hover {
   text-decoration: none;
-}
-
-.footerclass {
-  background-color: #F7F8FA;
-  bottom: 0;
-  width: 100%;
-  display: inline-block;
-  min-height: 300px;
-  margin-top: 30px;
-  padding: 0;
-  text-align: left;
 }
 
 #copyright-text p {
@@ -338,10 +334,6 @@ canvas {
 }
 
 /*Customize Footer Logo*/
-#euLogo, #unicefLogo, #laoGovLogo {
-  max-width: 10rem;
-}
-
 #footer-copyright {
   height: 30vh;
   padding: 0;
@@ -353,11 +345,22 @@ canvas {
   margin-bottom: 0 !important;
 }
 
-#support-laogov-logo, #support-eu-logo, #support-unicef-logo {
-  box-shadow: none;
-  padding: 50px;
-  height: 30vh;
+#footer-supported-logo {
+  margin: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 100%;
   align-items: center;
+  justify-content: space-around;
+}
+#footer-supported-logo img {
+  margin: 1rem;
+  max-height: 155px;
+  max-width: 100%;
+}
+
+#footer-information {
+  padding: 1rem;
 }
 
 #lang-option-list a {
@@ -365,17 +368,6 @@ canvas {
 }
 #lang-option-list:hover {
   text-decoration: none;
-}
-
-.footerclass {
-  background-color: #F7F8FA;
-  bottom: 0;
-  width: 100%;
-  display: inline-block;
-  min-height: 300px;
-  margin-top: 30px;
-  padding: 0;
-  text-align: left;
 }
 
 #copyright-text p {
@@ -701,10 +693,6 @@ canvas {
 }
 
 /*Customize Footer Logo*/
-#euLogo, #unicefLogo, #laoGovLogo {
-  max-width: 10rem;
-}
-
 #footer-copyright {
   height: 30vh;
   padding: 0;
@@ -716,11 +704,22 @@ canvas {
   margin-bottom: 0 !important;
 }
 
-#support-laogov-logo, #support-eu-logo, #support-unicef-logo {
-  box-shadow: none;
-  padding: 50px;
-  height: 30vh;
+#footer-supported-logo {
+  margin: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 100%;
   align-items: center;
+  justify-content: space-around;
+}
+#footer-supported-logo img {
+  margin: 1rem;
+  max-height: 155px;
+  max-width: 100%;
+}
+
+#footer-information {
+  padding: 1rem;
 }
 
 #lang-option-list a {
@@ -728,17 +727,6 @@ canvas {
 }
 #lang-option-list:hover {
   text-decoration: none;
-}
-
-.footerclass {
-  background-color: #F7F8FA;
-  bottom: 0;
-  width: 100%;
-  display: inline-block;
-  min-height: 300px;
-  margin-top: 30px;
-  padding: 0;
-  text-align: left;
 }
 
 #copyright-text p {
