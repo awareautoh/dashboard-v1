@@ -39,4 +39,5 @@ function inputLang(language) {
 
     //*********Overview of Nutrition Row
     document.getElementById('snapshot-of-nutrition-indicators').innerText = language["snapshot-of-nutrition-indicators"];
+    document.getElementById('stunting-among-children-under-5-years-old').innerText = language["stunting-among-children-under-5-years-old"];
 }
