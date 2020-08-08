@@ -29,12 +29,15 @@
     <script src="js/d3_legend.js"></script> <!-- Import script for add legend to map -->
     <!-- Import TopoJSON to read topoJSON Map file -->
     <script src="js/topojson.js"></script>
+    <link rel="stylesheet" href="css/circle.css">
+    
 
     <style>
         /* Add Initial CSS Here */
     </style>
 </head>
 <body>
+<!-- Add counter to value-->
 <!--  activate spinner   here -->
 <div class="modal fade bd-example-modal-lg" data-backdrop="static" data-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-sm">
@@ -45,7 +48,7 @@
 </div>
 <!--    End spinner                -->
 <!--Header and NavBar-->
-<div class="container-fluid" id="header-section">
+<div class="container" id="header-section">
     <header class="site-header">
         <div class="row" id="header-language-option">
             <div id="lang-option-list">
@@ -58,9 +61,9 @@
             </div>
         </div>
         <div class="row" id="header-logo-images">
-            <img src="images/logo_nipn_en.png" alt="NIPN-Logo">
-            <img src="images/header-nipn-website-with-line.png" alt="NIPN Lao PDR Motto">
-            <img src="images/laos.png" alt="Lao PDR Flag">
+            <img src="images/logo_nipn_en.png" width="150px" alt="NIPN-Logo">
+            <img src="images/header-nipn-website-with-line.png" width="430px" alt="NIPN Lao PDR Motto">
+            <img src="images/laos.png" width="95px" alt="Lao PDR Flag">
         </div>
     </header>
 </div>
@@ -106,53 +109,195 @@
 <!--END Header and NavBar-->
 <!--Start Content-->
 <!--Content-->
-
-<!--END Content-->
-<!--Footer-->
-<div class="container" id="content-footer">
-    <div class="row mt-4">
-        <div class="col-lg-12" id="support-header">
+<div class="container" id="content-container">
+     <!-- Start Section 1 -->
+     <div class="row">
+        <div class="col-lg-12 mt-4">
+            <div class="card sectionHeader">
+                <h3>
+                    Routin Monitoring 
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 mt-4">
             <div class="card">
-                <div id="supportHeaderText" class="card-body text-center align-middle text-muted bg-white">
-                    <h1>
-                        Supported By
-                    </h1>
+                
+                <div style="padding: 5px;">
+                    <table class="table table-striped dhis2">
+                        <thead>
+                            <tr>
+                                <th>Indicator</th>
+                                <th>Year (2020)</th>
+                            </tr>
+
+                        </thead>
+                        <tr>
+                            <td>Prevalence of underweight among children under 5 years</td>
+                            <td class="Count">11.3</td>
+                        </tr>
+                        <tr>
+                            <td>Coverage of antenatal care (ANC) for at least 4 times </td>
+                            <td class="Count">36.3</td>
+                        </tr>
+                        <tr>
+                            <td>Percentage of home birth delivery by skill birth attendance</td>
+                            <td class="Count">1</td>
+                        </tr>
+                        <tr>
+                            <td>Prevalence of stunting among children under 5 years</td>
+                            <td class="Count">14.6</td>
+                        </tr>
+                        <tr>
+                            <td>Coverage of antenatal care (ANC) who receives 90 tabs </td>
+                            <td class="Count">87.7</td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="row" id="footer-supported-logo">
-                    <img id="laoGovLogo" src="images/Lao_Government_logo.png" alt="Lao Government Logo">
-                    <img id="euLogo" src="images/EU_logo.png" alt="European Union Logo">
-                    <img id="unicefLogo" src="images/UNICEF_logo_2.png" alt="UNICEF Logo">
-                </div>
-                <hr>
-                <div class="row" id="footer-information">
-                    <div class="col-lg-7 col-md-7 col-sm-12" id="copyright-logo">
-                        <img src="images/logo_nipn_en.png" alt="NIPN Logo"/>
+            </div>
+        </div>
+        <div class="col-lg-4 mt-4">
+            <div class="card">
+                <div style="padding: 15px;">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="c100 p86 #1CABE2">
+                                <span>86.9%</span>
+                                <div class="slice">
+                                  <div class="bar"></div>
+                                  <div class="fill"></div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-lg-8" style="padding-left: 25px;padding-top: 25px;color:  #52504e;">
+                            Deliveries given Oxytocine within 1 minute 
+                        </div>
+                        
                     </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12" id="copyright-text">
-                        <p>
-                            <span>Centre for Development Policy Research</span> <br/><br>
-                            <span>Fifth floor (new building) of Ministry of Planning and Investment.<br/>
-           Souphanouvong Avenue, Sithan neua Village, Sikottabong District, Vientiane Capital</span><br/><br/>
-                            contact@cdr.gov.la <br/><br/>
-                            <a href="https://www.facebook.com/CDRMPI" target="_blank"><i class="fab fa-facebook fa-3x"></i></a>
-                        </p>
+                </div>
+                <div style="padding: 15px;">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="c100 p35 #1CABE2">
+                                <span>35.1%</span>
+                                <div class="slice">
+                                  <div class="bar"></div>
+                                  <div class="fill"></div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-lg-8" style="padding-left: 25px;padding-top: 25px;color:  #52504e;">
+                            Are facility Based delivery by skill attendance
+                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container" id="footer-description">
-    <div class="row">
-        <div class="col-sm-7">
-            <span class="footerSMS">Copyright © <?php echo date("Y"); ?>
-                Center for Development Policy Research</span>
+
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-lg-3 mt-4">
+            <div class="card">
+                <div style="padding:5px;text-align: center;">
+                    <h4 class="Count" style="display: inline;color: #1b76ac;font-weight: 600;">4</h4> <span class="percenttxt">Percents</span> 
+                   <p class="boxtxt">Low birth weight among estimated live birth</p> 
+                </div>
+            </div>
         </div>
-        <div class="col-sm-5">
-            <span class="footerSMS">Privacy Policy</span>
+        <div class="col-lg-3 mt-4">
+            <div class="card">
+                <div style="padding:5px;text-align: center;">
+                    <h4 class="Count"style="display: inline;color: #1b76ac;font-weight: 600;">32.2</h4> <span class="percenttxt">Percents</span> 
+                   <p class="boxtxt">Newborn was breastfed within first 60 minute of birth</p> 
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 mt-4">
+            <div class="card">
+                <div style="padding:5px;text-align: center;">
+                    <h4 class="Count" style="display: inline;color: #1b76ac;font-weight: 600;">13.9</h4> <span class="percenttxt">Percents</span> 
+                   <p class="boxtxt">Reported of diarrhea among children under 5 years</p> 
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 mt-4">
+            <div class="card">
+                <div style="padding:5px;text-align: center;">
+                    <h4 class="Count" style="display: inline;color: #1b76ac;font-weight: 600;">42.4</h4> <span class="percenttxt">Percents</span> 
+                   <p class="boxtxt">Deworming tablet coverage in children under 5 years </p> 
+                </div>
+            </div>
         </div>
     </div>
+  
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-lg-6 mt-4">
+            <div class="card">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                       
+                        <div style="padding: 5px;height: 250px;">
+                            <canvas id="myChart1"></canvas>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-4">
+            <div class="card">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                    
+                        <div style="padding: 5px;height: 250px;">
+                            <canvas id="myChart2"></canvas>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-lg-8 mt-4">
+            <div class="card">
+                <div style="padding: 5px;height: 250px;">
+                    <canvas id="myChart2"></canvas>
+
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
 </div>
+
+<!--END Content-->
+<!--Footer-->
+<!-- add include js-->
+<div data-include="footer" style="margin-bottom: 15px;"></div>
+
+<script type="module" src="js/includefile.js"></script>
+<script src="js/dhisChart1.js"></script>
+<script src="js/dhisChart2.js"></script>
+<!-- add counter -->
+<script>
+    $('.Count').each(function () {
+    var size = $(this).text().split(".")[1] ? $(this).text().split(".")[1].length : 0;
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+	        duration: 8000,
+	        easing: 'swing',
+	        step: function (now) {
+	            $(this).text(parseFloat(now).toFixed(size));
+	        }
+	    });
+});
+</script>
 <!-- END Footer -->
 </body>
 </html>

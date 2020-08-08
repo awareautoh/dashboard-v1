@@ -11,12 +11,73 @@
   background-color: transparent;
   border: none;
 }
+/* Custom font   */
 
+@font-face {
+  font-family: 'Noto Sans Lao';
+  src: url('NotoSansLao-Regular.eot');
+  src: url('NotoSansLao-Regular.eot?#iefix') format('embedded-opentype'),
+      url('NotoSansLao-Regular.woff2') format('woff2'),
+      url('NotoSansLao-Regular.woff') format('woff'),
+      url('NotoSansLao-Regular.ttf') format('truetype'),
+      url('NotoSansLao-Regular.svg#NotoSansLao-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* Custom table  */
+.dhis2.table-striped{
+  border-bottom:1px solid #088A85;
+}
+.dhis2.table-striped > thead > tr > th{
+  border-bottom:1px solid #088A85;
+  color: #0056C1;
+}
+.dhis2.table-striped > tbody > tr > td{
+  border-bottom:1px solid #088A85;
+  color: #585858;
+  font-size: 14px;
+}
+/* Box css  */
+.Box {
+  font-size:8px;
+  font-weight:bold;
+  letter-spacing:0px;
+  background:black;
+  color:white;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  }
+.boxtxt{
+  font-size: 14px;
+  padding-top: 15px;
+  color:   #616461;
+}
+/*  head table  */
+.htable{
+  font-size: 16px;
+  font-weight: 800;
+  color:#0056C1;
+}
+.htable1{
+  font-size: 12px;
+}
+.nav-link{
+  font-weight: 800;
+  font-size: 16px;
+}
+.dotted {
+  border-bottom: 2px #E6550D solid;
+}
 /*Customize Nav bar and Body*/
 body {
   font-family: "Noto Sans", Helvetica, Arial, sans-serif, "Noto Sans Lao", Phetsarath OT !important;
 }
-
+.percenttxt{
+  font-size: 12px;
+  color:   #884d1b;
+}
 #header-language-option {
   justify-content: flex-end;
 }
@@ -430,7 +491,7 @@ div.tooltip, div.tooltip1, div.tooltipOpenDeface, div.tooltipWomenStatus {
   height: auto;
   color: #fff;
 }
-.card.sectionHeader h2 {
+.card.sectionHeader h2,h3 {
   padding: 10px;
   text-align: center;
 }

@@ -46,7 +46,7 @@
 </div>
 <!--    End spinner                -->
 <!--Header and NavBar-->
-<div class="container-fluid" id="header-section">
+<div class="container" id="header-section">
     <header class="site-header">
         <div class="row" id="header-language-option">
             <div id="lang-option-list">
@@ -59,9 +59,9 @@
             </div>
         </div>
         <div class="row" id="header-logo-images">
-            <img src="images/logo_nipn_en.png" alt="NIPN-Logo">
-            <img src="images/header-nipn-website-with-line.png" alt="NIPN Lao PDR Motto">
-            <img src="images/laos.png" alt="Lao PDR Flag">
+            <img src="images/logo_nipn_en.png" width="150px" alt="NIPN-Logo">
+            <img src="images/header-nipn-website-with-line.png" width="430px" alt="NIPN Lao PDR Motto">
+            <img src="images/laos.png" width="95px" alt="Lao PDR Flag">
         </div>
     </header>
 </div>
@@ -107,7 +107,7 @@
 <!--END Header and NavBar-->
 <!--Start Content-->
 <!--Content-->
-<div class="container">
+<div class="container" style="margin-top: -25px;">
     <!--
             *******************************************
             Start Agriculture Tab
@@ -118,14 +118,14 @@
     <div class="row mt-5">
         <div class="col-lg-12">
             <div class="card sectionHeader">
-                <h2>Agriculture Census 2018</h2>
+                <h3>Agriculture Census 2016 - 2018</h3>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card">
-                <h5 class="topic" style="padding-top: 10px;"> Rice Harvested Area 2016, 2017, 2018 (Hectare) <i
+                <h5 class="topic" style="padding-top: 10px;"> <span class="dotted">Harvested Area (Hectare)</span>  <i
                         class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="agri1Chart"></canvas>
@@ -134,7 +134,7 @@
         </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
-                <h5 class="topic" style="padding-top: 10px;"> Rice Yield 2016, 2017, 2018 (Ton/Hectare) <i
+                <h5 class="topic" style="padding-top: 10px;"> <span class="dotted">Rice Yield (Ton/Hectare)</span> <i
                         class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="agri2Chart"></canvas>
@@ -143,7 +143,7 @@
         </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
-                <h5 class="topic" style="padding-top: 10px;"> Rice Production 2016, 2017, 2018 (Ton) <i
+                <h5 class="topic" style="padding-top: 10px;"><span class="dotted">Rice Production (Ton) </span> <i
                         class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="agri3Chart"></canvas>
@@ -152,13 +152,13 @@
         </div>
         <div class="col-lg-12 mt-4">
             <div class="card sectionHeader">
-                <h2>Fruits and Vegetable</h2>
+                <h3>Fruits and Vegetable</h3>
             </div>
         </div>
         <div class="col-lg-12 mt-4">
             <div class="card">
-                <h5 class="topic" style="padding-top: 10px;"> Vegetable and Fruit Havested Area 2016, 2017, 2018
-                    (Hectare) <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
+                <h5 class="topic" style="padding-top: 10px;"><span class="dotted"> Vegetable and Fruit Havested Area 
+                    (Hectare)</span> <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="agriVet1Chart"></canvas>
                 </div>
@@ -166,8 +166,8 @@
         </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
-                <h5 class="topic" style="padding-top: 10px;"> Vegetable and Fruit Yield 2016, 2017, 2018
-                    (Ton/Hectare) <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
+                <h5 class="topic" style="padding-top: 10px;"><span class="dotted"> Vegetable and Fruit Yield 
+                    (Ton/Hectare) </span><i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="agriVet2Chart"></canvas>
                 </div>
@@ -175,8 +175,8 @@
         </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
-                <h5 class="topic" style="padding-top: 10px;"> Vegetable and Fruit Production 2016, 2017, 2018
-                    (Ton) <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
+                <h5 class="topic" style="padding-top: 10px;"><span class="dotted">Vegetable and Fruit Production
+                    (Ton)</span> <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="agriVet3Chart"></canvas>
                 </div>
@@ -184,12 +184,12 @@
         </div>
         <div class="col-lg-12 mt-4">
             <div class="card sectionHeader">
-                <h2>Animal Population</h2>
+                <h3>Animal Population</h3>
             </div>
         </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
-                <h5 class="topic" style="padding-top: 10px;"> Buffalo and Cattle Population (Thaosand Head) <i
+                <h5 class="topic" style="padding-top: 10px;"><span class="dotted">Buffalo and Cattle Population (Thaosand Head) </span> <i
                         class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="agriVet4Chart"></canvas>
@@ -198,7 +198,7 @@
         </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
-                <h5 class="topic" style="padding-top: 10px;"> Pig, Goat and Sheep Population (Thaosand Head) <i
+                <h5 class="topic" style="padding-top: 10px;"><span class="dotted">Pig, Goat and Sheep Population (Thaosand Head)</span>  <i
                         class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="agriVet5Chart"></canvas>
@@ -207,7 +207,7 @@
         </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
-                <h5 class="topic" style="padding-top: 10px;"> Poultry Population (Thaosand Head) <i
+                <h5 class="topic" style="padding-top: 10px;"><span class="dotted">Poultry Population (Thaosand Head)</span>  <i
                         class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <div style="position: relative; display: block; height: 300px; padding-top: 5px;">
@@ -218,8 +218,8 @@
         </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
-                <h5 class="topic" style="padding-top: 10px;"> Culture Fish and Capture Fish: Meat Production
-                    (Ton) <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
+                <h5 class="topic" style="padding-top: 10px;"><span class="dotted">Culture Fish and Capture Fish: Meat Production
+                    (Ton)</span>  <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i></h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="agriVet6Chart"></canvas>
                 </div>
@@ -232,50 +232,9 @@
 </div>
 <!--END Content-->
 <!--Footer-->
-<div class="container" id="content-footer">
-    <div class="row mt-4">
-        <div class="col-lg-12" id="support-header">
-            <div class="card">
-                <div id="supportHeaderText" class="card-body text-center align-middle text-muted bg-white">
-                    <h1>
-                        Supported By
-                    </h1>
-                </div>
-                <div class="row" id="footer-supported-logo">
-                    <img id="laoGovLogo" src="images/Lao_Government_logo.png" alt="Lao Government Logo">
-                    <img id="euLogo" src="images/EU_logo.png" alt="European Union Logo">
-                    <img id="unicefLogo" src="images/UNICEF_logo_2.png" alt="UNICEF Logo">
-                </div>
-                <hr>
-                <div class="row" id="footer-information">
-                    <div class="col-lg-7 col-md-7 col-sm-12" id="copyright-logo">
-                        <img src="images/logo_nipn_en.png" alt="NIPN Logo"/>
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12" id="copyright-text">
-                        <p>
-                            <span>Centre for Development Policy Research</span> <br/><br>
-                            <span>Fifth floor (new building) of Ministry of Planning and Investment.<br/>
-           Souphanouvong Avenue, Sithan neua Village, Sikottabong District, Vientiane Capital</span><br/><br/>
-                            contact@cdr.gov.la <br/><br/>
-                            <a href="https://www.facebook.com/CDRMPI" target="_blank"><i class="fab fa-facebook fa-3x"></i></a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container" id="footer-description">
-    <div class="row">
-        <div class="col-sm-7">
-            <span class="footerSMS">Copyright © <?php echo date("Y"); ?>
-                Center for Development Policy Research</span>
-        </div>
-        <div class="col-sm-5">
-            <span class="footerSMS">Privacy Policy</span>
-        </div>
-    </div>
-</div>
+<div data-include="footer"></div>
+<script type="module" src="js/includefile.js"></script>
+<br/>
 <!-- END Footer -->
 </body>
 </html>

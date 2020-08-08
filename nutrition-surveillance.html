@@ -43,7 +43,7 @@
 </div>
 <!--    End spinner                -->
 <!--Header and NavBar-->
-<div class="container-fluid" id="header-section">
+<div class="container" id="header-section">
     <header class="site-header">
         <div class="row" id="header-language-option">
             <div id="lang-option-list">
@@ -56,9 +56,9 @@
             </div>
         </div>
         <div class="row" id="header-logo-images">
-            <img src="images/logo_nipn_en.png" alt="NIPN-Logo">
-            <img src="images/header-nipn-website-with-line.png" alt="NIPN Lao PDR Motto">
-            <img src="images/laos.png" alt="Lao PDR Flag">
+            <img src="images/logo_nipn_en.png" width="150px" alt="NIPN-Logo">
+            <img src="images/header-nipn-website-with-line.png" width="430px" alt="NIPN Lao PDR Motto">
+            <img src="images/laos.png" width="95px" alt="Lao PDR Flag">
         </div>
     </header>
 </div>
@@ -116,26 +116,26 @@
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card sectionHeader">
-                <h2>
+                <h3>
                     Socio Demographic
-                </h2>
+                </h3>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card">
-                <h3 class="topic" style="padding-top: 10px;">
-                    Household Main Source Income
+                <h5 class="topic" style="padding-top: 10px;">
+                   <span class="dotted">Household Main Source Income</span> 
                     <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
-                </h3>
+                </h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="nssHHMainSourceIncome"></canvas>
                 </div>
-                <h3 class="topic" style="padding-top: 10px;">
-                    Annual Household Income
+                <h5 class="topic" style="padding-top: 10px;">
+                    <span class="dotted"> Household Income </span> 
                     <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
-                </h3>
+                </h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="nssAnnualHHIncome"></canvas>
                 </div>
@@ -147,7 +147,7 @@
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card sectionHeader">
-                <h2>WASH</h2>
+                <h3>Water, Sanitation and Hygiene </h3>
             </div>
         </div>
     </div>
@@ -155,10 +155,10 @@
     <div class="row">
         <div class="col-lg-6 mt-4">
             <div class="card">
-                <h3 class="topic" style="padding-top: 10px;">
-                    Open Defecation
+                <h5 class="topic" style="padding-top: 10px;">
+                    <span class="dotted">Open Defecation</span> 
                     <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
-                </h3>
+                </h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <svg id="nssOpenDefecation" style="width: 100%; height: 100%; display: block; margin: auto;"
                          viewBox="0 0 360 360"></svg>
@@ -167,10 +167,10 @@
         </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
-                <h3 class="topic" style="padding-top: 10px;">
-                    Incidence of Diarrhoeal Disease
+                <h5 class="topic" style="padding-top: 10px;">
+                    <span class="dotted">Incidence of Diarrhoeal Disease</span> 
                     <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
-                </h3>
+                </h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <svg id="nssDiarrhoeal" style="width: 100%; height: 100%; display: block; margin: auto;"
                          viewBox="0 0 360 360"></svg>
@@ -183,7 +183,7 @@
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card sectionHeader">
-                <h2>IYCF</h2>
+                <h3>Infant and Young Child Feeding</h3>
             </div>
         </div>
     </div>
@@ -191,10 +191,10 @@
     <div class="row">
         <div class="col-lg-6 mt-4">
             <div class="card">
-                <h3 class="topic" style="padding-top: 10px;">
-                    Minimum Acceptable Diet
+                <h5 class="topic" style="padding-top: 10px;">
+                   <span class="dotted"> Minimum Acceptable Diet</span>
                     <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
-                </h3>
+                </h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="nssMiniAcceptDiet"></canvas>
                 </div>
@@ -202,10 +202,10 @@
         </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
-                <h3 class="topic" style="padding-top: 10px;">
-                    Vitamin A Supplementation
+                <h5 class="topic" style="padding-top: 10px;">
+                    <span class="dotted">Vitamin A Supplementation</span> 
                     <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
-                </h3>
+                </h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="nssVitaminA"></canvas>
                 </div>
@@ -217,7 +217,7 @@
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card sectionHeader">
-                <h2>Maternal Nutrition</h2>
+                <h3>Maternal Nutrition</h3>
             </div>
         </div>
     </div>
@@ -225,10 +225,10 @@
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card">
-                <h3 class="topic" style="padding-top: 10px;">
-                    Status of Women (BMI)
+                <h5 class="topic" style="padding-top: 10px;">
+                   <span class="dotted">Status of Women (BMI)</span> 
                     <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
-                </h3>
+                </h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="nssWomenBMI"></canvas>
                 </div>
@@ -240,7 +240,7 @@
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card sectionHeader">
-                <h2>Child Mulnutrition</h2>
+                <h3>Child Mulnutrition</h3>
             </div>
         </div>
     </div>
@@ -273,7 +273,7 @@
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card sectionHeader">
-                <h2>Household Food Security</h2>
+                <h3>Household Food Security</h3>
             </div>
         </div>
     </div>
@@ -281,10 +281,10 @@
     <div class="row">
         <div class="col-lg-12 mt-4">
             <div class="card">
-                <h3 class="topic" style="padding-top: 10px;">
-                    Household Food Insecurity
+                <h5 class="topic" style="padding-top: 10px;">
+                   <span class="dotted">Household Food Insecurity</span> 
                     <i class='glyphicon glyphicon-menu-hamburger' style="float: right;"></i>
-                </h3>
+                </h5>
                 <div style="position: relative; display: block; height: 360px; width: auto;">
                     <canvas id="nssHHFoodInsecurity"></canvas>
                 </div>
@@ -297,51 +297,11 @@
 <!--END Content-->
 
 <!--Footer-->
-<div class="container" id="content-footer">
-    <div class="row mt-4">
-        <div class="col-lg-12" id="support-header">
-            <div class="card">
-                <div id="supportHeaderText" class="card-body text-center align-middle text-muted bg-white">
-                    <h1>
-                        Supported By
-                    </h1>
-                </div>
-                <div class="row" id="footer-supported-logo">
-                    <img id="laoGovLogo" src="images/Lao_Government_logo.png" alt="Lao Government Logo">
-                    <img id="euLogo" src="images/EU_logo.png" alt="European Union Logo">
-                    <img id="unicefLogo" src="images/UNICEF_logo_2.png" alt="UNICEF Logo">
-                </div>
-                <hr>
-                <div class="row" id="footer-information">
-                    <div class="col-lg-7 col-md-7 col-sm-12" id="copyright-logo">
-                        <img src="images/logo_nipn_en.png" alt="NIPN Logo"/>
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12" id="copyright-text">
-                        <p>
-                            <span>Centre for Development Policy Research</span> <br/><br>
-                            <span>Fifth floor (new building) of Ministry of Planning and Investment.<br/>
-           Souphanouvong Avenue, Sithan neua Village, Sikottabong District, Vientiane Capital</span><br/><br/>
-                            contact@cdr.gov.la <br/><br/>
-                            <a href="https://www.facebook.com/CDRMPI" target="_blank"><i class="fab fa-facebook fa-3x"></i></a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container" id="footer-description">
-    <div class="row">
-        <div class="col-sm-7">
-            <span class="footerSMS">Copyright © <?php echo date("Y"); ?>
-                Center for Development Policy Research</span>
-        </div>
-        <div class="col-sm-5">
-            <span class="footerSMS">Privacy Policy</span>
-        </div>
-    </div>
-</div>
+<div data-include="footer"></div>
+
 <!-- END Footer -->
 </body>
 <script type="module" src="js/nssChart.js"></script>
+<!-- add include js-->
+<script type="module" src="js/includefile.js"></script>
 </html>
